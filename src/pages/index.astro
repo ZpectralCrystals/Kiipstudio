@@ -1,0 +1,21 @@
+---
+import AboutSlice from '@features/home/components/AboutSlice.astro';
+import CtaBandSlice from '@features/home/components/CtaBandSlice.astro';
+import FooterSlice from '@features/home/components/FooterSlice.astro';
+import HeaderSlice from '@features/home/components/HeaderSlice.astro';
+import WorkCarouselSlice from '@features/home/components/WorkCarouselSlice.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="KlipStudio | Eventos, fotos y video"
+  description="Landing estática KlipStudio replicada desde Figma con Astro, WebP, lazy loading y carrusel sin librerías."
+>
+  <main class="min-h-screen bg-[#04000a]">
+    <HeaderSlice />
+    <WorkCarouselSlice />
+    <AboutSlice />
+    <CtaBandSlice />
+    <FooterSlice />
+  </main>
+</BaseLayout>

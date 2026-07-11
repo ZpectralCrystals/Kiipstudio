@@ -1,0 +1,64 @@
+---
+import ResponsiveCloudinaryPicture from '@shared/components/ResponsiveCloudinaryPicture.astro';
+import { homeContent } from '../data/homeContent';
+---
+
+<section id="inicio" class="px-5 pb-16 pt-10 md:px-0 md:pb-[190px] md:pt-[203px]">
+  <div class="mx-auto max-w-[1734px]">
+    <h1 class="mx-auto max-w-[1146px] text-center text-2xl font-bold uppercase tracking-[0.03em] text-white md:text-[48px] md:leading-[58px] md:tracking-[1.4px]">
+      ¡Haz clic para ver más de nuestro trabajo!
+    </h1>
+
+    <div class="carousel relative mt-12 md:mt-[90px]" data-carousel>
+      <div class="overflow-hidden">
+        <div class="carousel-track flex gap-4 transition-transform duration-300 ease-out md:gap-[23px]">
+          {
+            homeContent.categories.map((item, index) => (
+              <a
+                href={item.href}
+                class="carousel-slide block min-w-[72%] md:min-w-[328px]"
+                aria-label={`Ver ${item.title}`}
+              >
+                <ResponsiveCloudinaryPicture
+                  publicId={item.cloudinaryPublicId || undefined}
+                  localMobileSrc={item.localMobileSrc}
+                  localDesktopSrc={item.localDesktopSrc}
+                  alt={item.title}
+                  class="aspect-[328/462] w-full rounded-[18px] object-cover transition duration-300 hover:scale-[1.02] md:h-[462px] md:rounded-[26px]"
+                  eager={index === 0}
+                  mobileWidth={640}
+                  desktopWidth={1000}
+                  intrinsicWidth={328}
+                  intrinsicHeight={462}
+                />
+                <h2 class="mt-7 text-center text-xs font-extrabold uppercase leading-6 tracking-[0.08em] text-white md:mt-[47px] md:text-[20px] md:tracking-[1.4px]">
+                  {item.title}
+                </h2>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Buttons show only when cards overflow; JS keeps movement synced with CSS slide width. -->
+      <button
+        type="button"
+        class="carousel-prev absolute left-2 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full bg-[#ff0004] text-white shadow-lg transition duration-200 hover:bg-red-500 md:hidden"
+        aria-label="Anterior"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        class="carousel-next absolute right-2 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full bg-[#ff0004] text-white shadow-lg transition duration-200 hover:bg-red-500 md:hidden"
+        aria-label="Siguiente"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../scripts/carousel.js';
+</script>

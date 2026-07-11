@@ -1,0 +1,59 @@
+---
+import { homeContent } from '../data/homeContent';
+---
+
+<footer id="contacto" class="px-5 py-16 md:px-0 md:pb-[164px] md:pt-[140px]">
+  <div class="mx-auto max-w-[1290px]">
+    <div class="flex min-h-[63px] items-start justify-between border-b border-white/10">
+      <img src="/assets/figma/klip-logo.webp" alt="KlipStudio" class="w-32 md:w-[185px]" loading="lazy" decoding="async" width="185" height="53" />
+      <nav class="mt-4 flex gap-1 text-sm text-white md:mt-[18px] md:w-[176px] md:justify-between" aria-label="Redes sociales">
+        <a href="#" class="grid size-11 place-items-center rounded-full transition duration-200 hover:text-[#ff0004]" aria-label="Facebook">f</a>
+        <a href="#" class="grid size-11 place-items-center rounded-full transition duration-200 hover:text-[#ff0004]" aria-label="TikTok">♪</a>
+        <a href="#" class="grid size-11 place-items-center rounded-full transition duration-200 hover:text-[#ff0004]" aria-label="Instagram">◎</a>
+        <a href={homeContent.whatsappUrl} class="grid size-11 place-items-center rounded-full transition duration-200 hover:text-[#ff0004]" aria-label="WhatsApp">☏</a>
+      </nav>
+    </div>
+
+    <div class="grid gap-10 pt-9 text-white md:grid-cols-[230px_160px_360px] md:gap-[148px] md:pt-[39px]">
+      <div>
+        <h2 class="mb-[26px] font-['Inter'] text-2xl font-bold capitalize leading-[34px]">Servicios</h2>
+        <ul class="space-y-[15px] text-base leading-6 text-white/90">
+          {
+            homeContent.services.map((item) => (
+              <li>
+                <a href={item.href} class="transition duration-200 hover:text-[#ff0004]">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-[26px] font-['Inter'] text-2xl font-bold capitalize leading-[34px]">Nosotros</h2>
+        <ul class="space-y-[15px] text-base leading-6 text-white/90">
+          <li><a href="/#nosotros" class="transition duration-200 hover:text-[#ff0004]">¿Quiénes somos?</a></li>
+          <li><a href="/#inicio" class="transition duration-200 hover:text-[#ff0004]">Preguntas frecuentes</a></li>
+          <li><a href="/#contacto" class="transition duration-200 hover:text-[#ff0004]">Contáctanos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-[30px] font-['Inter'] text-2xl font-bold capitalize leading-[34px]">Contáctanos</h2>
+        <ul class="space-y-[10px] text-base font-semibold leading-6 text-white/90">
+          <li class="flex items-center gap-[14px]">
+            <span class="grid size-10 place-items-center rounded-full border border-white/20 text-[#ff0004]">✉</span>
+            {homeContent.footer.email}
+          </li>
+          <li class="flex items-center gap-[14px]">
+            <span class="grid size-10 place-items-center rounded-full border border-white/20 text-[#ff0004]">●</span>
+            {homeContent.footer.address}
+          </li>
+          <li class="flex items-center gap-[14px]">
+            <span class="grid size-10 place-items-center rounded-full border border-white/20 text-[#ff0004]">☎</span>
+            {homeContent.footer.phone}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

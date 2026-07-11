@@ -1,0 +1,20 @@
+---
+import { homeContent } from '../data/homeContent';
+---
+
+<section id="servicios" class="border-y border-stone-800 bg-stone-950/45 px-5 py-16 md:px-8">
+  <div class="mx-auto max-w-7xl">
+    <h2 class="text-2xl font-semibold text-stone-50 md:text-3xl">Servicios</h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-4">
+      {
+        homeContent.services.map((service) => (
+          <article class="rounded-md border border-stone-800 bg-stone-900/70 p-5 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/60">
+            <a href={service.href} class="text-sm leading-6 text-stone-200">
+              {service.label}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

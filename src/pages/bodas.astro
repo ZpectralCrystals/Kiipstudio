@@ -1,0 +1,14 @@
+---
+import BodasSlice from '@features/home/components/BodasSlice.astro';
+import FooterSlice from '@features/home/components/FooterSlice.astro';
+import HeaderSlice from '@features/home/components/HeaderSlice.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Bodas | KlipStudio" description="Fotos, video y paquetes para bodas de KlipStudio.">
+  <main class="min-h-screen bg-[#04000a]">
+    <HeaderSlice />
+    <BodasSlice />
+    <FooterSlice />
+  </main>
+</BaseLayout>

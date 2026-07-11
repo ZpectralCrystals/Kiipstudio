@@ -1,0 +1,78 @@
+export const homeContent = {
+  nav: [
+    { label: 'Inicio', href: '/' },
+    { label: 'Nosotros', href: '/#nosotros' },
+    { label: 'Paquetes', href: '/bodas#bodas-paquetes' },
+    { label: 'Contacto', href: '/#contacto' },
+  ],
+  whatsappUrl: 'https://wa.me/51914187890',
+  categories: [
+    {
+      title: 'Bodas',
+      href: '/bodas',
+      cloudinaryPublicId: '',
+      localMobileSrc: '/assets/figma/bodas-mobile.webp',
+      localDesktopSrc: '/assets/figma/bodas-desktop.webp',
+    },
+    {
+      title: 'Cumpleaños',
+      href: '/cumpleanos',
+      cloudinaryPublicId: '',
+      localMobileSrc: '/assets/figma/cumpleanos-mobile.webp',
+      localDesktopSrc: '/assets/figma/cumpleanos-desktop.webp',
+    },
+    {
+      title: 'Quinceañeros',
+      href: '/quinceaneros',
+      cloudinaryPublicId: '',
+      localMobileSrc: '/assets/figma/quinceaneros-mobile.webp',
+      localDesktopSrc: '/assets/figma/quinceaneros-desktop.webp',
+    },
+    {
+      title: 'Fotos de estudio',
+      href: '/fotos-estudio',
+      cloudinaryPublicId: '',
+      localMobileSrc: '/assets/figma/fotos-estudio-mobile.webp',
+      localDesktopSrc: '/assets/figma/fotos-estudio-desktop.webp',
+    },
+    {
+      title: 'Publicidad',
+      href: '/publicidad',
+      cloudinaryPublicId: '',
+      localMobileSrc: '/assets/figma/publicidad-mobile.webp',
+      localDesktopSrc: '/assets/figma/publicidad-desktop.webp',
+    },
+  ],
+  about: {
+    title: '¿Quiénes somos?',
+    body: 'Somos un estudio creativo dedicado a capturar momentos, emociones e historias a través de imágenes y videos de alta calidad. Nos encargamos de la cobertura audiovisual de eventos y producción audiovisual en estudio manteniendo siempre nuestra postura creativa.',
+    specialtiesTitle: 'Nos especializamos en:',
+    specialties: [
+      'Bodas',
+      'Quinceaños',
+      'Cumpleaños',
+      'Babyshowers',
+      'Fiestas de Promoción',
+      'Publicidad',
+      'Sesiones Fotográficas De Estudio',
+    ],
+  },
+  cta: 'No esperes más y convierte tu evento en un momento mágico',
+  footer: {
+    email: 'klipstudio.pe@gmail.com',
+    address: 'Francisco Mostajo D3-19',
+    phone: '914 187 890',
+  },
+  services: [
+    { label: 'Bodas', href: '/bodas' },
+    { label: 'Quinceañeros', href: '/quinceaneros' },
+    { label: 'Cumpleaños', href: '/cumpleanos' },
+    { label: 'Fotos de estudio', href: '/fotos-estudio' },
+    { label: 'Publicidad', href: '/publicidad' },
+  ],
+  video: {
+    title: 'Video vertical',
+    body: 'Los videos finales deben subirse a YouTube y embeberse desde ahí.',
+    youtubeId: 'jNQXAC9IVRw',
+  },
+};

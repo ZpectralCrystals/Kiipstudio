@@ -1,0 +1,17 @@
+---
+import FooterSlice from '@features/home/components/FooterSlice.astro';
+import HeaderSlice from '@features/home/components/HeaderSlice.astro';
+import ServiceDetailSlice from '@features/home/components/ServiceDetailSlice.astro';
+import { serviceSections } from '@features/home/data/serviceSections';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const section = serviceSections.find((item) => item.id === 'publicidad')!;
+---
+
+<BaseLayout title="Publicidad | KlipStudio" description="Producción audiovisual, fotos y paquetes de publicidad de KlipStudio.">
+  <main class="min-h-screen bg-[#04000a]">
+    <HeaderSlice />
+    <ServiceDetailSlice section={section} />
+    <FooterSlice />
+  </main>
+</BaseLayout>
