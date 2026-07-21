@@ -5,6 +5,7 @@
 - Astro 7 para landing SSG.
 - Tailwind CSS 4 con `@tailwindcss/vite`.
 - Cloudinary para imágenes remotas optimizadas.
+- Sanity Studio para textos, links y URLs de imágenes editables por cliente.
 - Formato final de imágenes: WebP mediante transformación `f_webp`.
 - Carga perezosa: `loading="lazy"` y `decoding="async"`.
 - `<picture>` con sources mobile/escritorio.
@@ -69,6 +70,49 @@ Uso actual:
 - Ambas versiones usan `f_webp,q_auto`.
 - La réplica Figma usa WebP local temporal en `public/assets/figma/` porque no hay credenciales Cloudinary en el repo.
 - Para producción, sube esos WebP a Cloudinary y coloca cada `publicId` en `src/features/home/data/homeContent.ts` dentro de `cloudinaryPublicId`.
+
+## Sanity
+
+Sanity guarda el contenido editable del home y de `como-trabajamos`: textos, links y URLs públicas de imágenes. La estructura visual y posiciones viven en código.
+
+- `src/features/home/data/homeContent.ts`
+- `sanity/schemaTypes/homeLanding.ts`
+
+Sanity usa un singleton `homeLanding`. El Studio muestra un documento único llamado `Contenido Home`.
+
+Comandos:
+
+```bash
+npm run sync:sanity
+npm run sync:sanity -- --force
+npm run studio
+npm run studio:build
+```
+
+Variables:
+
+```env
+PUBLIC_SANITY_PROJECT_ID=tu_project_id
+PUBLIC_SANITY_DATASET=production
+SANITY_STUDIO_PROJECT_ID=tu_project_id
+SANITY_STUDIO_DATASET=production
+SANITY_READ_TOKEN=
+SANITY_WRITE_TOKEN=token_con_permiso_escritura
+```
+
+Flujo:
+
+1. Dev cambia layout o nuevas secciones en código.
+2. Dev agrega campos editables en `sanity/schemaTypes/homeLanding.ts`.
+3. Dev corre `npm run sync:sanity` para crear el singleton si falta.
+4. Cliente entra a Sanity Studio y edita textos, links y URLs `https://...`.
+5. Astro lee `homeLanding` desde Sanity durante build/render.
+
+Para resetear Sanity con el contenido del código, usar:
+
+```bash
+npm run sync:sanity -- --force
+```
 
 Ejemplo conceptual:
 
@@ -179,7 +223,7 @@ src/
 
 1. Crear cuenta/proyecto Cloudinary.
 2. Subir imágenes reales de KilpStudio.
-3. Reemplazar `cloudinaryPublicId` vacío en `homeContent.ts`.
+3. Pegar URLs finales en Sanity Studio dentro de `Contenido Home`.
 4. Subir video vertical a YouTube.
 5. Reemplazar `youtubeId` en `homeContent.ts`.
 6. Ejecutar `npm run build` antes de deploy.

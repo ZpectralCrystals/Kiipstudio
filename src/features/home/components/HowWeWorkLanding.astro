@@ -1,0 +1,500 @@
+---
+import { getCloudinaryImageUrl } from '@shared/lib/cloudinary';
+import type { HomeLandingContent, LandingImage } from '../data/homeContent';
+
+type Props = {
+  content: HomeLandingContent;
+};
+
+const { content } = Astro.props;
+
+const imageSrc = (image: LandingImage, width = 1600) =>
+  image.imageUrl || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
+
+const paragraphs = (text: string) =>
+  text
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.split('\n').map((line) => line.trim()).filter(Boolean))
+    .filter((lines) => lines.length > 0);
+---
+
+<section class="work-page" aria-label="Cómo trabajamos">
+  <section class="work-hero" aria-labelledby="process-title">
+    <img class="work-hero__image" src={imageSrc(content.process.background, 2244)} alt={content.process.background.alt} loading="eager" decoding="async" />
+    <div class="work-hero__shade"></div>
+
+    <header class="work-nav">
+      <a href="/" aria-label="KlipStudio inicio">
+        <img class="work-nav__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+      </a>
+      <nav class="work-nav__links" aria-label="Navegación principal">
+        <a class="nav-main" href="/">INICIO</a>
+        <a class="nav-main nav-main--active" href="/#nosotros">NOSOTROS</a>
+        <a class="nav-main" href="/#servicios">SERVICIOS</a>
+      </nav>
+      <a class="work-nav__whatsapp" href={content.whatsappUrl}>WHATSAPP <span aria-hidden="true">→</span></a>
+    </header>
+
+    <div class="work-hero__content">
+      <h1 id="process-title" class="work-title">
+        <span>{content.process.titlePrefix}</span>
+        <span>{content.process.titleSuffix}</span>
+      </h1>
+
+      <div class="work-steps">
+        {
+          content.process.steps.map((step, index) => (
+            <article class="work-step">
+              <span class="work-step__number">{index + 1}</span>
+              <div>
+                <h2>{step.title}</h2>
+                {paragraphs(step.body).map((lines) => <p>{lines.map((line) => <><span>{line}</span><br /></>)}</p>)}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="payments" aria-labelledby="payment-title">
+    <h2 id="payment-title">{content.process.paymentsTitle}</h2>
+    {content.process.paymentNotes?.length > 0 && (
+      <div class="payments__notes">
+        {content.process.paymentNotes.map((note) => <p>{note.split('\n').map((line) => <><span>{line}</span><br /></>)}</p>)}
+      </div>
+    )}
+    <p>{content.process.paymentsIntro}</p>
+    <div class="payments__list">
+      {
+        content.process.payments.map((payment, index) => (
+          <div class="payment-item">
+            <span class="payment-item__number">{index + 1}</span>
+            {payment.label && <span class="payment-item__label">{payment.label}</span>}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <footer class="work-footer">
+    <div class="work-footer__inner">
+      <div class="work-footer__top">
+        <img class="work-footer__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
+        <nav class="work-footer__socials" aria-label="Redes sociales">
+          {content.footer.socials.map((item) => <a href={item.href} aria-label={item.label}>{item.text}</a>)}
+        </nav>
+      </div>
+
+      <div class="work-footer__grid">
+        <div>
+          <h2>SERVICIOS</h2>
+          <ul>
+            {content.nav.servicios.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>NOSOTROS</h2>
+          <ul>
+            {content.nav.nosotros.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>CONTÁCTANOS</h2>
+          <ul class="work-footer__contact">
+            <li><span class="contact-dot">✉</span>{content.footer.email}</li>
+            <li><span class="contact-dot">☎</span>{content.footer.phone}</li>
+            {content.footer.handles.map((item) => <li><span class="contact-dot">{item.icon}</span>{item.text}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<style>
+  .work-page {
+    background: white;
+    color: #111;
+    overflow: hidden;
+    width: 100vw;
+  }
+
+  .work-hero {
+    isolation: isolate;
+    min-height: clamp(1050px, 104vw, 1350px);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .work-hero__image {
+    height: 100%;
+    left: 0;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: 42% top;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .work-hero__shade {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.62) 40%, rgba(0, 0, 0, 0.16) 72%, rgba(0, 0, 0, 0) 100%);
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .work-nav {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 150px 1fr 132px;
+    gap: 32px;
+    left: 0;
+    padding: 20px 28px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .work-nav__logo {
+    height: 36px;
+    object-fit: contain;
+    width: 126px;
+  }
+
+  .work-nav__links {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+  }
+
+  .work-nav__whatsapp {
+    align-items: center;
+    background: #ff0004;
+    border-radius: 999px;
+    color: white;
+    display: flex;
+    font-size: 16px;
+    font-weight: 900;
+    gap: 10px;
+    height: 34px;
+    justify-content: center;
+    letter-spacing: 1px;
+    line-height: 1;
+    width: 132px;
+  }
+
+  .work-hero__content {
+    color: white;
+    max-width: min(1120px, calc(100vw - 180px));
+    padding: clamp(118px, 8vw, 130px) 0 70px clamp(88px, 7.5vw, 118px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-main {
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    line-height: 22px;
+    text-transform: uppercase;
+  }
+
+  .nav-main--active {
+    border-bottom: 2px solid #ff0004;
+    padding-bottom: 9px;
+  }
+
+  .work-title {
+    font-family: Inter, "DM Sans", sans-serif;
+    font-size: clamp(72px, 7.1vw, 94px);
+    font-weight: 900;
+    line-height: 0.94;
+    margin: 0 0 52px;
+  }
+
+  .work-title span {
+    display: block;
+  }
+
+  .work-steps {
+    display: grid;
+    gap: 39px;
+  }
+
+  .work-step {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .work-step__number,
+  .payment-item__number {
+    align-items: center;
+    background: #ff0004;
+    border-radius: 999px;
+    color: white;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 32px;
+    font-weight: 900;
+    height: 70px;
+    justify-content: center;
+    line-height: 1;
+    width: 70px;
+  }
+
+  .payment-item__number {
+    font-size: clamp(34px, 3vw, 42px);
+    height: clamp(82px, 7vw, 102px);
+    width: clamp(82px, 7vw, 102px);
+  }
+
+  .work-step h2 {
+    font-family: Inter, "DM Sans", sans-serif;
+    font-size: clamp(28px, 2.65vw, 34px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .work-step p {
+    font-size: clamp(28px, 2.65vw, 34px);
+    font-weight: 800;
+    line-height: 1.18;
+    margin: 0;
+  }
+
+  .work-step p span,
+  .payments__notes span {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .work-step p + p {
+    margin-top: 24px;
+  }
+
+  .payments {
+    align-items: center;
+    background: white;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 790px;
+    padding: 84px 24px 118px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .payments h2 {
+    color: #ff0004;
+    font-size: clamp(54px, 7vw, 96px);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 58px;
+  }
+
+  .payments__notes {
+    color: #707070;
+    display: grid;
+    gap: 16px;
+    margin: 0 auto 62px;
+    max-width: 1200px;
+  }
+
+  .payments__notes p {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .payments > p {
+    color: #050505;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 0 72px;
+  }
+
+  .payments__list {
+    display: flex;
+    gap: clamp(76px, 8.8vw, 140px);
+    justify-content: center;
+  }
+
+  .payment-item {
+    align-items: center;
+    display: flex;
+    gap: 28px;
+    min-width: 260px;
+  }
+
+  .payment-item__label {
+    color: #707070;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 400;
+    line-height: 1.1;
+    max-width: 250px;
+    text-align: left;
+  }
+
+  .work-footer {
+    background: #000;
+    color: white;
+    padding: 70px 24px 95px;
+  }
+
+  .work-footer__inner {
+    margin: 0 auto;
+    max-width: 1130px;
+  }
+
+  .work-footer__top {
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 18px;
+  }
+
+  .work-footer__logo {
+    height: 57px;
+    object-fit: contain;
+    width: 202px;
+  }
+
+  .work-footer__socials {
+    display: flex;
+    gap: 18px;
+  }
+
+  .work-footer__socials a {
+    color: white;
+    font-size: 20px;
+  }
+
+  .work-footer__grid {
+    display: grid;
+    gap: 58px;
+    grid-template-columns: 170px 180px minmax(260px, 1fr);
+    padding-top: 36px;
+  }
+
+  .work-footer h2 {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin: 0 0 22px;
+  }
+
+  .work-footer ul {
+    display: grid;
+    gap: 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .work-footer a,
+  .work-footer li {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .work-footer__contact li {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    gap: 14px;
+  }
+
+  .contact-dot {
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: #ff0004;
+    display: inline-flex;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+  }
+
+  @media (max-width: 900px) {
+    .work-hero {
+      min-height: auto;
+    }
+
+    .work-nav {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      padding: 24px 20px 0;
+    }
+
+    .work-nav__links {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .work-hero__content {
+      max-width: none;
+      padding: 210px 24px 64px;
+    }
+
+    .work-step {
+      grid-template-columns: 48px minmax(0, 1fr);
+    }
+
+    .work-step__number,
+    .payment-item__number {
+      font-size: 20px;
+      height: 48px;
+      width: 48px;
+    }
+
+    .work-step h2,
+    .work-step p {
+      font-size: 18px;
+    }
+
+    .payments h2 {
+      margin-bottom: 80px;
+    }
+
+    .payments p {
+      font-size: 22px;
+    }
+
+    .payments__list {
+      align-items: center;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .work-footer__top,
+    .work-footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .work-footer__top {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .work-footer__grid {
+      display: grid;
+    }
+  }
+</style>

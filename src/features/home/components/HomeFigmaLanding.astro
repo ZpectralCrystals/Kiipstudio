@@ -1,0 +1,265 @@
+---
+import { getCloudinaryImageUrl } from '@shared/lib/cloudinary';
+import type { HomeLandingContent, LandingImage } from '../data/homeContent';
+
+type Props = {
+  content: HomeLandingContent;
+};
+
+const { content } = Astro.props;
+
+const imageSrc = (image: LandingImage, width = 1600) =>
+  image.imageUrl || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
+
+---
+
+<section class="home-figma" aria-label="KlipStudio">
+  <div class="home-figma__stage">
+    <div class="home-figma__canvas">
+      <img class="absolute left-0 top-0 h-[1858px] w-[1920px] object-cover" src={imageSrc(content.heroBackground, 1920)} alt="" loading="eager" decoding="async" />
+      <div class="absolute left-[-13px] top-[1140px] h-[730px] w-[1933px] bg-[#ff0000] opacity-[0.09]"></div>
+      <span id="servicios" class="page-anchor top-[390px]" aria-hidden="true"></span>
+      <span id="nosotros" class="page-anchor top-[965px]" aria-hidden="true"></span>
+      <span id="por-que-elegirnos" class="page-anchor top-[2910px]" aria-hidden="true"></span>
+      <span id="contacto" class="page-anchor top-[4931px]" aria-hidden="true"></span>
+
+      <header class="absolute left-0 top-0 z-20 h-[130px] w-full">
+        <a href="/" aria-label="KlipStudio inicio">
+          <img class="absolute left-[65px] top-[61px] h-[45px] w-[157px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+        </a>
+
+        <nav class="absolute left-[715px] top-[68px] flex items-start gap-[51px]" aria-label="Navegación principal">
+          <a class="nav-main" href={content.nav.main[0].href}>{content.nav.main[0].label}</a>
+          <div class="group relative">
+            <a class="nav-main" href={content.nav.main[1].href}>{content.nav.main[1].label}</a>
+            <img class="absolute left-0 top-[38px] h-px w-[140px]" src="/assets/figma/home-v2/line-nosotros.svg" alt="" />
+            <div class="menu-panel absolute left-[-18px] top-[54px] h-[97px] w-[215px] bg-[rgba(45,45,45,0.85)] px-[7px] py-[15px] opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">
+              {content.nav.nosotros.map((item) => <a class="menu-link" href={item.href}>{item.label}</a>)}
+            </div>
+          </div>
+          <div class="group relative">
+            <a class="nav-main" href={content.nav.main[2].href}>{content.nav.main[2].label}</a>
+            <img class="absolute left-0 top-[38px] h-px w-[136px]" src="/assets/figma/home-v2/line-services.svg" alt="" />
+            <div class="menu-panel absolute left-0 top-[54px] h-[223px] w-[220px] bg-[rgba(45,45,45,0.85)] px-[16px] py-[15px] opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">
+              {content.nav.servicios.map((item) => <a class="menu-link" href={item.href}>{item.label}</a>)}
+            </div>
+          </div>
+        </nav>
+
+        <a class="absolute left-[1648px] top-[52px] flex h-[48px] w-[178px] items-center justify-center gap-[10px] rounded-full bg-[#ff0004] text-[20px] font-black leading-[23px] tracking-[1.6px] text-white" href={content.whatsappUrl}>
+          WHATSAPP <span aria-hidden="true">→</span>
+        </a>
+      </header>
+
+      <main>
+        <section aria-labelledby="home-work-title">
+          <h1 id="home-work-title" class="absolute left-1/2 top-[270px] h-[32px] w-[1146px] -translate-x-1/2 text-center text-[48px] font-bold uppercase leading-[26px] tracking-[1.4px] text-white">
+            {content.headline}
+          </h1>
+
+          <div class="absolute left-[93px] top-[401px] grid grid-cols-5 gap-[23px]">
+            {
+              content.serviceCards.map((card) => (
+                <a class="block w-[328px]" href={card.href} aria-label={`Ver ${card.title}`}>
+                  <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={imageSrc(card.image, 900)} alt={card.image.alt} loading="eager" decoding="async" />
+                  <h2 class="mt-[47px] text-center text-[24px] font-extrabold uppercase leading-[31px] text-white">{card.title}</h2>
+                </a>
+              ))
+            }
+          </div>
+        </section>
+
+        <section aria-labelledby="about-title">
+          <img class="absolute left-[144px] top-[965px] h-[913px] w-[628px] object-contain" src={imageSrc(content.about.person, 900)} alt={content.about.person.alt} loading="lazy" decoding="async" />
+          <h2 id="about-title" class="absolute left-[942px] top-[1285px] w-[615px] text-[64px] font-bold uppercase leading-[64px] tracking-[1.4px] text-white">
+            {content.about.title}
+          </h2>
+          <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-semibold leading-[35px] text-white">
+            {content.about.body.map((paragraph) => <p class="mb-0">{paragraph}</p>)}
+          </div>
+          <img class="absolute left-[1413px] top-[1472px] h-[675px] w-[675px] -rotate-[90.86deg] object-contain" src={imageSrc(content.about.camera, 900)} alt="" loading="lazy" decoding="async" />
+        </section>
+
+        <section aria-label="Estudio favorito en Arequipa">
+          <img class="absolute left-[-32px] top-[1870px] h-[1040px] w-[2017px] object-cover" src={imageSrc(content.studio.image, 1920)} alt={content.studio.image.alt} loading="lazy" decoding="async" />
+          <p class="absolute left-[239px] top-[2040px] whitespace-nowrap text-[48px] font-normal leading-[56px] tracking-[1.4px] text-black">{content.studio.eyebrow}</p>
+          <p class="absolute left-[239px] top-[2093px] whitespace-nowrap text-[64px] font-bold leading-[56px] tracking-[1.4px] text-[#ff0004]">{content.studio.highlight}</p>
+          <p class="absolute left-[408px] top-[2146px] whitespace-nowrap text-[55px] font-black leading-[56px] tracking-[1.4px] text-black">{content.studio.suffix}</p>
+          <a class="absolute left-[535px] top-[2224px] flex h-[52px] w-[220px] items-center justify-center rounded-[12px] bg-[#ff0004] text-[32px] font-black leading-[39px] tracking-[-1px] text-white" href={content.whatsappUrl}>
+            {content.studio.buttonLabel}
+          </a>
+        </section>
+
+        <section aria-labelledby="why-title">
+          <img class="absolute left-[-1px] top-[2910px] h-[1118px] w-[2120px] object-cover" src={imageSrc(content.why.background, 1920)} alt={content.why.background.alt} loading="lazy" decoding="async" />
+          <h2 id="why-title" class="absolute left-[1218px] top-[3088px] w-[490px] text-right text-[48px] font-medium leading-[39px] tracking-[1.4px] text-black">
+            {content.why.title}
+          </h2>
+          <div class="absolute left-[1195px] top-[3186px] grid gap-[45px]">
+            {
+              content.why.items.map((item) => (
+                <div class="flex min-h-[94px] w-[610px] gap-[19px]">
+                  <span class="relative mt-[2px] block h-[47px] w-[49px] shrink-0">
+                    <span class="absolute left-0 top-[2px] block h-[46px] w-[46px] border-4 border-[#ff0004]"></span>
+                    <img class="absolute left-[6px] top-0 h-[47px] w-[49px] object-contain" src={imageSrc(content.why.check, 96)} alt="" loading="lazy" decoding="async" />
+                  </span>
+                  <p class="w-[518px] text-[28px] font-normal leading-normal text-[#505050]">{item}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section aria-label="Galería de retratos">
+          <img class="absolute left-[-32px] top-[4018px] z-10 h-[888px] w-[711px] object-cover" src={imageSrc(content.gallery[0], 900)} alt={content.gallery[0].alt} loading="eager" decoding="async" />
+          <img class="absolute left-[679px] top-[4016px] z-10 h-[891px] w-[594px] object-cover" src={imageSrc(content.gallery[1], 900)} alt={content.gallery[1].alt} loading="eager" decoding="async" />
+          <img class="absolute left-[1273px] top-[4018px] z-10 h-[876px] w-[701px] object-cover" src={imageSrc(content.gallery[2], 900)} alt={content.gallery[2].alt} loading="eager" decoding="async" />
+          <div class="absolute left-0 top-[4905px] z-10 h-[26px] w-[1920px] bg-[#ff0000]"></div>
+        </section>
+      </main>
+
+      <footer class="absolute left-0 top-[4931px] h-[543px] w-[1920px] bg-[#04000a] text-white">
+        <img class="absolute left-[250px] top-[84px] h-[57px] w-[202px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
+        <nav class="absolute left-[1542px] top-[111px] flex gap-[28px]" aria-label="Redes sociales">
+          {content.footer.socials.map((item) => <a class="text-[20px] text-white" href={item.href} aria-label={item.label}>{item.text}</a>)}
+        </nav>
+        <img class="absolute left-[259px] top-[153px] h-px w-[1410px]" src="/assets/figma/home-v2/line-footer.svg" alt="" />
+
+        <div class="absolute left-[259px] top-[197px]">
+          <h2 class="mb-[26px] text-[24px] font-bold leading-[34px]">SERVICIOS</h2>
+          <ul class="space-y-[14px] text-[16px] leading-[24px] text-white/90">
+            {content.nav.servicios.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </div>
+
+        <div class="absolute left-[499px] top-[197px]">
+          <h2 class="mb-[26px] text-[24px] font-bold leading-[34px]">NOSOTROS</h2>
+          <ul class="space-y-[15px] text-[16px] leading-[24px] text-white/90">
+            {content.nav.nosotros.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </div>
+
+        <div class="absolute left-[756px] top-[197px]">
+          <h2 class="mb-[30px] text-[24px] font-bold leading-[34px]">CONTÁCTANOS</h2>
+          <ul class="space-y-[10px] text-[16px] font-semibold leading-[24px] text-white/90">
+            <li class="flex items-center gap-[14px]"><span class="contact-dot">✉</span>{content.footer.email}</li>
+            <li class="flex items-center gap-[14px]"><span class="contact-dot">☎</span>{content.footer.phone}</li>
+            {content.footer.handles.map((item) => <li class="flex items-center gap-[14px]"><span class="contact-dot">{item.icon}</span>{item.text}</li>)}
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<script>
+  const figmaScrollTargets = {
+    '#servicios': 390,
+    '#nosotros': 965,
+    '#por-que-elegirnos': 2910,
+    '#contacto': 4931,
+  };
+
+  const getHomeScale = () => {
+    const stage = document.querySelector('.home-figma__stage');
+    return stage ? stage.getBoundingClientRect().height / 5474 : 1;
+  };
+
+  const scrollToFigmaTarget = (hash: string, behavior: ScrollBehavior = 'smooth') => {
+    const target = figmaScrollTargets[hash as keyof typeof figmaScrollTargets];
+    if (target === undefined) return;
+    window.scrollTo({ top: target * getHomeScale(), behavior });
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+      window.setTimeout(() => scrollToFigmaTarget(window.location.hash, 'auto'), 0);
+    }
+  });
+
+  window.addEventListener('hashchange', () => scrollToFigmaTarget(window.location.hash));
+
+  document.addEventListener('click', (event) => {
+    const link = (event.target as Element).closest('a[href^="/#"], a[href^="#"]');
+    if (!(link instanceof HTMLAnchorElement)) return;
+
+    const url = new URL(link.href);
+    if (url.pathname !== window.location.pathname) return;
+    if (!(url.hash in figmaScrollTargets)) return;
+
+    event.preventDefault();
+    history.pushState(null, '', url.hash);
+    scrollToFigmaTarget(url.hash);
+  });
+</script>
+
+<style>
+  .home-figma {
+    background: #04000a;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    width: 100vw;
+  }
+
+  .home-figma__stage {
+    --home-scale: calc(100vw / 1920px);
+    height: 285.1041666667vw;
+    position: relative;
+    width: 100%;
+  }
+
+  .home-figma__canvas {
+    background: #04000a;
+    height: 5474px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(var(--home-scale));
+    transform-origin: top left;
+    width: 1920px;
+  }
+
+  .home-figma__canvas img {
+    max-width: none;
+  }
+
+  .nav-main {
+    color: white;
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    line-height: 26px;
+    text-transform: uppercase;
+  }
+
+  .page-anchor {
+    height: 1px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 1px;
+  }
+
+  .menu-link {
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .contact-dot {
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: #ff0004;
+    display: inline-flex;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+  }
+</style>

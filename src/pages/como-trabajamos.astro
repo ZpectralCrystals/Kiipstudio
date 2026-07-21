@@ -1,0 +1,16 @@
+---
+import HowWeWorkLanding from '@features/home/components/HowWeWorkLanding.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getHomeLandingContent } from '@shared/lib/sanity';
+
+const content = await getHomeLandingContent();
+---
+
+<BaseLayout
+  title="Cómo trabajamos | KlipStudio"
+  description="Proceso de trabajo y formas de pago de KlipStudio."
+>
+  <main class="min-h-screen bg-white">
+    <HowWeWorkLanding content={content} />
+  </main>
+</BaseLayout>
