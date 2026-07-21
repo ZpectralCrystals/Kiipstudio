@@ -110,10 +110,8 @@ const imageSrc = (image: LandingImage, width = 1600) =>
           </div>
         </section>
 
-        <section aria-label="Galería de retratos">
-          <img class="absolute left-[-32px] top-[4018px] z-10 h-[888px] w-[711px] object-cover" src={imageSrc(content.gallery[0], 900)} alt={content.gallery[0].alt} loading="eager" decoding="async" />
-          <img class="absolute left-[679px] top-[4016px] z-10 h-[891px] w-[594px] object-cover" src={imageSrc(content.gallery[1], 900)} alt={content.gallery[1].alt} loading="eager" decoding="async" />
-          <img class="absolute left-[1273px] top-[4018px] z-10 h-[876px] w-[701px] object-cover" src={imageSrc(content.gallery[2], 900)} alt={content.gallery[2].alt} loading="eager" decoding="async" />
+        <section class="absolute left-0 top-[4018px] z-10 grid h-[888px] w-[1920px] grid-cols-3" aria-label="Galería de retratos">
+          {content.gallery.slice(0, 3).map((image) => <img class="h-full w-full object-cover" src={imageSrc(image, 900)} alt={image.alt} loading="eager" decoding="async" />)}
           <div class="absolute left-0 top-[4905px] z-10 h-[26px] w-[1920px] bg-[#ff0000]"></div>
         </section>
       </main>

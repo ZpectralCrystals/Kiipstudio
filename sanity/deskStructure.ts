@@ -15,4 +15,5 @@ export const structure: StructureResolver = (S) =>
             .schemaType('homeLanding')
             .documentId('homeLanding'),
         ),
+      S.documentTypeListItem('servicePage').title('Servicios'),
     ])

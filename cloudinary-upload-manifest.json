@@ -1,1553 +1,457 @@
 {
-  "uploadedAt": "2026-07-19T18:10:42.339Z",
+  "uploadedAt": "2026-07-21T21:53:01.941Z",
   "folder": "klipstudio",
   "assets": {
-    "/assets/figma/home-v2/about-person.png": {
-      "publicId": "klipstudio/site/figma/home-v2/about-person-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484573/klipstudio/site/figma/home-v2/about-person-png.png",
-      "bytes": 740076
+    "/assets/figma/bodas-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670625/klipstudio/site/figma/bodas-desktop-webp.webp",
+      "bytes": 100744
     },
-    "/assets/figma/home-v2/bg-top.png": {
-      "publicId": "klipstudio/site/figma/home-v2/bg-top-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484574/klipstudio/site/figma/home-v2/bg-top-png.png",
-      "bytes": 1549793
+    "/assets/figma/bodas-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670626/klipstudio/site/figma/bodas-mobile-webp.webp",
+      "bytes": 48802
     },
-    "/assets/figma/home-v2/camera.png": {
-      "publicId": "klipstudio/site/figma/home-v2/camera-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484575/klipstudio/site/figma/home-v2/camera-png.png",
-      "bytes": 1380118
+    "/assets/figma/bodas-section/feature-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/feature-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670627/klipstudio/site/figma/bodas-section/feature-desktop-webp.webp",
+      "bytes": 390062
     },
-    "/assets/figma/home-v2/card-bodas.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/card-bodas-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484576/klipstudio/site/figma/home-v2/card-bodas-jpg.jpg",
-      "bytes": 9302972
+    "/assets/figma/bodas-section/feature-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/feature-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670627/klipstudio/site/figma/bodas-section/feature-mobile-webp.webp",
+      "bytes": 106248
     },
-    "/assets/figma/home-v2/card-cumpleanos.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/card-cumpleanos-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484577/klipstudio/site/figma/home-v2/card-cumpleanos-jpg.jpg",
-      "bytes": 3623739
+    "/assets/figma/bodas-section/gallery-1-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-1-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670628/klipstudio/site/figma/bodas-section/gallery-1-desktop-webp.webp",
+      "bytes": 55010
     },
-    "/assets/figma/home-v2/card-publicidad.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/card-publicidad-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484578/klipstudio/site/figma/home-v2/card-publicidad-jpg.jpg",
-      "bytes": 6433430
+    "/assets/figma/bodas-section/gallery-1-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-1-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670629/klipstudio/site/figma/bodas-section/gallery-1-mobile-webp.webp",
+      "bytes": 25520
     },
-    "/assets/figma/home-v2/card-quinceaneros.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/card-quinceaneros-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484650/klipstudio/site/figma/home-v2/card-quinceaneros-jpg.webp",
-      "bytes": 936712
+    "/assets/figma/bodas-section/gallery-2-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-2-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670629/klipstudio/site/figma/bodas-section/gallery-2-desktop-webp.webp",
+      "bytes": 47710
     },
-    "/assets/figma/home-v2/card-sesiones.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/card-sesiones-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484581/klipstudio/site/figma/home-v2/card-sesiones-jpg.jpg",
-      "bytes": 7254629
+    "/assets/figma/bodas-section/gallery-2-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-2-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670630/klipstudio/site/figma/bodas-section/gallery-2-mobile-webp.webp",
+      "bytes": 24216
     },
-    "/assets/figma/home-v2/check.png": {
-      "publicId": "klipstudio/site/figma/home-v2/check-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484582/klipstudio/site/figma/home-v2/check-png.png",
-      "bytes": 4639
+    "/assets/figma/bodas-section/gallery-3-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-3-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670630/klipstudio/site/figma/bodas-section/gallery-3-desktop-webp.webp",
+      "bytes": 47846
     },
-    "/assets/figma/home-v2/gallery-left.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/gallery-left-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484583/klipstudio/site/figma/home-v2/gallery-left-jpg.jpg",
-      "bytes": 9359208
+    "/assets/figma/bodas-section/gallery-3-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-3-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670631/klipstudio/site/figma/bodas-section/gallery-3-mobile-webp.webp",
+      "bytes": 25648
     },
-    "/assets/figma/home-v2/gallery-mid.jpg": {
-      "publicId": "klipstudio/site/figma/home-v2/gallery-mid-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484584/klipstudio/site/figma/home-v2/gallery-mid-jpg.jpg",
-      "bytes": 7878834
+    "/assets/figma/bodas-section/gallery-4-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-4-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670632/klipstudio/site/figma/bodas-section/gallery-4-desktop-webp.webp",
+      "bytes": 47932
     },
-    "/assets/figma/home-v2/gallery-right.png": {
-      "publicId": "klipstudio/site/figma/home-v2/gallery-right-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484656/klipstudio/site/figma/home-v2/gallery-right-png.webp",
-      "bytes": 841576
+    "/assets/figma/bodas-section/gallery-4-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-4-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670632/klipstudio/site/figma/bodas-section/gallery-4-mobile-webp.webp",
+      "bytes": 24442
     },
-    "/assets/figma/home-v2/logo.png": {
-      "publicId": "klipstudio/site/figma/home-v2/logo-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484657/klipstudio/site/figma/home-v2/logo-png.png",
-      "bytes": 9300
+    "/assets/figma/bodas-section/gallery-5-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-5-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670633/klipstudio/site/figma/bodas-section/gallery-5-desktop-webp.webp",
+      "bytes": 50774
     },
-    "/assets/figma/home-v2/studio-band.png": {
-      "publicId": "klipstudio/site/figma/home-v2/studio-band-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484658/klipstudio/site/figma/home-v2/studio-band-png.webp",
-      "bytes": 129690
+    "/assets/figma/bodas-section/gallery-5-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-5-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670634/klipstudio/site/figma/bodas-section/gallery-5-mobile-webp.webp",
+      "bytes": 26414
     },
-    "/assets/figma/home-v2/why-bg.png": {
-      "publicId": "klipstudio/site/figma/home-v2/why-bg-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484658/klipstudio/site/figma/home-v2/why-bg-png.webp",
-      "bytes": 459550
+    "/assets/figma/bodas-section/gallery-6-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-6-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670634/klipstudio/site/figma/bodas-section/gallery-6-desktop-webp.webp",
+      "bytes": 41396
     },
-    "/assets/figma/how-we-work/logo.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/logo-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484659/klipstudio/site/figma/how-we-work/logo-png.png",
-      "bytes": 9300
+    "/assets/figma/bodas-section/gallery-6-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-6-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670635/klipstudio/site/figma/bodas-section/gallery-6-mobile-webp.webp",
+      "bytes": 20398
     },
-    "/assets/figma/how-we-work/step-1.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/step-1-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484660/klipstudio/site/figma/how-we-work/step-1-png.png",
-      "bytes": 2209
+    "/assets/figma/bodas-section/gallery-7-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-7-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670635/klipstudio/site/figma/bodas-section/gallery-7-desktop-webp.webp",
+      "bytes": 146328
     },
-    "/assets/figma/how-we-work/step-2.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/step-2-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484660/klipstudio/site/figma/how-we-work/step-2-png.png",
-      "bytes": 2538
+    "/assets/figma/bodas-section/gallery-7-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-7-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670636/klipstudio/site/figma/bodas-section/gallery-7-mobile-webp.webp",
+      "bytes": 67620
     },
-    "/assets/figma/how-we-work/step-3.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/step-3-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484661/klipstudio/site/figma/how-we-work/step-3-png.png",
-      "bytes": 2534
+    "/assets/figma/bodas-section/gallery-8-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-8-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670636/klipstudio/site/figma/bodas-section/gallery-8-desktop-webp.webp",
+      "bytes": 83288
     },
-    "/assets/figma/how-we-work/step-4.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/step-4-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484663/klipstudio/site/figma/how-we-work/step-4-png.png",
-      "bytes": 2372
+    "/assets/figma/bodas-section/gallery-8-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/gallery-8-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670638/klipstudio/site/figma/bodas-section/gallery-8-mobile-webp.webp",
+      "bytes": 38326
     },
-    "/assets/figma/how-we-work/studio-process.png": {
-      "publicId": "klipstudio/site/figma/how-we-work/studio-process-png",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484664/klipstudio/site/figma/how-we-work/studio-process-png.png",
-      "bytes": 5297239
+    "/assets/figma/bodas-section/hero-desktop.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/hero-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670639/klipstudio/site/figma/bodas-section/hero-desktop-webp.webp",
+      "bytes": 642766
+    },
+    "/assets/figma/bodas-section/hero-mobile.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/hero-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670639/klipstudio/site/figma/bodas-section/hero-mobile-webp.webp",
+      "bytes": 167678
+    },
+    "/assets/figma/bodas-section/play.webp": {
+      "publicId": "klipstudio/site/figma/bodas-section/play-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670640/klipstudio/site/figma/bodas-section/play-webp.webp",
+      "bytes": 4808
+    },
+    "/assets/figma/cumpleanos-desktop.webp": {
+      "publicId": "klipstudio/site/figma/cumpleanos-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670641/klipstudio/site/figma/cumpleanos-desktop-webp.webp",
+      "bytes": 79612
+    },
+    "/assets/figma/cumpleanos-mobile.webp": {
+      "publicId": "klipstudio/site/figma/cumpleanos-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670641/klipstudio/site/figma/cumpleanos-mobile-webp.webp",
+      "bytes": 42256
+    },
+    "/assets/figma/fotos-estudio-desktop.webp": {
+      "publicId": "klipstudio/site/figma/fotos-estudio-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670642/klipstudio/site/figma/fotos-estudio-desktop-webp.webp",
+      "bytes": 99052
+    },
+    "/assets/figma/fotos-estudio-mobile.webp": {
+      "publicId": "klipstudio/site/figma/fotos-estudio-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670643/klipstudio/site/figma/fotos-estudio-mobile-webp.webp",
+      "bytes": 45244
+    },
+    "/assets/figma/klip-logo.webp": {
+      "publicId": "klipstudio/site/figma/klip-logo-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670643/klipstudio/site/figma/klip-logo-webp.webp",
+      "bytes": 2902
+    },
+    "/assets/figma/publicidad-desktop.webp": {
+      "publicId": "klipstudio/site/figma/publicidad-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670644/klipstudio/site/figma/publicidad-desktop-webp.webp",
+      "bytes": 65694
+    },
+    "/assets/figma/publicidad-mobile.webp": {
+      "publicId": "klipstudio/site/figma/publicidad-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670645/klipstudio/site/figma/publicidad-mobile-webp.webp",
+      "bytes": 32258
+    },
+    "/assets/figma/quinceaneros-desktop.webp": {
+      "publicId": "klipstudio/site/figma/quinceaneros-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670645/klipstudio/site/figma/quinceaneros-desktop-webp.webp",
+      "bytes": 106258
+    },
+    "/assets/figma/quinceaneros-mobile.webp": {
+      "publicId": "klipstudio/site/figma/quinceaneros-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670646/klipstudio/site/figma/quinceaneros-mobile-webp.webp",
+      "bytes": 49926
+    },
+    "/assets/stitch/cumpleanos/gallery-1-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-1-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670647/klipstudio/site/stitch/cumpleanos/gallery-1-desktop-webp.webp",
+      "bytes": 6930
+    },
+    "/assets/stitch/cumpleanos/gallery-1-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-1-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670647/klipstudio/site/stitch/cumpleanos/gallery-1-mobile-webp.webp",
+      "bytes": 6930
+    },
+    "/assets/stitch/cumpleanos/gallery-2-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-2-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670648/klipstudio/site/stitch/cumpleanos/gallery-2-desktop-webp.webp",
+      "bytes": 6166
+    },
+    "/assets/stitch/cumpleanos/gallery-2-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-2-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670649/klipstudio/site/stitch/cumpleanos/gallery-2-mobile-webp.webp",
+      "bytes": 6166
+    },
+    "/assets/stitch/cumpleanos/gallery-3-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-3-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670649/klipstudio/site/stitch/cumpleanos/gallery-3-desktop-webp.webp",
+      "bytes": 7108
+    },
+    "/assets/stitch/cumpleanos/gallery-3-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-3-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670650/klipstudio/site/stitch/cumpleanos/gallery-3-mobile-webp.webp",
+      "bytes": 7108
+    },
+    "/assets/stitch/cumpleanos/gallery-4-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-4-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670650/klipstudio/site/stitch/cumpleanos/gallery-4-desktop-webp.webp",
+      "bytes": 6902
+    },
+    "/assets/stitch/cumpleanos/gallery-4-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-4-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670651/klipstudio/site/stitch/cumpleanos/gallery-4-mobile-webp.webp",
+      "bytes": 6902
+    },
+    "/assets/stitch/cumpleanos/gallery-5-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-5-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670652/klipstudio/site/stitch/cumpleanos/gallery-5-desktop-webp.webp",
+      "bytes": 7188
+    },
+    "/assets/stitch/cumpleanos/gallery-5-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-5-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670652/klipstudio/site/stitch/cumpleanos/gallery-5-mobile-webp.webp",
+      "bytes": 7188
+    },
+    "/assets/stitch/cumpleanos/gallery-6-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-6-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670653/klipstudio/site/stitch/cumpleanos/gallery-6-desktop-webp.webp",
+      "bytes": 6756
+    },
+    "/assets/stitch/cumpleanos/gallery-6-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-6-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670653/klipstudio/site/stitch/cumpleanos/gallery-6-mobile-webp.webp",
+      "bytes": 6756
+    },
+    "/assets/stitch/cumpleanos/gallery-7-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-7-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670654/klipstudio/site/stitch/cumpleanos/gallery-7-desktop-webp.webp",
+      "bytes": 8138
+    },
+    "/assets/stitch/cumpleanos/gallery-7-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-7-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670655/klipstudio/site/stitch/cumpleanos/gallery-7-mobile-webp.webp",
+      "bytes": 8138
+    },
+    "/assets/stitch/cumpleanos/gallery-8-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-8-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670655/klipstudio/site/stitch/cumpleanos/gallery-8-desktop-webp.webp",
+      "bytes": 4416
+    },
+    "/assets/stitch/cumpleanos/gallery-8-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/gallery-8-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670656/klipstudio/site/stitch/cumpleanos/gallery-8-mobile-webp.webp",
+      "bytes": 4416
+    },
+    "/assets/stitch/cumpleanos/hero-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/hero-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670657/klipstudio/site/stitch/cumpleanos/hero-desktop-webp.webp",
+      "bytes": 61538
+    },
+    "/assets/stitch/cumpleanos/hero-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/hero-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670657/klipstudio/site/stitch/cumpleanos/hero-mobile-webp.webp",
+      "bytes": 25824
+    },
+    "/assets/stitch/cumpleanos/video-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/video-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670658/klipstudio/site/stitch/cumpleanos/video-desktop-webp.webp",
+      "bytes": 33242
+    },
+    "/assets/stitch/cumpleanos/video-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/cumpleanos/video-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670658/klipstudio/site/stitch/cumpleanos/video-mobile-webp.webp",
+      "bytes": 33242
+    },
+    "/assets/stitch/estudio/gallery-1-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-1-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670659/klipstudio/site/stitch/estudio/gallery-1-desktop-webp.webp",
+      "bytes": 7696
+    },
+    "/assets/stitch/estudio/gallery-1-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-1-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670660/klipstudio/site/stitch/estudio/gallery-1-mobile-webp.webp",
+      "bytes": 7696
+    },
+    "/assets/stitch/estudio/gallery-2-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-2-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670660/klipstudio/site/stitch/estudio/gallery-2-desktop-webp.webp",
+      "bytes": 6464
+    },
+    "/assets/stitch/estudio/gallery-2-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-2-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670661/klipstudio/site/stitch/estudio/gallery-2-mobile-webp.webp",
+      "bytes": 6464
+    },
+    "/assets/stitch/estudio/gallery-3-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-3-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670661/klipstudio/site/stitch/estudio/gallery-3-desktop-webp.webp",
+      "bytes": 7974
+    },
+    "/assets/stitch/estudio/gallery-3-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-3-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670662/klipstudio/site/stitch/estudio/gallery-3-mobile-webp.webp",
+      "bytes": 7974
+    },
+    "/assets/stitch/estudio/gallery-4-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-4-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670662/klipstudio/site/stitch/estudio/gallery-4-desktop-webp.webp",
+      "bytes": 7508
+    },
+    "/assets/stitch/estudio/gallery-4-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-4-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670663/klipstudio/site/stitch/estudio/gallery-4-mobile-webp.webp",
+      "bytes": 7508
+    },
+    "/assets/stitch/estudio/gallery-5-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-5-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670664/klipstudio/site/stitch/estudio/gallery-5-desktop-webp.webp",
+      "bytes": 6304
+    },
+    "/assets/stitch/estudio/gallery-5-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/gallery-5-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670664/klipstudio/site/stitch/estudio/gallery-5-mobile-webp.webp",
+      "bytes": 6304
+    },
+    "/assets/stitch/estudio/hero-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/hero-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670665/klipstudio/site/stitch/estudio/hero-desktop-webp.webp",
+      "bytes": 59090
+    },
+    "/assets/stitch/estudio/hero-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/hero-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670665/klipstudio/site/stitch/estudio/hero-mobile-webp.webp",
+      "bytes": 21364
+    },
+    "/assets/stitch/estudio/video-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/video-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670666/klipstudio/site/stitch/estudio/video-desktop-webp.webp",
+      "bytes": 6304
+    },
+    "/assets/stitch/estudio/video-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/estudio/video-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670667/klipstudio/site/stitch/estudio/video-mobile-webp.webp",
+      "bytes": 6304
+    },
+    "/assets/stitch/publicidad/hero-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/publicidad/hero-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670667/klipstudio/site/stitch/publicidad/hero-desktop-webp.webp",
+      "bytes": 39464
+    },
+    "/assets/stitch/publicidad/hero-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/publicidad/hero-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670668/klipstudio/site/stitch/publicidad/hero-mobile-webp.webp",
+      "bytes": 28570
+    },
+    "/assets/stitch/publicidad/video-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/publicidad/video-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670669/klipstudio/site/stitch/publicidad/video-desktop-webp.webp",
+      "bytes": 32612
+    },
+    "/assets/stitch/publicidad/video-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/publicidad/video-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670669/klipstudio/site/stitch/publicidad/video-mobile-webp.webp",
+      "bytes": 32612
+    },
+    "/assets/stitch/quinceaneros/gallery-1-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-1-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670670/klipstudio/site/stitch/quinceaneros/gallery-1-desktop-webp.webp",
+      "bytes": 7522
+    },
+    "/assets/stitch/quinceaneros/gallery-1-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-1-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670671/klipstudio/site/stitch/quinceaneros/gallery-1-mobile-webp.webp",
+      "bytes": 7522
+    },
+    "/assets/stitch/quinceaneros/gallery-2-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-2-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670671/klipstudio/site/stitch/quinceaneros/gallery-2-desktop-webp.webp",
+      "bytes": 9014
+    },
+    "/assets/stitch/quinceaneros/gallery-2-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-2-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670672/klipstudio/site/stitch/quinceaneros/gallery-2-mobile-webp.webp",
+      "bytes": 9014
+    },
+    "/assets/stitch/quinceaneros/gallery-3-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-3-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670673/klipstudio/site/stitch/quinceaneros/gallery-3-desktop-webp.webp",
+      "bytes": 7468
+    },
+    "/assets/stitch/quinceaneros/gallery-3-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-3-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670674/klipstudio/site/stitch/quinceaneros/gallery-3-mobile-webp.webp",
+      "bytes": 7468
+    },
+    "/assets/stitch/quinceaneros/gallery-4-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-4-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670674/klipstudio/site/stitch/quinceaneros/gallery-4-desktop-webp.webp",
+      "bytes": 4954
+    },
+    "/assets/stitch/quinceaneros/gallery-4-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-4-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670675/klipstudio/site/stitch/quinceaneros/gallery-4-mobile-webp.webp",
+      "bytes": 4954
+    },
+    "/assets/stitch/quinceaneros/gallery-5-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-5-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670675/klipstudio/site/stitch/quinceaneros/gallery-5-desktop-webp.webp",
+      "bytes": 5994
+    },
+    "/assets/stitch/quinceaneros/gallery-5-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-5-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670676/klipstudio/site/stitch/quinceaneros/gallery-5-mobile-webp.webp",
+      "bytes": 5994
+    },
+    "/assets/stitch/quinceaneros/gallery-6-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-6-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670677/klipstudio/site/stitch/quinceaneros/gallery-6-desktop-webp.webp",
+      "bytes": 11210
+    },
+    "/assets/stitch/quinceaneros/gallery-6-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-6-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670677/klipstudio/site/stitch/quinceaneros/gallery-6-mobile-webp.webp",
+      "bytes": 11210
+    },
+    "/assets/stitch/quinceaneros/gallery-7-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-7-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670678/klipstudio/site/stitch/quinceaneros/gallery-7-desktop-webp.webp",
+      "bytes": 10000
+    },
+    "/assets/stitch/quinceaneros/gallery-7-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-7-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670679/klipstudio/site/stitch/quinceaneros/gallery-7-mobile-webp.webp",
+      "bytes": 10000
+    },
+    "/assets/stitch/quinceaneros/gallery-8-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-8-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670680/klipstudio/site/stitch/quinceaneros/gallery-8-desktop-webp.webp",
+      "bytes": 5868
+    },
+    "/assets/stitch/quinceaneros/gallery-8-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/gallery-8-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670681/klipstudio/site/stitch/quinceaneros/gallery-8-mobile-webp.webp",
+      "bytes": 5868
+    },
+    "/assets/stitch/quinceaneros/hero-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/hero-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670681/klipstudio/site/stitch/quinceaneros/hero-desktop-webp.webp",
+      "bytes": 184650
+    },
+    "/assets/stitch/quinceaneros/hero-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/hero-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670682/klipstudio/site/stitch/quinceaneros/hero-mobile-webp.webp",
+      "bytes": 87778
+    },
+    "/assets/stitch/quinceaneros/video-desktop.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/video-desktop-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670682/klipstudio/site/stitch/quinceaneros/video-desktop-webp.webp",
+      "bytes": 53836
+    },
+    "/assets/stitch/quinceaneros/video-mobile.webp": {
+      "publicId": "klipstudio/site/stitch/quinceaneros/video-mobile-webp",
+      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784670683/klipstudio/site/stitch/quinceaneros/video-mobile-webp.webp",
+      "bytes": 53836
     }
   },
-  "sourcePhotos": {
-    "Publicidad/DSC02779.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02779-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484665/klipstudio/source/publicidad/dsc02779-jpg.jpg",
-      "bytes": 2083271,
-      "uploadedBytes": 2083271
-    },
-    "Sesiones conciertos/DSC05410.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc05410-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484666/klipstudio/source/sesiones-conciertos/dsc05410-jpg.jpg",
-      "bytes": 5454422,
-      "uploadedBytes": 5454422
-    },
-    "Sesiones Bandas/DSC04053-Mejorado-NR-Editar.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc04053-mejorado-nr-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484667/klipstudio/source/sesiones-bandas/dsc04053-mejorado-nr-editar-jpg.jpg",
-      "bytes": 6810920,
-      "uploadedBytes": 6810920
-    },
-    "Sociales/Baby Shower/DSC00613.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00613-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484668/klipstudio/source/sociales/baby-shower/dsc00613-jpg.jpg",
-      "bytes": 1855367,
-      "uploadedBytes": 1855367
-    },
-    "Sesiones conciertos/DSC05937.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc05937-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484669/klipstudio/source/sesiones-conciertos/dsc05937-jpg.jpg",
-      "bytes": 4811397,
-      "uploadedBytes": 4811397
-    },
-    "Sesiones conciertos/DSC05419.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc05419-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484670/klipstudio/source/sesiones-conciertos/dsc05419-jpg.jpg",
-      "bytes": 7671662,
-      "uploadedBytes": 7671662
-    },
-    "Publicidad/DSC03067.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03067-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484671/klipstudio/source/publicidad/dsc03067-jpg.jpg",
-      "bytes": 2818906,
-      "uploadedBytes": 2818906
-    },
-    "Publicidad/DSC03383.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03383-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484672/klipstudio/source/publicidad/dsc03383-jpg.jpg",
-      "bytes": 1752444,
-      "uploadedBytes": 1752444
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-47.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-47-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484673/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-47-jpeg.webp",
-      "bytes": 10253956,
-      "uploadedBytes": 368526
-    },
-    "Sesiones Bandas/DSC05797.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc05797-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484675/klipstudio/source/sesiones-bandas/dsc05797-jpg.webp",
-      "bytes": 10237835,
-      "uploadedBytes": 2259016
-    },
-    "Fotografia de Comida/DSC00618.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc00618-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484676/klipstudio/source/fotografia-de-comida/dsc00618-jpg.jpg",
-      "bytes": 8381033,
-      "uploadedBytes": 8381033
-    },
-    "Publicidad/DSC02636.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02636-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484677/klipstudio/source/publicidad/dsc02636-jpg.jpg",
-      "bytes": 3662560,
-      "uploadedBytes": 3662560
-    },
-    "Publicidad/DSC02650.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02650-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484678/klipstudio/source/publicidad/dsc02650-jpg.jpg",
-      "bytes": 2238041,
-      "uploadedBytes": 2238041
-    },
-    "Sociales/Bodas/DSC03102.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03102-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484679/klipstudio/source/sociales/bodas/dsc03102-jpg.jpg",
-      "bytes": 3531380,
-      "uploadedBytes": 3531380
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-23.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-23-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484680/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-23-jpeg.webp",
-      "bytes": 10196584,
-      "uploadedBytes": 272256
-    },
-    "Sociales/Bodas/DSC02854.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02854-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484681/klipstudio/source/sociales/bodas/dsc02854-jpg.jpg",
-      "bytes": 9567693,
-      "uploadedBytes": 9567693
-    },
-    "Publicidad/DSC02588.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02588-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484682/klipstudio/source/publicidad/dsc02588-jpg.jpg",
-      "bytes": 3907795,
-      "uploadedBytes": 3907795
-    },
-    "Sociales/Bodas/DSC09601.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09601-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484683/klipstudio/source/sociales/bodas/dsc09601-jpg.jpg",
-      "bytes": 7476483,
-      "uploadedBytes": 7476483
-    },
-    "Sesiones conciertos/DSC05360.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc05360-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484685/klipstudio/source/sesiones-conciertos/dsc05360-jpg.jpg",
-      "bytes": 9125738,
-      "uploadedBytes": 9125738
-    },
-    "Publicidad/DSC02796.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02796-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484686/klipstudio/source/publicidad/dsc02796-jpg.jpg",
-      "bytes": 2861608,
-      "uploadedBytes": 2861608
-    },
-    "Fotografia de Comida/DSC00687.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc00687-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484687/klipstudio/source/fotografia-de-comida/dsc00687-jpg.webp",
-      "bytes": 16554051,
-      "uploadedBytes": 1154216
-    },
-    "Fotografia de Comida/DSC00683.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc00683-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484689/klipstudio/source/fotografia-de-comida/dsc00683-jpg.webp",
-      "bytes": 14907649,
-      "uploadedBytes": 1470780
-    },
-    "Publicidad/DSC02634.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02634-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484690/klipstudio/source/publicidad/dsc02634-jpg.jpg",
-      "bytes": 3326933,
-      "uploadedBytes": 3326933
-    },
-    "Publicidad/DSC02783.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02783-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484690/klipstudio/source/publicidad/dsc02783-jpg.jpg",
-      "bytes": 2280102,
-      "uploadedBytes": 2280102
-    },
-    "Sesiones conciertos/DSC00333.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc00333-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484691/klipstudio/source/sesiones-conciertos/dsc00333-jpg.jpg",
-      "bytes": 5420375,
-      "uploadedBytes": 5420375
-    },
-    "Publicidad/DSC03151.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03151-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484693/klipstudio/source/publicidad/dsc03151-jpg.jpg",
-      "bytes": 2910475,
-      "uploadedBytes": 2910475
-    },
-    "Sesiones Bandas/DSC08056-Editar.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc08056-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484694/klipstudio/source/sesiones-bandas/dsc08056-editar-jpg.webp",
-      "bytes": 12090299,
-      "uploadedBytes": 1063922
-    },
-    "Publicidad/DSC03128.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03128-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484695/klipstudio/source/publicidad/dsc03128-jpg.jpg",
-      "bytes": 3482652,
-      "uploadedBytes": 3482652
-    },
-    "Sesiones Bandas/DSC05818.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc05818-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484697/klipstudio/source/sesiones-bandas/dsc05818-jpg.jpg",
-      "bytes": 7173304,
-      "uploadedBytes": 7173304
-    },
-    "Publicidad/DSC03112.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03112-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484698/klipstudio/source/publicidad/dsc03112-jpg.jpg",
-      "bytes": 2844165,
-      "uploadedBytes": 2844165
-    },
-    "Publicidad/DSC02545.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02545-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484699/klipstudio/source/publicidad/dsc02545-jpg.jpg",
-      "bytes": 4184642,
-      "uploadedBytes": 4184642
-    },
-    "Publicidad/DSC02761.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02761-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484700/klipstudio/source/publicidad/dsc02761-jpg.jpg",
-      "bytes": 3393431,
-      "uploadedBytes": 3393431
-    },
-    "Sociales/Bodas/DSC09544.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09544-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484701/klipstudio/source/sociales/bodas/dsc09544-jpg.jpg",
-      "bytes": 9525070,
-      "uploadedBytes": 9525070
-    },
-    "Publicidad/DSC02559.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02559-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484702/klipstudio/source/publicidad/dsc02559-jpg.jpg",
-      "bytes": 5154904,
-      "uploadedBytes": 5154904
-    },
-    "Sesiones conciertos/DSC05963.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc05963-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484705/klipstudio/source/sesiones-conciertos/dsc05963-jpg.webp",
-      "bytes": 16880659,
-      "uploadedBytes": 2662658
-    },
-    "Publicidad/DSC02785.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02785-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484705/klipstudio/source/publicidad/dsc02785-jpg.jpg",
-      "bytes": 1982222,
-      "uploadedBytes": 1982222
-    },
-    "Sociales/Bodas/DSC00950.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00950-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484707/klipstudio/source/sociales/bodas/dsc00950-jpg.webp",
-      "bytes": 12129929,
-      "uploadedBytes": 969082
-    },
-    "Fotografia de Comida/DSC06239.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06239-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484709/klipstudio/source/fotografia-de-comida/dsc06239-jpg.webp",
-      "bytes": 10632110,
-      "uploadedBytes": 864162
-    },
-    "Sesiones conciertos/DSC01048.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc01048-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484710/klipstudio/source/sesiones-conciertos/dsc01048-jpg.jpg",
-      "bytes": 6785093,
-      "uploadedBytes": 6785093
-    },
-    "Sociales/Baby Shower/DSC01130.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01130-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484712/klipstudio/source/sociales/baby-shower/dsc01130-jpg.jpg",
-      "bytes": 5553544,
-      "uploadedBytes": 5553544
-    },
-    "Sesiones Bandas/DSC04162-Mejorado-NR.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc04162-mejorado-nr-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484713/klipstudio/source/sesiones-bandas/dsc04162-mejorado-nr-jpg.webp",
-      "bytes": 14596304,
-      "uploadedBytes": 1614862
-    },
-    "Publicidad/DSC02539.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02539-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484714/klipstudio/source/publicidad/dsc02539-jpg.jpg",
-      "bytes": 3852417,
-      "uploadedBytes": 3852417
-    },
-    "Publicidad/DSC03265.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03265-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484716/klipstudio/source/publicidad/dsc03265-jpg.jpg",
-      "bytes": 3138649,
-      "uploadedBytes": 3138649
-    },
-    "Sociales/Baby Shower/DSC00616.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00616-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484717/klipstudio/source/sociales/baby-shower/dsc00616-jpg.jpg",
-      "bytes": 5310395,
-      "uploadedBytes": 5310395
-    },
-    "Publicidad/DSC03058.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03058-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484718/klipstudio/source/publicidad/dsc03058-jpg.jpg",
-      "bytes": 1835877,
-      "uploadedBytes": 1835877
-    },
-    "Sesiones conciertos/DSC00490.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc00490-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484719/klipstudio/source/sesiones-conciertos/dsc00490-jpg.webp",
-      "bytes": 12710603,
-      "uploadedBytes": 587710
-    },
-    "Sociales/XV años/_DSC2039.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2039-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484720/klipstudio/source/sociales/xv-anos/_dsc2039-jpg.jpg",
-      "bytes": 5194741,
-      "uploadedBytes": 5194741
-    },
-    "Sociales/XV años/DSCF8450.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8450-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484721/klipstudio/source/sociales/xv-anos/dscf8450-jpg.jpg",
-      "bytes": 8945752,
-      "uploadedBytes": 8945752
-    },
-    "Publicidad/DSC03301.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03301-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484722/klipstudio/source/publicidad/dsc03301-jpg.jpg",
-      "bytes": 3330747,
-      "uploadedBytes": 3330747
-    },
-    "Sociales/Bodas/DSC09622.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09622-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484724/klipstudio/source/sociales/bodas/dsc09622-jpg.jpg",
-      "bytes": 6701104,
-      "uploadedBytes": 6701104
-    },
-    "Publicidad/DSC02782.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02782-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484725/klipstudio/source/publicidad/dsc02782-jpg.jpg",
-      "bytes": 2253857,
-      "uploadedBytes": 2253857
-    },
-    "Publicidad/DSC02568.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02568-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484726/klipstudio/source/publicidad/dsc02568-jpg.jpg",
-      "bytes": 3913306,
-      "uploadedBytes": 3913306
-    },
-    "Publicidad/DSC03105.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03105-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484727/klipstudio/source/publicidad/dsc03105-jpg.jpg",
-      "bytes": 2172134,
-      "uploadedBytes": 2172134
-    },
-    "Publicidad/DSC02593.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02593-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484727/klipstudio/source/publicidad/dsc02593-jpg.jpg",
-      "bytes": 3548709,
-      "uploadedBytes": 3548709
-    },
-    "Sociales/Baby Shower/DSC00409.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00409-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484729/klipstudio/source/sociales/baby-shower/dsc00409-jpg.webp",
-      "bytes": 14230237,
-      "uploadedBytes": 256058
-    },
-    "Publicidad/DSC02707.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02707-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484729/klipstudio/source/publicidad/dsc02707-jpg.jpg",
-      "bytes": 3274496,
-      "uploadedBytes": 3274496
-    },
-    "Sociales/Baby Shower/DSC00703.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00703-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484731/klipstudio/source/sociales/baby-shower/dsc00703-jpg.jpg",
-      "bytes": 3623739,
-      "uploadedBytes": 3623739
-    },
-    "Sociales/Bodas/DSC00219.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00219-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484732/klipstudio/source/sociales/bodas/dsc00219-jpg.jpg",
-      "bytes": 8343293,
-      "uploadedBytes": 8343293
-    },
-    "Sociales/Baby Shower/DSC00863.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00863-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484734/klipstudio/source/sociales/baby-shower/dsc00863-jpg.webp",
-      "bytes": 11113160,
-      "uploadedBytes": 625830
-    },
-    "Sociales/Baby Shower/DSC01107.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01107-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484735/klipstudio/source/sociales/baby-shower/dsc01107-jpg.jpg",
-      "bytes": 8351545,
-      "uploadedBytes": 8351545
-    },
-    "Publicidad/DSC02793.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02793-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484736/klipstudio/source/publicidad/dsc02793-jpg.jpg",
-      "bytes": 3266980,
-      "uploadedBytes": 3266980
-    },
-    "Sesiones conciertos/DSC00462.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc00462-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484737/klipstudio/source/sesiones-conciertos/dsc00462-jpg.jpg",
-      "bytes": 6074485,
-      "uploadedBytes": 6074485
-    },
-    "Sesiones Bandas/DSC08040-Editar.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc08040-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484738/klipstudio/source/sesiones-bandas/dsc08040-editar-jpg.jpg",
-      "bytes": 7007629,
-      "uploadedBytes": 7007629
-    },
-    "Sesiones Bandas/DSC05789.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc05789-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484740/klipstudio/source/sesiones-bandas/dsc05789-jpg.webp",
-      "bytes": 10369684,
-      "uploadedBytes": 1790554
-    },
-    "Sociales/Bodas/DSC09618.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09618-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484741/klipstudio/source/sociales/bodas/dsc09618-jpg.jpg",
-      "bytes": 6921481,
-      "uploadedBytes": 6921481
-    },
-    "Sesiones conciertos/DSC01900.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc01900-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484742/klipstudio/source/sesiones-conciertos/dsc01900-jpg.jpg",
-      "bytes": 3347629,
-      "uploadedBytes": 3347629
-    },
-    "Publicidad/DSC02549.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc02549-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484744/klipstudio/source/publicidad/dsc02549-jpg.jpg",
-      "bytes": 3473833,
-      "uploadedBytes": 3473833
-    },
-    "Sesiones Bandas/DSC08000-Editar.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc08000-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484745/klipstudio/source/sesiones-bandas/dsc08000-editar-jpg.jpg",
-      "bytes": 6817006,
-      "uploadedBytes": 6817006
-    },
-    "Sociales/Bodas/DSC00026.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00026-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484747/klipstudio/source/sociales/bodas/dsc00026-jpg.webp",
-      "bytes": 25215597,
-      "uploadedBytes": 1404086
-    },
-    "Sociales/Baby Shower/DSC00885.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00885-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484748/klipstudio/source/sociales/baby-shower/dsc00885-jpg.jpg",
-      "bytes": 5036509,
-      "uploadedBytes": 5036509
-    },
-    "Sesiones Bandas/DSC04142-Mejorado-NR-Editar.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc04142-mejorado-nr-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484749/klipstudio/source/sesiones-bandas/dsc04142-mejorado-nr-editar-jpg.webp",
-      "bytes": 12855375,
-      "uploadedBytes": 829406
-    },
-    "Publicidad/DSC03316.jpg": {
-      "publicId": "klipstudio/source/publicidad/dsc03316-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484751/klipstudio/source/publicidad/dsc03316-jpg.jpg",
-      "bytes": 2856408,
-      "uploadedBytes": 2856408
-    },
-    "Sociales/Baby Shower/DSC00905.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00905-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484752/klipstudio/source/sociales/baby-shower/dsc00905-jpg.webp",
-      "bytes": 12136651,
-      "uploadedBytes": 613644
-    },
-    "Sociales/XV años/_DSC2375.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2375-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484753/klipstudio/source/sociales/xv-anos/_dsc2375-jpg.webp",
-      "bytes": 10162574,
-      "uploadedBytes": 667696
-    },
-    "Sociales/XV años/DSCF8424-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8424-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484754/klipstudio/source/sociales/xv-anos/dscf8424-editar-jpg.jpg",
-      "bytes": 6707389,
-      "uploadedBytes": 6707389
-    },
-    "Fotografia de Comida/DSC03303.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc03303-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484756/klipstudio/source/fotografia-de-comida/dsc03303-jpg.webp",
-      "bytes": 11691511,
-      "uploadedBytes": 1076266
-    },
-    "Sociales/XV años/_DSC2110.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2110-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484758/klipstudio/source/sociales/xv-anos/_dsc2110-jpg.webp",
-      "bytes": 23617732,
-      "uploadedBytes": 1623396
-    },
-    "Sociales/XV años/DSCF8814-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8814-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484759/klipstudio/source/sociales/xv-anos/dscf8814-editar-jpg.jpg",
-      "bytes": 8788533,
-      "uploadedBytes": 8788533
-    },
-    "Sociales/Baby Shower/DSC01015.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01015-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484760/klipstudio/source/sociales/baby-shower/dsc01015-jpg.webp",
-      "bytes": 11371266,
-      "uploadedBytes": 666678
-    },
-    "Sociales/Baby Shower/DSC01367.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01367-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484762/klipstudio/source/sociales/baby-shower/dsc01367-jpg.webp",
-      "bytes": 10803426,
-      "uploadedBytes": 637164
-    },
-    "Sociales/XV años/_DSC2573.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2573-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484763/klipstudio/source/sociales/xv-anos/_dsc2573-jpg.webp",
-      "bytes": 11719042,
-      "uploadedBytes": 666540
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-402.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-402-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484764/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-402-jpeg.webp",
-      "bytes": 14556478,
-      "uploadedBytes": 600252
-    },
-    "Sociales/Baby Shower/DSC01148.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01148-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484767/klipstudio/source/sociales/baby-shower/dsc01148-jpg.webp",
-      "bytes": 13660964,
-      "uploadedBytes": 387706
-    },
-    "Sociales/Bodas/DSC09942.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09942-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484768/klipstudio/source/sociales/bodas/dsc09942-jpg.webp",
-      "bytes": 16184092,
-      "uploadedBytes": 516212
-    },
-    "Sesiones conciertos/DSC01094.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc01094-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484770/klipstudio/source/sesiones-conciertos/dsc01094-jpg.webp",
-      "bytes": 16335644,
-      "uploadedBytes": 581932
-    },
-    "Sesiones conciertos/DSC07394.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc07394-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484771/klipstudio/source/sesiones-conciertos/dsc07394-jpg.webp",
-      "bytes": 12539313,
-      "uploadedBytes": 2603816
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-410.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-410-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484773/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-410-jpeg.webp",
-      "bytes": 10830107,
-      "uploadedBytes": 394030
-    },
-    "Sesiones Bandas/DSC05802.jpg": {
-      "publicId": "klipstudio/source/sesiones-bandas/dsc05802-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484774/klipstudio/source/sesiones-bandas/dsc05802-jpg.webp",
-      "bytes": 13648651,
-      "uploadedBytes": 3444366
-    },
-    "Sociales/Baby Shower/DSC01104.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01104-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484776/klipstudio/source/sociales/baby-shower/dsc01104-jpg.webp",
-      "bytes": 10873113,
-      "uploadedBytes": 377648
-    },
-    "Fotografia de Comida/DSC00677.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc00677-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484778/klipstudio/source/fotografia-de-comida/dsc00677-jpg.webp",
-      "bytes": 22191078,
-      "uploadedBytes": 1808016
-    },
-    "Fotografia de Comida/DSC07005.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc07005-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484780/klipstudio/source/fotografia-de-comida/dsc07005-jpg.webp",
-      "bytes": 17128124,
-      "uploadedBytes": 1655504
-    },
-    "Sociales/XV años/_DSC2095.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2095-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484781/klipstudio/source/sociales/xv-anos/_dsc2095-jpg.webp",
-      "bytes": 15330379,
-      "uploadedBytes": 621494
-    },
-    "Fotografia de Comida/DSC03153.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc03153-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484783/klipstudio/source/fotografia-de-comida/dsc03153-jpg.webp",
-      "bytes": 13354580,
-      "uploadedBytes": 814928
-    },
-    "Sociales/Bodas/DSC00511.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00511-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484784/klipstudio/source/sociales/bodas/dsc00511-jpg.jpg",
-      "bytes": 9348241,
-      "uploadedBytes": 9348241
-    },
-    "Sociales/XV años/_DSC2185.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2185-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484786/klipstudio/source/sociales/xv-anos/_dsc2185-jpg.webp",
-      "bytes": 13538726,
-      "uploadedBytes": 577232
-    },
-    "Sociales/XV años/_DSC2559.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2559-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484787/klipstudio/source/sociales/xv-anos/_dsc2559-jpg.webp",
-      "bytes": 15057317,
-      "uploadedBytes": 333964
-    },
-    "Sociales/Baby Shower/DSC00981.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00981-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484789/klipstudio/source/sociales/baby-shower/dsc00981-jpg.jpg",
-      "bytes": 8651446,
-      "uploadedBytes": 8651446
-    },
-    "Sociales/Bodas/DSC09575.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09575-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484790/klipstudio/source/sociales/bodas/dsc09575-jpg.jpg",
-      "bytes": 5658050,
-      "uploadedBytes": 5658050
-    },
-    "Sociales/XV años/DSCF8486-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8486-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484791/klipstudio/source/sociales/xv-anos/dscf8486-editar-jpg.jpg",
-      "bytes": 9081457,
-      "uploadedBytes": 9081457
-    },
-    "Sociales/XV años/DSCF8717-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8717-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484793/klipstudio/source/sociales/xv-anos/dscf8717-editar-jpg.webp",
-      "bytes": 12059175,
-      "uploadedBytes": 1294004
-    },
-    "Sociales/XV años/DSCF8618-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8618-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484794/klipstudio/source/sociales/xv-anos/dscf8618-editar-jpg.webp",
-      "bytes": 10604608,
-      "uploadedBytes": 682462
-    },
-    "Sociales/Baby Shower/DSC01111.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc01111-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484795/klipstudio/source/sociales/baby-shower/dsc01111-jpg.webp",
-      "bytes": 12319653,
-      "uploadedBytes": 528472
-    },
-    "Sociales/Baby Shower/DSC00590.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00590-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484797/klipstudio/source/sociales/baby-shower/dsc00590-jpg.jpg",
-      "bytes": 9863543,
-      "uploadedBytes": 9863543
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-74.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-74-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484799/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-74-jpeg.webp",
-      "bytes": 12124769,
-      "uploadedBytes": 423504
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-6.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-6-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484800/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-6-jpeg.webp",
-      "bytes": 11392223,
-      "uploadedBytes": 190480
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-4.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-4-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484802/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-4-jpeg.webp",
-      "bytes": 13974048,
-      "uploadedBytes": 701114
-    },
-    "Fotografia de Comida/DSC02025-2.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc02025-2-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484805/klipstudio/source/fotografia-de-comida/dsc02025-2-jpg.webp",
-      "bytes": 16287609,
-      "uploadedBytes": 1044040
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-1068.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-1068-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484806/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-1068-jpeg.webp",
-      "bytes": 12423114,
-      "uploadedBytes": 403498
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-275.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-275-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484807/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-275-jpeg.webp",
-      "bytes": 10075094,
-      "uploadedBytes": 496668
-    },
-    "Sociales/Baby Shower/DSC00880.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00880-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484808/klipstudio/source/sociales/baby-shower/dsc00880-jpg.jpg",
-      "bytes": 8096006,
-      "uploadedBytes": 8096006
-    },
-    "Sociales/Baby Shower/DSC00410.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00410-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484809/klipstudio/source/sociales/baby-shower/dsc00410-jpg.jpg",
-      "bytes": 9954112,
-      "uploadedBytes": 9954112
-    },
-    "Sesiones conciertos/DSC00873.jpg": {
-      "publicId": "klipstudio/source/sesiones-conciertos/dsc00873-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484810/klipstudio/source/sesiones-conciertos/dsc00873-jpg.jpg",
-      "bytes": 4452317,
-      "uploadedBytes": 4452317
-    },
-    "Sociales/XV años/DSCF8604-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/dscf8604-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484812/klipstudio/source/sociales/xv-anos/dscf8604-editar-jpg.webp",
-      "bytes": 13972536,
-      "uploadedBytes": 1216670
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-25.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-25-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484814/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-25-jpeg.webp",
-      "bytes": 15913066,
-      "uploadedBytes": 282890
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-992.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-992-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484816/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-992-jpeg.webp",
-      "bytes": 14809974,
-      "uploadedBytes": 692200
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-621.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-621-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484817/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-621-jpeg.webp",
-      "bytes": 15631373,
-      "uploadedBytes": 432524
-    },
-    "Sociales/Bodas/DSC09611.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09611-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484818/klipstudio/source/sociales/bodas/dsc09611-jpg.jpg",
-      "bytes": 7376667,
-      "uploadedBytes": 7376667
-    },
-    "Sociales/Bodas/DSC02832.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02832-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484820/klipstudio/source/sociales/bodas/dsc02832-jpg.webp",
-      "bytes": 13017967,
-      "uploadedBytes": 1226000
-    },
-    "Sociales/Bodas/DSC06029.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06029-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484822/klipstudio/source/sociales/bodas/dsc06029-jpg.webp",
-      "bytes": 10257562,
-      "uploadedBytes": 375290
-    },
-    "Sociales/XV años/_DSC2477.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2477-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484824/klipstudio/source/sociales/xv-anos/_dsc2477-jpg.webp",
-      "bytes": 16928528,
-      "uploadedBytes": 1421230
-    },
-    "Sociales/XV años/_DSC2552.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2552-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484825/klipstudio/source/sociales/xv-anos/_dsc2552-jpg.webp",
-      "bytes": 12322897,
-      "uploadedBytes": 848704
-    },
-    "Sociales/Bodas/DSC09902.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09902-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484827/klipstudio/source/sociales/bodas/dsc09902-jpg.webp",
-      "bytes": 17594101,
-      "uploadedBytes": 622524
-    },
-    "Sociales/Bodas/DSC01342.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc01342-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484828/klipstudio/source/sociales/bodas/dsc01342-jpg.webp",
-      "bytes": 15237152,
-      "uploadedBytes": 538076
-    },
-    "Sociales/XV años/_DSC2530.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2530-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484830/klipstudio/source/sociales/xv-anos/_dsc2530-jpg.webp",
-      "bytes": 17978256,
-      "uploadedBytes": 815068
-    },
-    "Sociales/XV años/_DSC2549.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2549-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484831/klipstudio/source/sociales/xv-anos/_dsc2549-jpg.webp",
-      "bytes": 17011511,
-      "uploadedBytes": 552460
-    },
-    "Fotografia de Comida/DSC06454.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06454-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484833/klipstudio/source/fotografia-de-comida/dsc06454-jpg.webp",
-      "bytes": 24588716,
-      "uploadedBytes": 1780550
-    },
-    "Sociales/XV años/_DSC2712.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2712-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484834/klipstudio/source/sociales/xv-anos/_dsc2712-jpg.webp",
-      "bytes": 19749803,
-      "uploadedBytes": 770944
-    },
-    "Sociales/XV años/_DSC2683.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2683-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484836/klipstudio/source/sociales/xv-anos/_dsc2683-jpg.webp",
-      "bytes": 17441044,
-      "uploadedBytes": 1054408
-    },
-    "Sociales/Baby Shower/CUMPLEAÑOS AMELIA-1032.jpeg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/cumpleanos-amelia-1032-jpeg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484837/klipstudio/source/sociales/baby-shower/cumpleanos-amelia-1032-jpeg.webp",
-      "bytes": 12208332,
-      "uploadedBytes": 381586
-    },
-    "Fotografia de Comida/DSC06691.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06691-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484839/klipstudio/source/fotografia-de-comida/dsc06691-jpg.webp",
-      "bytes": 23126220,
-      "uploadedBytes": 2194412
-    },
-    "Sociales/XV años/_DSC2533.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2533-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484840/klipstudio/source/sociales/xv-anos/_dsc2533-jpg.webp",
-      "bytes": 17881892,
-      "uploadedBytes": 516840
-    },
-    "Sociales/XV años/_DSC2099.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2099-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484842/klipstudio/source/sociales/xv-anos/_dsc2099-jpg.webp",
-      "bytes": 29876215,
-      "uploadedBytes": 2961286
-    },
-    "Fotografia de Comida/DSC06411.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06411-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484844/klipstudio/source/fotografia-de-comida/dsc06411-jpg.webp",
-      "bytes": 20704137,
-      "uploadedBytes": 1739724
-    },
-    "Sociales/Bodas/DSC00066.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00066-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484845/klipstudio/source/sociales/bodas/dsc00066-jpg.jpg",
-      "bytes": 7734697,
-      "uploadedBytes": 7734697
-    },
-    "Sociales/XV años/_DSC2578.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2578-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484847/klipstudio/source/sociales/xv-anos/_dsc2578-jpg.webp",
-      "bytes": 22126289,
-      "uploadedBytes": 676276
-    },
-    "Sociales/XV años/_DSC2592.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2592-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484848/klipstudio/source/sociales/xv-anos/_dsc2592-jpg.webp",
-      "bytes": 21000321,
-      "uploadedBytes": 718388
-    },
-    "Sociales/XV años/_DSC2122.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2122-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484850/klipstudio/source/sociales/xv-anos/_dsc2122-jpg.webp",
-      "bytes": 28513349,
-      "uploadedBytes": 2073866
-    },
-    "Sociales/Bodas/DSC00887.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00887-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484852/klipstudio/source/sociales/bodas/dsc00887-jpg.webp",
-      "bytes": 10252349,
-      "uploadedBytes": 952746
-    },
-    "Sociales/XV años/_DSC2431.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2431-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484854/klipstudio/source/sociales/xv-anos/_dsc2431-jpg.webp",
-      "bytes": 25357201,
-      "uploadedBytes": 931526
-    },
-    "Sociales/Baby Shower/DSC00406.jpg": {
-      "publicId": "klipstudio/source/sociales/baby-shower/dsc00406-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484856/klipstudio/source/sociales/baby-shower/dsc00406-jpg.webp",
-      "bytes": 17045679,
-      "uploadedBytes": 568664
-    },
-    "Sociales/Bodas/DSC01152.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc01152-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484857/klipstudio/source/sociales/bodas/dsc01152-jpg.jpg",
-      "bytes": 6053605,
-      "uploadedBytes": 6053605
-    },
-    "Fotografia de Comida/DSC06752.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06752-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484859/klipstudio/source/fotografia-de-comida/dsc06752-jpg.webp",
-      "bytes": 28696506,
-      "uploadedBytes": 3005358
-    },
-    "Sociales/XV años/_DSC2604.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2604-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484861/klipstudio/source/sociales/xv-anos/_dsc2604-jpg.webp",
-      "bytes": 19464482,
-      "uploadedBytes": 428818
-    },
-    "Sociales/Bodas/DSC05174.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05174-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484862/klipstudio/source/sociales/bodas/dsc05174-jpg.jpg",
-      "bytes": 7985392,
-      "uploadedBytes": 7985392
-    },
-    "Sociales/Bodas/DSC06688-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06688-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484863/klipstudio/source/sociales/bodas/dsc06688-editar-jpg.jpg",
-      "bytes": 4430403,
-      "uploadedBytes": 4430403
-    },
-    "Sociales/Bodas/DSC03052.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03052-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484864/klipstudio/source/sociales/bodas/dsc03052-jpg.jpg",
-      "bytes": 8585861,
-      "uploadedBytes": 8585861
-    },
-    "Fotografia de Comida/DSC06695.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06695-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484867/klipstudio/source/fotografia-de-comida/dsc06695-jpg.webp",
-      "bytes": 28939194,
-      "uploadedBytes": 3128244
-    },
-    "Sociales/XV años/_DSC2596.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2596-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484868/klipstudio/source/sociales/xv-anos/_dsc2596-jpg.webp",
-      "bytes": 23761759,
-      "uploadedBytes": 589360
-    },
-    "Sociales/XV años/_DSC2739.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2739-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484870/klipstudio/source/sociales/xv-anos/_dsc2739-jpg.webp",
-      "bytes": 20072460,
-      "uploadedBytes": 856740
-    },
-    "Sociales/Bodas/DSC04236.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04236-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484870/klipstudio/source/sociales/bodas/dsc04236-jpg.jpg",
-      "bytes": 2439168,
-      "uploadedBytes": 2439168
-    },
-    "Sociales/XV años/_DSC2528.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2528-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484872/klipstudio/source/sociales/xv-anos/_dsc2528-jpg.webp",
-      "bytes": 17753159,
-      "uploadedBytes": 1094082
-    },
-    "Sociales/Bodas/DSC05188.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05188-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484875/klipstudio/source/sociales/bodas/dsc05188-jpg.webp",
-      "bytes": 10636848,
-      "uploadedBytes": 1149162
-    },
-    "Sociales/Bodas/DSC04616.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04616-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484877/klipstudio/source/sociales/bodas/dsc04616-jpg.webp",
-      "bytes": 13146308,
-      "uploadedBytes": 614168
-    },
-    "Sociales/Bodas/DSC06236-Editar-2.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06236-editar-2-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484878/klipstudio/source/sociales/bodas/dsc06236-editar-2-jpg.jpg",
-      "bytes": 7316718,
-      "uploadedBytes": 7316718
-    },
-    "Fotografia de Comida/DSC00482.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc00482-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484880/klipstudio/source/fotografia-de-comida/dsc00482-jpg.webp",
-      "bytes": 24045653,
-      "uploadedBytes": 1780300
-    },
-    "Sociales/Bodas/DSC09595.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09595-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484881/klipstudio/source/sociales/bodas/dsc09595-jpg.jpg",
-      "bytes": 8132462,
-      "uploadedBytes": 8132462
-    },
-    "Sociales/XV años/_DSC2728.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2728-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484883/klipstudio/source/sociales/xv-anos/_dsc2728-jpg.webp",
-      "bytes": 24516723,
-      "uploadedBytes": 901658
-    },
-    "Sociales/Bodas/DSC04169.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04169-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484884/klipstudio/source/sociales/bodas/dsc04169-jpg.jpg",
-      "bytes": 1830526,
-      "uploadedBytes": 1830526
-    },
-    "Sociales/Bodas/DSC05451.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05451-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484885/klipstudio/source/sociales/bodas/dsc05451-jpg.jpg",
-      "bytes": 7412040,
-      "uploadedBytes": 7412040
-    },
-    "Sociales/XV años/_DSC2567.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2567-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484886/klipstudio/source/sociales/xv-anos/_dsc2567-jpg.webp",
-      "bytes": 22595367,
-      "uploadedBytes": 630264
-    },
-    "Sociales/Bodas/DSC04613.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04613-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484887/klipstudio/source/sociales/bodas/dsc04613-jpg.jpg",
-      "bytes": 6383186,
-      "uploadedBytes": 6383186
-    },
-    "Fotografia de Comida/DSC06926.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06926-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484889/klipstudio/source/fotografia-de-comida/dsc06926-jpg.webp",
-      "bytes": 31478060,
-      "uploadedBytes": 3370332
-    },
-    "Sociales/Bodas/DSC09978.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09978-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484891/klipstudio/source/sociales/bodas/dsc09978-jpg.webp",
-      "bytes": 10161586,
-      "uploadedBytes": 1689094
-    },
-    "Sociales/Bodas/DSC03969.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03969-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484893/klipstudio/source/sociales/bodas/dsc03969-jpg.jpg",
-      "bytes": 7556023,
-      "uploadedBytes": 7556023
-    },
-    "Sociales/Bodas/DSC05278.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05278-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484896/klipstudio/source/sociales/bodas/dsc05278-jpg.webp",
-      "bytes": 12743880,
-      "uploadedBytes": 492194
-    },
-    "Sociales/Bodas/DSC04214.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04214-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484897/klipstudio/source/sociales/bodas/dsc04214-jpg.jpg",
-      "bytes": 2748164,
-      "uploadedBytes": 2748164
-    },
-    "Sociales/Bodas/DSC06653.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06653-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484898/klipstudio/source/sociales/bodas/dsc06653-jpg.jpg",
-      "bytes": 9942515,
-      "uploadedBytes": 9942515
-    },
-    "Sociales/Bodas/DSC07636.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07636-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484899/klipstudio/source/sociales/bodas/dsc07636-jpg.jpg",
-      "bytes": 2374300,
-      "uploadedBytes": 2374300
-    },
-    "Sociales/XV años/_DSC2554.jpg": {
-      "publicId": "klipstudio/source/sociales/xv-anos/_dsc2554-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484901/klipstudio/source/sociales/xv-anos/_dsc2554-jpg.webp",
-      "bytes": 23225223,
-      "uploadedBytes": 725812
-    },
-    "Sociales/Bodas/DSC05577.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05577-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484905/klipstudio/source/sociales/bodas/dsc05577-jpg.webp",
-      "bytes": 16669632,
-      "uploadedBytes": 648412
-    },
-    "Sociales/Bodas/DSC00678.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc00678-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484907/klipstudio/source/sociales/bodas/dsc00678-jpg.webp",
-      "bytes": 13931801,
-      "uploadedBytes": 1362608
-    },
-    "Sociales/Bodas/DSC05393.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05393-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484909/klipstudio/source/sociales/bodas/dsc05393-jpg.webp",
-      "bytes": 12654035,
-      "uploadedBytes": 807924
-    },
-    "Sociales/Bodas/DSC05782.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05782-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484910/klipstudio/source/sociales/bodas/dsc05782-jpg.webp",
-      "bytes": 14128892,
-      "uploadedBytes": 532430
-    },
-    "Sociales/Bodas/DSC06545.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06545-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484911/klipstudio/source/sociales/bodas/dsc06545-jpg.webp",
-      "bytes": 12718022,
-      "uploadedBytes": 421088
-    },
-    "Sociales/Bodas/DSC09983.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc09983-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484913/klipstudio/source/sociales/bodas/dsc09983-jpg.webp",
-      "bytes": 10313811,
-      "uploadedBytes": 530952
-    },
-    "Sociales/Bodas/DSC04418.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04418-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484915/klipstudio/source/sociales/bodas/dsc04418-jpg.webp",
-      "bytes": 11599382,
-      "uploadedBytes": 578446
-    },
-    "Sociales/Bodas/DSC02516.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02516-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484916/klipstudio/source/sociales/bodas/dsc02516-jpg.jpg",
-      "bytes": 4922661,
-      "uploadedBytes": 4922661
-    },
-    "Sociales/Bodas/DSC02498.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02498-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484917/klipstudio/source/sociales/bodas/dsc02498-jpg.jpg",
-      "bytes": 8023507,
-      "uploadedBytes": 8023507
-    },
-    "Sociales/Bodas/DSC05582.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05582-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484919/klipstudio/source/sociales/bodas/dsc05582-jpg.webp",
-      "bytes": 15144136,
-      "uploadedBytes": 528290
-    },
-    "Sociales/Bodas/DSC04969.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04969-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484920/klipstudio/source/sociales/bodas/dsc04969-jpg.webp",
-      "bytes": 11522388,
-      "uploadedBytes": 687770
-    },
-    "Sociales/Bodas/DSC04160.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04160-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484921/klipstudio/source/sociales/bodas/dsc04160-jpg.jpg",
-      "bytes": 2515992,
-      "uploadedBytes": 2515992
-    },
-    "Sociales/Bodas/DSC04384.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04384-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484923/klipstudio/source/sociales/bodas/dsc04384-jpg.webp",
-      "bytes": 12084065,
-      "uploadedBytes": 341608
-    },
-    "Sociales/Bodas/DSC04757.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04757-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484924/klipstudio/source/sociales/bodas/dsc04757-jpg.webp",
-      "bytes": 11016255,
-      "uploadedBytes": 677286
-    },
-    "Sociales/Bodas/DSC04181.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04181-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484925/klipstudio/source/sociales/bodas/dsc04181-jpg.jpg",
-      "bytes": 3325584,
-      "uploadedBytes": 3325584
-    },
-    "Sociales/Bodas/DSC06070.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06070-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484926/klipstudio/source/sociales/bodas/dsc06070-jpg.jpg",
-      "bytes": 6819546,
-      "uploadedBytes": 6819546
-    },
-    "Sociales/Bodas/DSC04185.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04185-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484928/klipstudio/source/sociales/bodas/dsc04185-jpg.jpg",
-      "bytes": 1902445,
-      "uploadedBytes": 1902445
-    },
-    "Sociales/Bodas/DSC04732.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04732-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484929/klipstudio/source/sociales/bodas/dsc04732-jpg.webp",
-      "bytes": 13197246,
-      "uploadedBytes": 656314
-    },
-    "Sociales/Bodas/DSC03877.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03877-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484931/klipstudio/source/sociales/bodas/dsc03877-jpg.webp",
-      "bytes": 10594893,
-      "uploadedBytes": 660564
-    },
-    "Sociales/Bodas/DSC04256.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04256-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484932/klipstudio/source/sociales/bodas/dsc04256-jpg.jpg",
-      "bytes": 2501511,
-      "uploadedBytes": 2501511
-    },
-    "Sociales/Bodas/DSC04163.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04163-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484933/klipstudio/source/sociales/bodas/dsc04163-jpg.jpg",
-      "bytes": 2540490,
-      "uploadedBytes": 2540490
-    },
-    "Sociales/Bodas/DSC04208.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04208-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484933/klipstudio/source/sociales/bodas/dsc04208-jpg.jpg",
-      "bytes": 3505972,
-      "uploadedBytes": 3505972
-    },
-    "Sociales/Bodas/DSC05127.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05127-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484935/klipstudio/source/sociales/bodas/dsc05127-jpg.webp",
-      "bytes": 10192690,
-      "uploadedBytes": 1659912
-    },
-    "Fotografia de Comida/DSC06472.jpg": {
-      "publicId": "klipstudio/source/fotografia-de-comida/dsc06472-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484937/klipstudio/source/fotografia-de-comida/dsc06472-jpg.webp",
-      "bytes": 27827762,
-      "uploadedBytes": 2484490
-    },
-    "Sociales/Bodas/DSC05905.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05905-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484939/klipstudio/source/sociales/bodas/dsc05905-jpg.webp",
-      "bytes": 16603299,
-      "uploadedBytes": 528282
-    },
-    "Sociales/Bodas/DSC07113.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07113-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484940/klipstudio/source/sociales/bodas/dsc07113-jpg.webp",
-      "bytes": 11851700,
-      "uploadedBytes": 505146
-    },
-    "Sociales/Bodas/DSC07608.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07608-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484941/klipstudio/source/sociales/bodas/dsc07608-jpg.jpg",
-      "bytes": 6806166,
-      "uploadedBytes": 6806166
-    },
-    "Sociales/Bodas/DSC05809.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05809-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484943/klipstudio/source/sociales/bodas/dsc05809-jpg.jpg",
-      "bytes": 7089007,
-      "uploadedBytes": 7089007
-    },
-    "Sociales/Bodas/DSC06532-Editar.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06532-editar-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484944/klipstudio/source/sociales/bodas/dsc06532-editar-jpg.webp",
-      "bytes": 13474262,
-      "uploadedBytes": 537976
-    },
-    "Sociales/Bodas/DSC04743.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04743-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484946/klipstudio/source/sociales/bodas/dsc04743-jpg.webp",
-      "bytes": 17146043,
-      "uploadedBytes": 512910
-    },
-    "Sociales/Bodas/DSC06180.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06180-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484947/klipstudio/source/sociales/bodas/dsc06180-jpg.jpg",
-      "bytes": 9654907,
-      "uploadedBytes": 9654907
-    },
-    "Sociales/Bodas/DSC04198.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04198-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484948/klipstudio/source/sociales/bodas/dsc04198-jpg.jpg",
-      "bytes": 2840703,
-      "uploadedBytes": 2840703
-    },
-    "Sociales/Bodas/DSC03225.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03225-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484950/klipstudio/source/sociales/bodas/dsc03225-jpg.webp",
-      "bytes": 12603442,
-      "uploadedBytes": 825852
-    },
-    "Sociales/Bodas/DSC05014.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05014-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484951/klipstudio/source/sociales/bodas/dsc05014-jpg.jpg",
-      "bytes": 8639263,
-      "uploadedBytes": 8639263
-    },
-    "Sociales/Bodas/DSC05184.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05184-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484952/klipstudio/source/sociales/bodas/dsc05184-jpg.jpg",
-      "bytes": 4881948,
-      "uploadedBytes": 4881948
-    },
-    "Sociales/Bodas/DSC03137.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03137-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484953/klipstudio/source/sociales/bodas/dsc03137-jpg.webp",
-      "bytes": 15366052,
-      "uploadedBytes": 713244
-    },
-    "Sociales/Bodas/DSC04202.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04202-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484954/klipstudio/source/sociales/bodas/dsc04202-jpg.jpg",
-      "bytes": 3554271,
-      "uploadedBytes": 3554271
-    },
-    "Sociales/Bodas/DSC06144.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06144-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484955/klipstudio/source/sociales/bodas/dsc06144-jpg.jpg",
-      "bytes": 9215038,
-      "uploadedBytes": 9215038
-    },
-    "Sociales/Bodas/DSC02675.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02675-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484957/klipstudio/source/sociales/bodas/dsc02675-jpg.jpg",
-      "bytes": 6074094,
-      "uploadedBytes": 6074094
-    },
-    "Sociales/Bodas/DSC02449.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02449-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484958/klipstudio/source/sociales/bodas/dsc02449-jpg.jpg",
-      "bytes": 5215296,
-      "uploadedBytes": 5215296
-    },
-    "Sociales/Bodas/DSC07302.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07302-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484959/klipstudio/source/sociales/bodas/dsc07302-jpg.webp",
-      "bytes": 15651956,
-      "uploadedBytes": 572718
-    },
-    "Sociales/Bodas/DSC06084.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06084-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484961/klipstudio/source/sociales/bodas/dsc06084-jpg.jpg",
-      "bytes": 9604130,
-      "uploadedBytes": 9604130
-    },
-    "Sociales/Bodas/DSC05449.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05449-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484962/klipstudio/source/sociales/bodas/dsc05449-jpg.webp",
-      "bytes": 13884312,
-      "uploadedBytes": 539848
-    },
-    "Sociales/Bodas/DSC03955.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03955-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484963/klipstudio/source/sociales/bodas/dsc03955-jpg.jpg",
-      "bytes": 8756534,
-      "uploadedBytes": 8756534
-    },
-    "Sociales/Bodas/DSC06953.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06953-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484965/klipstudio/source/sociales/bodas/dsc06953-jpg.jpg",
-      "bytes": 6369442,
-      "uploadedBytes": 6369442
-    },
-    "Sociales/Bodas/DSC05777.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05777-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484966/klipstudio/source/sociales/bodas/dsc05777-jpg.jpg",
-      "bytes": 7787682,
-      "uploadedBytes": 7787682
-    },
-    "Sociales/Bodas/DSC04747.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04747-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484967/klipstudio/source/sociales/bodas/dsc04747-jpg.webp",
-      "bytes": 11046512,
-      "uploadedBytes": 588528
-    },
-    "Sociales/Bodas/DSC04191.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04191-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484969/klipstudio/source/sociales/bodas/dsc04191-jpg.jpg",
-      "bytes": 2796092,
-      "uploadedBytes": 2796092
-    },
-    "Sociales/Bodas/DSC06099.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06099-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484971/klipstudio/source/sociales/bodas/dsc06099-jpg.webp",
-      "bytes": 16944829,
-      "uploadedBytes": 759468
-    },
-    "Sociales/Bodas/DSC04177.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04177-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484972/klipstudio/source/sociales/bodas/dsc04177-jpg.jpg",
-      "bytes": 4004706,
-      "uploadedBytes": 4004706
-    },
-    "Sociales/Bodas/DSC02827.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02827-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484974/klipstudio/source/sociales/bodas/dsc02827-jpg.webp",
-      "bytes": 13078752,
-      "uploadedBytes": 885676
-    },
-    "Sociales/Bodas/DSC06201.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06201-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484975/klipstudio/source/sociales/bodas/dsc06201-jpg.webp",
-      "bytes": 11947258,
-      "uploadedBytes": 579566
-    },
-    "Sociales/Bodas/DSC05838.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05838-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484977/klipstudio/source/sociales/bodas/dsc05838-jpg.webp",
-      "bytes": 10864848,
-      "uploadedBytes": 375754
-    },
-    "Sociales/Bodas/DSC07362.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07362-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484978/klipstudio/source/sociales/bodas/dsc07362-jpg.jpg",
-      "bytes": 9899355,
-      "uploadedBytes": 9899355
-    },
-    "Sociales/Bodas/DSC07460.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07460-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484980/klipstudio/source/sociales/bodas/dsc07460-jpg.jpg",
-      "bytes": 6981060,
-      "uploadedBytes": 6981060
-    },
-    "Sociales/Bodas/DSC02352.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02352-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484981/klipstudio/source/sociales/bodas/dsc02352-jpg.jpg",
-      "bytes": 6929206,
-      "uploadedBytes": 6929206
-    },
-    "Sociales/Bodas/DSC03174.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03174-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484983/klipstudio/source/sociales/bodas/dsc03174-jpg.webp",
-      "bytes": 15056791,
-      "uploadedBytes": 953678
-    },
-    "Sociales/Bodas/DSC03202.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03202-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484985/klipstudio/source/sociales/bodas/dsc03202-jpg.webp",
-      "bytes": 15243724,
-      "uploadedBytes": 2003854
-    },
-    "Sociales/Bodas/DSC05833.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05833-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484986/klipstudio/source/sociales/bodas/dsc05833-jpg.jpg",
-      "bytes": 9048485,
-      "uploadedBytes": 9048485
-    },
-    "Sociales/Bodas/DSC03897.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03897-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484987/klipstudio/source/sociales/bodas/dsc03897-jpg.jpg",
-      "bytes": 9721617,
-      "uploadedBytes": 9721617
-    },
-    "Sociales/Bodas/DSC07109.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc07109-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484989/klipstudio/source/sociales/bodas/dsc07109-jpg.jpg",
-      "bytes": 9688697,
-      "uploadedBytes": 9688697
-    },
-    "Sociales/Bodas/DSC05804.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05804-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484991/klipstudio/source/sociales/bodas/dsc05804-jpg.webp",
-      "bytes": 10210921,
-      "uploadedBytes": 273646
-    },
-    "Sociales/Bodas/DSC06611.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06611-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484992/klipstudio/source/sociales/bodas/dsc06611-jpg.webp",
-      "bytes": 12385874,
-      "uploadedBytes": 704410
-    },
-    "Sociales/Bodas/DSC06076.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06076-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484993/klipstudio/source/sociales/bodas/dsc06076-jpg.jpg",
-      "bytes": 6480495,
-      "uploadedBytes": 6480495
-    },
-    "Sociales/Bodas/DSC03140.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03140-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484994/klipstudio/source/sociales/bodas/dsc03140-jpg.jpg",
-      "bytes": 7617113,
-      "uploadedBytes": 7617113
-    },
-    "Sociales/Bodas/DSC03033.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03033-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484996/klipstudio/source/sociales/bodas/dsc03033-jpg.webp",
-      "bytes": 21385268,
-      "uploadedBytes": 1133054
-    },
-    "Sociales/Bodas/DSC03219.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc03219-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784484999/klipstudio/source/sociales/bodas/dsc03219-jpg.webp",
-      "bytes": 14114710,
-      "uploadedBytes": 1924050
-    },
-    "Sociales/Bodas/DSC02620.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc02620-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784485000/klipstudio/source/sociales/bodas/dsc02620-jpg.jpg",
-      "bytes": 9217191,
-      "uploadedBytes": 9217191
-    },
-    "Sociales/Bodas/DSC04783.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc04783-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784485002/klipstudio/source/sociales/bodas/dsc04783-jpg.webp",
-      "bytes": 18544836,
-      "uploadedBytes": 533472
-    },
-    "Sociales/Bodas/DSC05787.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc05787-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784485003/klipstudio/source/sociales/bodas/dsc05787-jpg.webp",
-      "bytes": 11132753,
-      "uploadedBytes": 304774
-    },
-    "Sociales/Bodas/DSC06364.jpg": {
-      "publicId": "klipstudio/source/sociales/bodas/dsc06364-jpg",
-      "secureUrl": "https://res.cloudinary.com/xmypgzvd/image/upload/v1784485004/klipstudio/source/sociales/bodas/dsc06364-jpg.webp",
-      "bytes": 18300461,
-      "uploadedBytes": 1456442
-    }
-  }
+  "sourcePhotos": {}
 }

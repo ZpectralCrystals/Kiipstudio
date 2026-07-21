@@ -73,3 +73,48 @@ export async function getHomeLandingContent(): Promise<HomeLandingContent> {
     return homeLandingContent;
   }
 }
+
+export type SanityImage = {
+  imageUrl?: string;
+  alt?: string;
+};
+
+export type ServicePageContent = {
+  title: string;
+  slug: string;
+  seoDescription?: string;
+  hero: SanityImage;
+  photoLabel: string;
+  videoLabel: string;
+  gallery: SanityImage[];
+  videos: Array<{title?: string; youtubeId: string; image?: SanityImage}>;
+  packages: {
+    eyebrow?: string;
+    title?: string;
+    ctaLabel?: string;
+    plans: Array<{name: string; price: string; featured?: boolean; bullets: string[]}>;
+  };
+};
+
+const servicePageQuery = `*[_type == "servicePage" && slug == $slug][0]{
+  title,
+  slug,
+  seoDescription,
+  hero,
+  photoLabel,
+  videoLabel,
+  gallery,
+  videos,
+  packages
+}`;
+
+export async function getServicePage(slug: string): Promise<ServicePageContent | null> {
+  if (!client) return null;
+
+  try {
+    return await client.fetch<ServicePageContent | null>(servicePageQuery, {slug});
+  } catch (error) {
+    console.warn(`Sanity service unavailable: ${slug}`, error);
+    return null;
+  }
+}

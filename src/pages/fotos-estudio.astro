@@ -2,16 +2,17 @@
 import FooterSlice from '@features/home/components/FooterSlice.astro';
 import HeaderSlice from '@features/home/components/HeaderSlice.astro';
 import ServiceDetailSlice from '@features/home/components/ServiceDetailSlice.astro';
-import { serviceSections } from '@features/home/data/serviceSections';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import {getHomeLandingContent, getServicePage} from '@shared/lib/sanity';
 
-const section = serviceSections.find((item) => item.id === 'fotos-estudio')!;
+const [content, section] = await Promise.all([getHomeLandingContent(), getServicePage('fotos-estudio')]);
+if (!section) throw new Error('Sanity service missing: fotos-estudio');
 ---
 
-<BaseLayout title="Fotos de estudio | KlipStudio" description="Sesión de estudio, fotos y paquetes de KlipStudio.">
+<BaseLayout title={`${section.title} | KlipStudio`} description={section.seoDescription || section.title}>
   <main class="min-h-screen bg-[#04000a]">
-    <HeaderSlice />
-    <ServiceDetailSlice section={section} />
-    <FooterSlice />
+    <HeaderSlice content={content} />
+    <ServiceDetailSlice section={section} whatsappUrl={content.whatsappUrl} />
+    <FooterSlice content={content} />
   </main>
 </BaseLayout>

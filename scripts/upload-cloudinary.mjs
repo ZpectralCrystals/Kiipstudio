@@ -11,13 +11,11 @@ const defaultZips = [
   '/Volumes/MAC/MAC Ext/Downloads/drive-download-20260719T172233Z-1-001.zip',
   '/Volumes/MAC/MAC Ext/Downloads/drive-download-20260719T172233Z-1-002.zip',
 ];
-const localAssetDirs = [
-  path.join(cwd, 'public/assets/figma/home-v2'),
-  path.join(cwd, 'public/assets/figma/how-we-work'),
-];
+const localAssetDirs = [path.join(cwd, 'public/assets')];
 const outFile = path.join(cwd, 'cloudinary-upload-manifest.json');
 const folder = process.env.CLOUDINARY_FOLDER || 'klipstudio';
 const dryRun = process.argv.includes('--dry-run');
+const uploadSourcePhotos = process.argv.includes('--source-photos');
 const maxUploadBytes = 9.5 * 1024 * 1024;
 
 if (!process.env.CLOUDINARY_URL && !dryRun) {
@@ -155,7 +153,7 @@ for (const file of localAssetDirs.flatMap(walkImages)) {
   console.log(`asset ${rel} -> ${result.public_id}`);
 }
 
-for (const zipPath of defaultZips.filter(fs.existsSync)) {
+for (const zipPath of (uploadSourcePhotos ? defaultZips : []).filter(fs.existsSync)) {
   const entries = await readZipEntries(zipPath);
   console.log(`${path.basename(zipPath)}: ${entries.length} images`);
   for (const entry of entries) {
