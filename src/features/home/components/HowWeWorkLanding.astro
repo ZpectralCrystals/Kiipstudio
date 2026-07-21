@@ -452,6 +452,12 @@ const paragraphs = (text: string) =>
       padding: 210px 24px 64px;
     }
 
+    .work-title {
+      font-size: clamp(48px, 15vw, 64px);
+      line-height: 0.96;
+      margin-bottom: 44px;
+    }
+
     .work-step {
       grid-template-columns: 48px minmax(0, 1fr);
     }
@@ -466,6 +472,12 @@ const paragraphs = (text: string) =>
     .work-step h2,
     .work-step p {
       font-size: 18px;
+    }
+
+    .work-step p span,
+    .payments__notes span {
+      display: inline;
+      white-space: normal;
     }
 
     .payments h2 {

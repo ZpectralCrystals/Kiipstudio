@@ -150,6 +150,108 @@ const imageSrc = (image: LandingImage, width = 1600) =>
       </footer>
     </div>
   </div>
+
+  <div class="home-mobile" aria-label="KlipStudio móvil">
+    <header class="mobile-header">
+      <a href="/" aria-label="KlipStudio inicio">
+        <img class="mobile-header__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+      </a>
+      <a class="mobile-header__cta" href={content.whatsappUrl}>WhatsApp <span aria-hidden="true">→</span></a>
+    </header>
+
+    <nav class="mobile-nav" aria-label="Navegación principal móvil">
+      <a href="/">Inicio</a>
+      <a href="/#nosotros">Nosotros</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/como-trabajamos">Cómo trabajamos</a>
+    </nav>
+
+    <main>
+      <section class="mobile-hero" data-mobile-anchor="servicios" aria-labelledby="mobile-services-title">
+        <div class="mobile-hero__bg" aria-hidden="true"></div>
+        <h1 id="mobile-services-title">{content.headline}</h1>
+        <div class="mobile-services-carousel" data-services-carousel>
+          <div class="mobile-services" aria-label="Servicios" tabindex="0" data-carousel-track>
+            {
+              content.serviceCards.map((card) => (
+                <a class="mobile-service-card" href={card.href} aria-label={`Ver ${card.title}`}>
+                  <img src={imageSrc(card.image, 720)} alt={card.image.alt} loading="eager" decoding="async" />
+                  <span>{card.title}</span>
+                </a>
+              ))
+            }
+          </div>
+          <div class="mobile-carousel-controls">
+            <button class="mobile-carousel-button" type="button" aria-label="Servicio anterior" data-carousel-prev>‹</button>
+            <div class="mobile-carousel-dots" aria-hidden="true">
+              {content.serviceCards.map((_, index) => <span class={index === 0 ? 'is-active' : ''} data-carousel-dot></span>)}
+            </div>
+            <button class="mobile-carousel-button" type="button" aria-label="Servicio siguiente" data-carousel-next>›</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-about" data-mobile-anchor="nosotros" aria-labelledby="mobile-about-title">
+        <div class="mobile-about__copy">
+          <h2 id="mobile-about-title">{content.about.title}</h2>
+          {content.about.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <img class="mobile-about__person" src={imageSrc(content.about.person, 900)} alt={content.about.person.alt} loading="eager" decoding="async" />
+        <img class="mobile-about__camera" src={imageSrc(content.about.camera, 720)} alt="" loading="eager" decoding="async" />
+      </section>
+
+      <section class="mobile-studio" aria-label="Estudio favorito en Arequipa">
+        <div class="mobile-studio__copy">
+          <p>{content.studio.eyebrow}</p>
+          <strong>{content.studio.highlight}</strong>
+          <span>{content.studio.suffix}</span>
+          <a href={content.whatsappUrl}>{content.studio.buttonLabel}</a>
+        </div>
+        <img src={imageSrc(content.studio.image, 1200)} alt={content.studio.image.alt} loading="eager" decoding="async" />
+      </section>
+
+      <section class="mobile-why" data-mobile-anchor="por-que-elegirnos" aria-labelledby="mobile-why-title">
+        <img class="mobile-why__image" src={imageSrc(content.why.background, 1200)} alt={content.why.background.alt} loading="eager" decoding="async" />
+        <div class="mobile-why__copy">
+          <h2 id="mobile-why-title">{content.why.title}</h2>
+          <ul>
+            {
+              content.why.items.map((item) => (
+                <li>
+                  <span aria-hidden="true">✓</span>
+                  <p>{item}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <section class="mobile-gallery" aria-label="Galería de retratos">
+        {content.gallery.map((image) => <img src={imageSrc(image, 900)} alt={image.alt} loading="eager" decoding="async" />)}
+      </section>
+    </main>
+
+    <footer class="mobile-footer" data-mobile-anchor="contacto">
+      <img class="mobile-footer__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+      <div class="mobile-footer__grid">
+        <div>
+          <h2>Servicios</h2>
+          {content.nav.servicios.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+        <div>
+          <h2>Nosotros</h2>
+          {content.nav.nosotros.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+        <div>
+          <h2>Contáctanos</h2>
+          <p>{content.footer.email}</p>
+          <p>{content.footer.phone}</p>
+          {content.footer.handles.map((item) => <p>{item.text}</p>)}
+        </div>
+      </div>
+    </footer>
+  </div>
 </section>
 
 <script>
@@ -160,12 +262,26 @@ const imageSrc = (image: LandingImage, width = 1600) =>
     '#contacto': 4931,
   };
 
+  const mobileScrollTargets = {
+    '#servicios': 'servicios',
+    '#nosotros': 'nosotros',
+    '#por-que-elegirnos': 'por-que-elegirnos',
+    '#contacto': 'contacto',
+  };
+
   const getHomeScale = () => {
     const stage = document.querySelector('.home-figma__stage');
     return stage ? stage.getBoundingClientRect().height / 5474 : 1;
   };
 
   const scrollToFigmaTarget = (hash: string, behavior: ScrollBehavior = 'smooth') => {
+    const mobileTarget = mobileScrollTargets[hash as keyof typeof mobileScrollTargets];
+    if (window.matchMedia('(max-width: 900px)').matches && mobileTarget) {
+      const target = document.querySelector(`[data-mobile-anchor="${mobileTarget}"]`);
+      if (target instanceof HTMLElement) target.scrollIntoView({ behavior, block: 'start' });
+      return;
+    }
+
     const target = figmaScrollTargets[hash as keyof typeof figmaScrollTargets];
     if (target === undefined) return;
     window.scrollTo({ top: target * getHomeScale(), behavior });
@@ -191,6 +307,49 @@ const imageSrc = (image: LandingImage, width = 1600) =>
     history.pushState(null, '', url.hash);
     scrollToFigmaTarget(url.hash);
   });
+
+  const setupServicesCarousel = () => {
+    const carousel = document.querySelector('[data-services-carousel]');
+    if (!carousel) return;
+
+    const track = carousel.querySelector<HTMLElement>('[data-carousel-track]');
+    const cards = Array.from(carousel.querySelectorAll<HTMLElement>('.mobile-service-card'));
+    const dots = Array.from(carousel.querySelectorAll<HTMLElement>('[data-carousel-dot]'));
+    const prev = carousel.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const next = carousel.querySelector<HTMLButtonElement>('[data-carousel-next]');
+    if (!track || cards.length === 0) return;
+
+    const currentIndex = () => {
+      const trackCenter = track.scrollLeft + track.clientWidth / 2;
+      return cards.reduce((bestIndex, card, index) => {
+        const bestCard = cards[bestIndex];
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const bestCenter = bestCard.offsetLeft + bestCard.offsetWidth / 2;
+        return Math.abs(cardCenter - trackCenter) < Math.abs(bestCenter - trackCenter) ? index : bestIndex;
+      }, 0);
+    };
+
+    const update = () => {
+      const index = currentIndex();
+      dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === cards.length - 1;
+    };
+
+    const scrollToCard = (index: number) => {
+      const card = cards[Math.max(0, Math.min(cards.length - 1, index))];
+      track.scrollTo({ left: card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2, behavior: 'smooth' });
+    };
+
+    prev?.addEventListener('click', () => scrollToCard(currentIndex() - 1));
+    next?.addEventListener('click', () => scrollToCard(currentIndex() + 1));
+    dots.forEach((dot, index) => dot.addEventListener('click', () => scrollToCard(index)));
+    track.addEventListener('scroll', () => window.requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  };
+
+  window.addEventListener('DOMContentLoaded', setupServicesCarousel);
 </script>
 
 <style>
@@ -199,6 +358,10 @@ const imageSrc = (image: LandingImage, width = 1600) =>
     margin-left: calc(50% - 50vw);
     overflow: hidden;
     width: 100vw;
+  }
+
+  .home-mobile {
+    display: none;
   }
 
   .home-figma__stage {
@@ -262,4 +425,444 @@ const imageSrc = (image: LandingImage, width = 1600) =>
     justify-content: center;
     width: 44px;
   }
+
+  @media (max-width: 900px) {
+    .home-figma {
+      background: #04000a;
+      overflow: visible;
+    }
+
+    .home-figma__stage {
+      display: none;
+    }
+
+    .home-mobile {
+      background: #05000a;
+      color: white;
+      display: block;
+      min-height: 100vh;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .mobile-header {
+      align-items: center;
+      background: linear-gradient(180deg, rgba(17, 0, 0, 0.98), rgba(17, 0, 0, 0.84));
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      padding: 18px 18px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .mobile-header__logo {
+      height: 32px;
+      object-fit: contain;
+      width: 112px;
+    }
+
+    .mobile-header__cta {
+      align-items: center;
+      background: #ff0004;
+      border-radius: 999px;
+      color: white;
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 900;
+      gap: 7px;
+      height: 34px;
+      justify-content: center;
+      letter-spacing: 0;
+      padding: 0 14px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-nav {
+      background: #160002;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 18px 14px;
+      position: sticky;
+      top: 64px;
+      z-index: 19;
+    }
+
+    .mobile-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-nav a {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: white;
+      flex: 1 1 calc(50% - 8px);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 10px 13px;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-hero {
+      background: #180101;
+      isolation: isolate;
+      padding: 34px 18px 42px;
+      position: relative;
+    }
+
+    .mobile-hero__bg {
+      background:
+        linear-gradient(180deg, rgba(40, 0, 0, 0.4), #220303),
+        url("/assets/figma/home-v2/circle.svg");
+      inset: 0;
+      opacity: 0.42;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .mobile-hero h1 {
+      font-size: clamp(25px, 7.4vw, 34px);
+      font-weight: 900;
+      line-height: 1.08;
+      margin: 0 auto 24px;
+      max-width: 420px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .mobile-services-carousel {
+      margin: 0 -18px;
+      position: relative;
+    }
+
+    .mobile-services {
+      display: flex;
+      gap: clamp(46px, 17vw, 72px);
+      overflow-x: auto;
+      padding: 0 34px 18px;
+      scroll-padding: 0 34px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .mobile-services::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-service-card {
+      color: white;
+      display: grid;
+      flex: 0 0 min(calc(100vw - 68px), 360px);
+      gap: 12px;
+      scroll-snap-align: center;
+    }
+
+    .mobile-service-card img {
+      aspect-ratio: 328 / 462;
+      border-radius: 18px;
+      height: auto;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .mobile-service-card span {
+      font-size: clamp(11px, 3.2vw, 14px);
+      font-weight: 900;
+      line-height: 1.15;
+      min-height: 32px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .mobile-carousel-button {
+      align-items: center;
+      background: rgba(255, 0, 4, 0.95);
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      display: inline-flex;
+      font-size: 34px;
+      font-weight: 900;
+      height: 38px;
+      justify-content: center;
+      line-height: 1;
+      padding: 0 0 4px;
+      width: 38px;
+    }
+
+    .mobile-carousel-button:disabled {
+      opacity: 0.36;
+    }
+
+    .mobile-carousel-controls {
+      align-items: center;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .mobile-carousel-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .mobile-carousel-dots span {
+      background: rgba(255, 255, 255, 0.36);
+      border-radius: 999px;
+      height: 7px;
+      transition: width 160ms ease, background 160ms ease;
+      width: 7px;
+    }
+
+    .mobile-carousel-dots span.is-active {
+      background: #ff0004;
+      width: 22px;
+    }
+
+    .mobile-about {
+      background: radial-gradient(circle at 70% 45%, #8b0b0b 0, #630505 38%, #250101 100%);
+      min-height: 720px;
+      overflow: hidden;
+      padding: 42px 20px 260px;
+      position: relative;
+    }
+
+    .mobile-about__copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .mobile-about h2,
+    .mobile-why h2 {
+      font-size: clamp(31px, 9vw, 44px);
+      font-weight: 900;
+      line-height: 0.98;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
+
+    .mobile-about p {
+      font-size: clamp(16px, 4.3vw, 19px);
+      font-weight: 750;
+      line-height: 1.18;
+      margin: 0 0 12px;
+      max-width: 28rem;
+    }
+
+    .mobile-about__person {
+      bottom: -20px;
+      height: auto;
+      left: -22px;
+      max-width: none;
+      position: absolute;
+      width: min(82vw, 370px);
+      z-index: 1;
+    }
+
+    .mobile-about__camera {
+      bottom: -34px;
+      height: auto;
+      max-width: none;
+      opacity: 0.94;
+      position: absolute;
+      right: -118px;
+      transform: rotate(-91deg);
+      width: min(70vw, 330px);
+      z-index: 1;
+    }
+
+    .mobile-studio {
+      background: #f4f7fb;
+      color: #090909;
+      overflow: hidden;
+      padding: 34px 18px 0;
+      position: relative;
+    }
+
+    .mobile-studio__copy {
+      margin: 0 auto 8px;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .mobile-studio__copy p,
+    .mobile-studio__copy strong,
+    .mobile-studio__copy span {
+      display: block;
+      letter-spacing: 0;
+    }
+
+    .mobile-studio__copy p {
+      font-size: clamp(24px, 7vw, 34px);
+      line-height: 1;
+      margin: 0;
+    }
+
+    .mobile-studio__copy strong {
+      color: #ff0004;
+      font-size: clamp(29px, 8.4vw, 40px);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .mobile-studio__copy span {
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 900;
+      line-height: 0.98;
+      margin-bottom: 14px;
+    }
+
+    .mobile-studio__copy a {
+      background: #ff0004;
+      border-radius: 9px;
+      color: white;
+      display: inline-flex;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1;
+      padding: 11px 15px;
+    }
+
+    .mobile-studio img {
+      display: block;
+      height: clamp(300px, 86vw, 430px);
+      margin: 18px -18px 0;
+      max-width: 560px;
+      object-fit: cover;
+      object-position: 70% center;
+      width: calc(100% + 36px);
+    }
+
+    .mobile-why {
+      background: #f3f5f8;
+      color: #111;
+      display: grid;
+    }
+
+    .mobile-why__image {
+      height: clamp(320px, 92vw, 480px);
+      object-fit: cover;
+      object-position: 24% center;
+      width: 100%;
+    }
+
+    .mobile-why__copy {
+      padding: 32px 20px 38px;
+    }
+
+    .mobile-why h2 {
+      font-size: clamp(28px, 8vw, 38px);
+      text-align: left;
+      text-transform: none;
+    }
+
+    .mobile-why ul {
+      display: grid;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-why li {
+      align-items: flex-start;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 28px minmax(0, 1fr);
+    }
+
+    .mobile-why li span {
+      align-items: center;
+      border: 3px solid #ff0004;
+      color: #202020;
+      display: inline-flex;
+      font-size: 25px;
+      font-weight: 900;
+      height: 26px;
+      justify-content: center;
+      line-height: 1;
+      margin-top: 2px;
+      width: 26px;
+    }
+
+    .mobile-why li p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.28;
+      margin: 0;
+    }
+
+    .mobile-gallery {
+      background: #05000a;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mobile-gallery img {
+      aspect-ratio: 1 / 1.22;
+      height: auto;
+      min-height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .mobile-gallery img:first-child {
+      aspect-ratio: 16 / 12;
+      grid-column: 1 / -1;
+      min-height: 290px;
+      object-position: center 35%;
+    }
+
+    .mobile-gallery img:last-child {
+      grid-column: 1 / -1;
+      max-height: 390px;
+      object-position: center 28%;
+    }
+
+    .mobile-footer {
+      background: #04000a;
+      border-top: 8px solid #ff0004;
+      color: white;
+      padding: 38px 22px 44px;
+    }
+
+    .mobile-footer__logo {
+      height: 42px;
+      margin-bottom: 28px;
+      object-fit: contain;
+      width: 150px;
+    }
+
+    .mobile-footer__grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .mobile-footer h2 {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+    }
+
+    .mobile-footer a,
+    .mobile-footer p {
+      color: rgba(255, 255, 255, 0.86);
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 8px;
+    }
+  }
+
 </style>
