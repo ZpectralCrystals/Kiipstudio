@@ -26,7 +26,8 @@ const iconNames: Record<string, string> = {
 };
 
 const iconName = iconNames[key];
-const src = iconName ? `/assets/social/${variant}/${iconName}.webp` : undefined;
+const fileName = variant === 'white' && iconName === 'facebook' ? 'facebook-v2' : iconName;
+const src = iconName ? `/assets/social/${variant}/${fileName}.webp` : undefined;
 ---
 
 {src ? <img class={className} src={src} alt="" aria-hidden="true" width="18" height="21" loading="lazy" decoding="async" /> : <span>{name}</span>}
