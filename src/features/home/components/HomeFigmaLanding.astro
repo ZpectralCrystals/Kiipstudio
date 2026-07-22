@@ -8,8 +8,8 @@ type Props = {
 
 const { content } = Astro.props;
 
-const imageSrc = (image: LandingImage, width = 1600) =>
-  getOptimizedCloudinaryUrl(image.imageUrl, width) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width, format: 'auto' }) : image.localSrc);
+const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
+  getOptimizedCloudinaryUrl(image.imageUrl, width, height) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width, format: 'auto' }) : image.localSrc);
 
 ---
 
@@ -61,7 +61,7 @@ const imageSrc = (image: LandingImage, width = 1600) =>
             {
               content.serviceCards.map((card) => (
                 <a class="block w-[328px]" href={card.href} aria-label={`Ver ${card.title}`}>
-                  <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={imageSrc(card.image, 900)} alt={card.image.alt} loading="eager" decoding="async" />
+                  <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={imageSrc(card.image, 720, 1014)} alt={card.image.alt} loading="eager" decoding="async" />
                   <h2 class="mt-[47px] text-center text-[24px] font-extrabold uppercase leading-[31px] text-white">{card.title}</h2>
                 </a>
               ))
@@ -173,7 +173,7 @@ const imageSrc = (image: LandingImage, width = 1600) =>
             {
               content.serviceCards.map((card, index) => (
                 <a class="mobile-service-card" href={card.href} aria-label={`Ver ${card.title}`}>
-                  <img src={imageSrc(card.image, 720)} alt={card.image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+                  <img src={imageSrc(card.image, 720, 1014)} alt={card.image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
                   <span>{card.title}</span>
                 </a>
               ))

@@ -27,9 +27,11 @@ export function getCloudinaryImageUrl({
 
 // Sanity stores original Cloudinary URLs. Insert delivery transforms at render time
 // so CMS edits stay simple while every browser receives an appropriately sized file.
-export function getOptimizedCloudinaryUrl(url: string | undefined, width: number) {
+export function getOptimizedCloudinaryUrl(url: string | undefined, width: number, height?: number) {
   if (!url || !url.includes('res.cloudinary.com/') || !url.includes('/image/upload/')) return url || '';
 
-  const transforms = `c_limit,w_${width},q_auto,f_auto`;
+  const transforms = height
+    ? `c_fill,g_auto,w_${width},h_${height},q_auto,f_auto`
+    : `c_limit,w_${width},q_auto,f_auto`;
   return url.replace('/image/upload/', `/image/upload/${transforms}/`);
 }

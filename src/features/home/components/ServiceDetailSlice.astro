@@ -8,7 +8,7 @@ type Props = {
 };
 
 const {section, whatsappUrl} = Astro.props;
-const imageSrc = (image: SanityImage | undefined, width: number) => getOptimizedCloudinaryUrl(image?.imageUrl, width);
+const imageSrc = (image: SanityImage | undefined, width: number, height?: number) => getOptimizedCloudinaryUrl(image?.imageUrl, width, height);
 const galleryPages = Array.from({length: Math.ceil(section.gallery.length / 8)}, (_, index) => section.gallery.slice(index * 8, index * 8 + 8));
 const videos = section.videos.filter((video) => video.youtubeId);
 const photoLabel = section.photoLabel || 'Fotos';
@@ -45,7 +45,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         <div class="gallery-track flex overflow-x-auto scroll-smooth pb-4" data-gallery-track>
           {galleryPages.map((page, pageIndex) => (
             <div class="grid min-w-full grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" data-gallery-page>
-              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 2 ? 'eager' : 'lazy'} decoding="async" />)}
+              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820, 1048)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 2 ? 'eager' : 'lazy'} decoding="async" />)}
             </div>
           ))}
         </div>
