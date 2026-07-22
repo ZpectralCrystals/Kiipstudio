@@ -123,7 +123,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
       <footer class="absolute left-0 top-[4931px] z-20 h-[543px] w-[1920px] bg-[#04000a] text-white">
         <img class="absolute left-[250px] top-[84px] h-[57px] w-[202px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
         <nav class="absolute left-[1542px] top-[111px] flex gap-[28px]" aria-label="Redes sociales">
-          {content.footer.socials.map((item) => <a class="grid size-[20px] place-items-center hover:opacity-70" href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="footer-social-icon h-[18px] w-[18px] object-contain" /></a>)}
+          {content.footer.socials.map((item) => <a class="grid size-[20px] place-items-center hover:opacity-70" href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain [filter:brightness(0)_invert(1)]" /></a>)}
         </nav>
         <img class="absolute left-[259px] top-[153px] h-px w-[1410px]" src="/assets/figma/home-v2/line-footer.svg" alt="" />
 
@@ -437,10 +437,6 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
     height: 44px;
     justify-content: center;
     width: 44px;
-  }
-
-  .footer-social-icon {
-    filter: brightness(0) invert(1);
   }
 
   @media (max-width: 900px) {
