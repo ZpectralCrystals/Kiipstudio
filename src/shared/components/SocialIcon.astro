@@ -2,29 +2,31 @@
 type Props = {
   name: string;
   class?: string;
+  variant?: 'red' | 'white';
 };
 
-const {name, class: className = ''} = Astro.props;
+const {name, class: className = '', variant = 'red'} = Astro.props;
 const key = name.trim().toLowerCase();
-const icons: Record<string, string> = {
-  facebook: '/assets/social/facebook.webp',
-  f: '/assets/social/facebook.webp',
-  tiktok: '/assets/social/tiktok.webp',
-  '♪': '/assets/social/tiktok.webp',
-  instagram: '/assets/social/instagram.webp',
-  '◎': '/assets/social/instagram.webp',
-  whatsapp: '/assets/social/whatsapp.webp',
-  '☏': '/assets/social/whatsapp.webp',
-  email: '/assets/social/email.webp',
-  mail: '/assets/social/email.webp',
-  '✉': '/assets/social/email.webp',
-  phone: '/assets/social/phone.webp',
-  telefono: '/assets/social/phone.webp',
-  teléfono: '/assets/social/phone.webp',
-  '☎': '/assets/social/phone.webp',
+const iconNames: Record<string, string> = {
+  facebook: 'facebook',
+  f: 'facebook',
+  tiktok: 'tiktok',
+  '♪': 'tiktok',
+  instagram: 'instagram',
+  '◎': 'instagram',
+  whatsapp: 'whatsapp',
+  '☏': 'whatsapp',
+  email: 'email',
+  mail: 'email',
+  '✉': 'email',
+  phone: 'phone',
+  telefono: 'phone',
+  teléfono: 'phone',
+  '☎': 'phone',
 };
 
-const src = icons[key];
+const iconName = iconNames[key];
+const src = iconName ? `/assets/social/${variant}/${iconName}.webp` : undefined;
 ---
 
 {src ? <img class={className} src={src} alt="" aria-hidden="true" width="18" height="21" loading="lazy" decoding="async" /> : <span>{name}</span>}
