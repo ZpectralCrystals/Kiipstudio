@@ -11,13 +11,17 @@ const { content } = Astro.props;
 
 const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
   getOptimizedCloudinaryUrl(image.imageUrl, width, height) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
+const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 
 ---
 
 <section class="home-figma" aria-label="KlipStudio">
   <div class="home-figma__stage">
     <div class="home-figma__canvas">
-      <img class="absolute left-0 top-0 h-[1858px] w-[1920px] object-cover" src={imageSrc(content.heroBackground, 1920)} alt="" loading="eager" decoding="async" />
+      <picture>
+        <source media="(min-width: 901px)" srcset={imageSrc(content.heroBackground, 1920)} />
+        <img class="absolute left-0 top-0 h-[1858px] w-[1920px] object-cover" src={transparentPixel} alt="" loading="eager" decoding="async" />
+      </picture>
       <div class="absolute left-[-13px] top-[1140px] h-[730px] w-[1933px] bg-[#ff0000] opacity-[0.09]"></div>
       <span id="servicios" class="page-anchor top-[390px]" aria-hidden="true"></span>
       <span id="nosotros" class="page-anchor top-[965px]" aria-hidden="true"></span>
@@ -26,7 +30,10 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
 
       <header class="absolute left-0 top-0 z-20 h-[130px] w-full">
         <a href="/" aria-label="KlipStudio inicio">
-          <img class="absolute left-[65px] top-[61px] h-[45px] w-[157px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+          <picture>
+            <source media="(min-width: 901px)" srcset={imageSrc(content.logo, 320)} />
+            <img class="absolute left-[65px] top-[61px] h-[45px] w-[157px] object-contain" src={transparentPixel} alt={content.logo.alt} loading="eager" decoding="async" />
+          </picture>
         </a>
 
         <nav class="absolute left-[715px] top-[68px] flex items-start gap-[51px]" aria-label="Navegación principal">
@@ -64,7 +71,10 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
             {
               content.serviceCards.map((card) => (
                 <a class="block w-[328px]" href={card.href} aria-label={`Ver ${card.title}`}>
-                  <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={imageSrc(card.image, 720, 1014)} alt={card.image.alt} loading="eager" decoding="async" />
+                  <picture>
+                    <source media="(min-width: 901px)" srcset={imageSrc(card.image, 720, 1014)} />
+                    <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={transparentPixel} alt={card.image.alt} loading="eager" decoding="async" />
+                  </picture>
                   <h2 class="mt-[47px] text-center text-[24px] font-extrabold uppercase leading-[31px] text-white">{card.title}</h2>
                 </a>
               ))
@@ -177,7 +187,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
             {
               content.serviceCards.map((card, index) => (
                 <a class="mobile-service-card" href={card.href} aria-label={`Ver ${card.title}`}>
-                  <img src={imageSrc(card.image, 720, 1014)} alt={card.image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+                  <img src={imageSrc(card.image, 430, 606)} alt={card.image.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
                   <span>{card.title}</span>
                 </a>
               ))
@@ -198,8 +208,8 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
           <h2 id="mobile-about-title">{content.about.title}</h2>
           {content.about.body.map((paragraph) => <p>{paragraph}</p>)}
         </div>
-        <img class="mobile-about__person" src={imageSrc(content.about.person, 900)} alt={content.about.person.alt} loading="eager" decoding="async" />
-        <img class="mobile-about__camera" src={imageSrc(content.about.camera, 720)} alt="" loading="eager" decoding="async" />
+        <img class="mobile-about__person" src={imageSrc(content.about.person, 760)} alt={content.about.person.alt} loading="lazy" decoding="async" />
+        <img class="mobile-about__camera" src={imageSrc(content.about.camera, 560)} alt="" loading="lazy" decoding="async" />
       </section>
 
       <section class="mobile-studio" aria-label="Estudio favorito en Arequipa">
@@ -209,11 +219,11 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
           <span>{content.studio.suffix}</span>
           <a href={content.whatsappUrl}>{content.studio.buttonLabel}</a>
         </div>
-        <img src={imageSrc(content.studio.image, 1200)} alt={content.studio.image.alt} loading="eager" decoding="async" />
+        <img src={imageSrc(content.studio.image, 900)} alt={content.studio.image.alt} loading="lazy" decoding="async" />
       </section>
 
       <section class="mobile-why" data-mobile-anchor="por-que-elegirnos" aria-labelledby="mobile-why-title">
-        <img class="mobile-why__image" src={imageSrc(content.why.background, 1200)} alt={content.why.background.alt} loading="eager" decoding="async" />
+        <img class="mobile-why__image" src={imageSrc(content.why.background, 900)} alt={content.why.background.alt} loading="lazy" decoding="async" />
         <div class="mobile-why__copy">
           <h2 id="mobile-why-title">{content.why.title}</h2>
           <ul>
@@ -235,7 +245,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
     </main>
 
     <footer class="mobile-footer" data-mobile-anchor="contacto">
-      <img class="mobile-footer__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
+      <img class="mobile-footer__logo" src={imageSrc(content.logo, 220)} alt={content.logo.alt} loading="lazy" decoding="async" />
       <div class="mobile-footer__grid">
         <div>
           <h2>Servicios</h2>

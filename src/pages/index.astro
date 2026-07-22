@@ -1,14 +1,20 @@
 ---
 import HomeFigmaLanding from '@features/home/components/HomeFigmaLanding.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
 import { getHomeLandingContent } from '@shared/lib/sanity';
 
 const content = await getHomeLandingContent();
+const firstMobileCardImage = content.serviceCards[0]?.image;
+const firstMobileCardSrc = firstMobileCardImage
+  ? getOptimizedCloudinaryUrl(firstMobileCardImage.imageUrl, 430, 606) || (firstMobileCardImage.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: firstMobileCardImage.cloudinaryPublicId, width: 430 }) : firstMobileCardImage.localSrc)
+  : '';
 ---
 
 <BaseLayout
   title="KlipStudio | Eventos, fotos y video"
   description="Landing estática KlipStudio replicada desde Figma con Astro, WebP, lazy loading y carrusel sin librerías."
+  preloadImages={firstMobileCardSrc ? [{href: firstMobileCardSrc, media: '(max-width: 900px)'}] : []}
 >
   <main class="min-h-screen bg-[#04000a]">
     <HomeFigmaLanding content={content} />
