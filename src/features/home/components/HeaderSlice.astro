@@ -1,10 +1,11 @@
 ---
 import type {HomeLandingContent} from '../data/homeContent';
+import {getOptimizedCloudinaryUrl} from '@shared/lib/cloudinary';
 
 type Props = {content: HomeLandingContent};
 const {content} = Astro.props;
 const remoteLogoSrc = 'imageUrl' in content.logo ? content.logo.imageUrl : undefined;
-const logoSrc = typeof remoteLogoSrc === 'string' && remoteLogoSrc ? remoteLogoSrc : content.logo.localSrc;
+const logoSrc = getOptimizedCloudinaryUrl(typeof remoteLogoSrc === 'string' ? remoteLogoSrc : undefined, 320) || content.logo.localSrc;
 ---
 
 <header class="relative mx-auto flex h-24 max-w-[1808px] items-center justify-between px-5 md:h-[100px] md:px-0 md:pt-[45px]">

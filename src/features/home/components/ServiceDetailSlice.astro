@@ -1,4 +1,5 @@
 ---
+import {getOptimizedCloudinaryUrl} from '@shared/lib/cloudinary';
 import type {SanityImage, ServicePageContent} from '@shared/lib/sanity';
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 };
 
 const {section, whatsappUrl} = Astro.props;
-const imageSrc = (image?: SanityImage) => image?.imageUrl || '';
+const imageSrc = (image: SanityImage | undefined, width: number) => getOptimizedCloudinaryUrl(image?.imageUrl, width);
 const galleryPages = Array.from({length: Math.ceil(section.gallery.length / 8)}, (_, index) => section.gallery.slice(index * 8, index * 8 + 8));
 const videos = section.videos.filter((video) => video.youtubeId);
 const photoLabel = section.photoLabel || 'Fotos';
@@ -21,7 +22,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 
 <section id={section.slug} class="overflow-hidden bg-white text-[#04000a]">
   <div class="relative isolate flex min-h-[280px] items-center justify-center overflow-hidden md:min-h-[360px]">
-    <img class="absolute inset-0 -z-20 h-full w-full object-cover" src={imageSrc(section.hero)} alt={section.hero.alt || section.title} loading="eager" decoding="async" />
+    <img class="absolute inset-0 -z-20 h-full w-full object-cover" src={imageSrc(section.hero, 1920)} alt={section.hero.alt || section.title} loading="eager" decoding="async" />
     <div class="absolute inset-0 -z-10 bg-black/45"></div>
     <div class="px-5 text-center text-white">
       <h1 class="text-4xl font-bold uppercase leading-tight md:text-5xl">{section.title}</h1>
@@ -44,7 +45,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         <div class="gallery-track flex overflow-x-auto scroll-smooth pb-4" data-gallery-track>
           {galleryPages.map((page, pageIndex) => (
             <div class="grid min-w-full grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" data-gallery-page>
-              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 2 ? 'eager' : 'lazy'} decoding="async" />)}
+              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 2 ? 'eager' : 'lazy'} decoding="async" />)}
             </div>
           ))}
         </div>
@@ -65,7 +66,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
       <div class="relative" data-gallery-slider>
         <button class="absolute left-0 top-1/2 z-10 hidden size-12 -translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video anterior" data-gallery-prev>‹</button>
         <div class="gallery-track mx-auto flex overflow-x-auto scroll-smooth" data-gallery-track>
-          {videos.map((video) => <div class="relative aspect-video min-w-full overflow-hidden" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || section.title, imageSrc(video.image))} title={video.title || section.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
+          {videos.map((video) => <div class="relative aspect-video min-w-full overflow-hidden" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || section.title, imageSrc(video.image, 1280))} title={video.title || section.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
         </div>
         <button class="absolute right-0 top-1/2 z-10 hidden size-12 translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
       </div>

@@ -1,5 +1,5 @@
 ---
-import { getCloudinaryImageUrl } from '@shared/lib/cloudinary';
+import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
 import type { HomeLandingContent, LandingImage } from '../data/homeContent';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 const { content } = Astro.props;
 
 const imageSrc = (image: LandingImage, width = 1600) =>
-  image.imageUrl || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
+  getOptimizedCloudinaryUrl(image.imageUrl, width) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width, format: 'auto' }) : image.localSrc);
 
 ---
 
@@ -111,7 +111,7 @@ const imageSrc = (image: LandingImage, width = 1600) =>
         </section>
 
         <section class="absolute left-0 top-[4018px] z-10 grid h-[888px] w-[1920px] grid-cols-3" aria-label="Galería de retratos">
-          {content.gallery.slice(0, 3).map((image) => <img class="h-full w-full object-cover" src={imageSrc(image, 900)} alt={image.alt} loading="eager" decoding="async" />)}
+          {content.gallery.slice(0, 3).map((image) => <img class="h-full w-full object-cover" src={imageSrc(image, 900)} alt={image.alt} loading="lazy" decoding="async" />)}
           <div class="absolute left-0 top-[4905px] z-10 h-[26px] w-[1920px] bg-[#ff0000]"></div>
         </section>
       </main>
@@ -171,9 +171,9 @@ const imageSrc = (image: LandingImage, width = 1600) =>
         <div class="mobile-services-carousel" data-services-carousel>
           <div class="mobile-services" aria-label="Servicios" tabindex="0" data-carousel-track>
             {
-              content.serviceCards.map((card) => (
+              content.serviceCards.map((card, index) => (
                 <a class="mobile-service-card" href={card.href} aria-label={`Ver ${card.title}`}>
-                  <img src={imageSrc(card.image, 720)} alt={card.image.alt} loading="eager" decoding="async" />
+                  <img src={imageSrc(card.image, 720)} alt={card.image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
                   <span>{card.title}</span>
                 </a>
               ))
@@ -226,7 +226,7 @@ const imageSrc = (image: LandingImage, width = 1600) =>
       </section>
 
       <section class="mobile-gallery" aria-label="Galería de retratos">
-        {content.gallery.map((image) => <img src={imageSrc(image, 900)} alt={image.alt} loading="eager" decoding="async" />)}
+        {content.gallery.map((image) => <img src={imageSrc(image, 900)} alt={image.alt} loading="lazy" decoding="async" />)}
       </section>
     </main>
 

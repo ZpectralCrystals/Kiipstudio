@@ -1,5 +1,5 @@
 ---
-import { getCloudinaryImageUrl } from '@shared/lib/cloudinary';
+import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
 import type { HomeLandingContent, LandingImage } from '../data/homeContent';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 const { content } = Astro.props;
 
 const imageSrc = (image: LandingImage, width = 1600) =>
-  image.imageUrl || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
+  getOptimizedCloudinaryUrl(image.imageUrl, width) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width, format: 'auto' }) : image.localSrc);
 
 const paragraphs = (text: string) =>
   text
