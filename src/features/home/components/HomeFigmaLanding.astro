@@ -113,11 +113,10 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
 
         <section class="absolute left-0 top-[4018px] z-10 grid h-[888px] w-[1920px] grid-cols-3" aria-label="Galería de retratos">
           {content.gallery.slice(0, 3).map((image) => <img class="h-full w-full object-cover" src={imageSrc(image, 900)} alt={image.alt} loading="lazy" decoding="async" />)}
-          <div class="absolute left-0 top-[4905px] z-10 h-[26px] w-[1920px] bg-[#ff0000]"></div>
         </section>
       </main>
 
-      <footer class="absolute left-0 top-[4931px] h-[543px] w-[1920px] bg-[#04000a] text-white">
+      <footer class="absolute left-0 top-[4905px] h-[569px] w-[1920px] border-t-[26px] border-[#ff0000] bg-[#04000a] text-white">
         <img class="absolute left-[250px] top-[84px] h-[57px] w-[202px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
         <nav class="absolute left-[1542px] top-[111px] flex gap-[28px]" aria-label="Redes sociales">
           {content.footer.socials.map((item) => <a class="grid size-[20px] place-items-center hover:opacity-70" href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain" /></a>)}
