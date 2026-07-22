@@ -83,7 +83,7 @@ const paragraphs = (text: string) =>
       <div class="work-footer__top">
         <img class="work-footer__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
         <nav class="work-footer__socials" aria-label="Redes sociales">
-          {content.footer.socials.map((item) => <a href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain" /></a>)}
+          {content.footer.socials.map((item) => <a href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="footer-social-icon h-[18px] w-[18px] object-contain" /></a>)}
         </nav>
       </div>
 
@@ -386,6 +386,10 @@ const paragraphs = (text: string) =>
     height: 20px;
     justify-content: center;
     width: 20px;
+  }
+
+  .footer-social-icon {
+    filter: brightness(0) invert(1);
   }
 
   .work-footer__grid {

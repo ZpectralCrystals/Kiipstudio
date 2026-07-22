@@ -14,7 +14,7 @@ const logoSrc = getOptimizedCloudinaryUrl(typeof remoteLogoSrc === 'string' ? re
     <div class="flex min-h-[63px] items-start justify-between border-b border-white/10">
       <img src={logoSrc} alt={content.logo.alt} class="w-32 md:w-[185px]" loading="lazy" decoding="async" width="185" height="53" />
       <nav class="mt-4 flex gap-1 text-sm text-white md:mt-[18px] md:w-[176px] md:justify-between" aria-label="Redes sociales">
-        {content.footer.socials.map((item) => <a href={item.href} class="grid size-11 place-items-center rounded-full transition duration-200 hover:opacity-70" aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain" /></a>)}
+        {content.footer.socials.map((item) => <a href={item.href} class="grid size-11 place-items-center rounded-full transition duration-200 hover:opacity-70" aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain [filter:brightness(0)_invert(1)]" /></a>)}
       </nav>
     </div>
     <div class="grid gap-10 pt-9 text-white md:grid-cols-[230px_160px_360px] md:gap-[148px] md:pt-[39px]">
