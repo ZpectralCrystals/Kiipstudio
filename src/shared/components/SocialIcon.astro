@@ -1,0 +1,23 @@
+---
+type Props = {
+  name: string;
+  class?: string;
+};
+
+const {name, class: className = ''} = Astro.props;
+const key = name.trim().toLowerCase();
+const icons: Record<string, string> = {
+  facebook: '/assets/social/facebook.png',
+  f: '/assets/social/facebook.png',
+  tiktok: '/assets/social/tiktok.png',
+  '♪': '/assets/social/tiktok.png',
+  instagram: '/assets/social/instagram.png',
+  '◎': '/assets/social/instagram.png',
+  whatsapp: '/assets/social/whatsapp.png',
+  '☏': '/assets/social/whatsapp.png',
+};
+
+const src = icons[key];
+---
+
+{src ? <img class={className} src={src} alt="" aria-hidden="true" width="18" height="21" loading="lazy" decoding="async" /> : <span>{name}</span>}

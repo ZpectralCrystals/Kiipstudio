@@ -1,5 +1,6 @@
 ---
 import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
+import SocialIcon from '@shared/components/SocialIcon.astro';
 import type { HomeLandingContent, LandingImage } from '../data/homeContent';
 
 type Props = {
@@ -119,7 +120,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
       <footer class="absolute left-0 top-[4931px] h-[543px] w-[1920px] bg-[#04000a] text-white">
         <img class="absolute left-[250px] top-[84px] h-[57px] w-[202px] object-contain" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
         <nav class="absolute left-[1542px] top-[111px] flex gap-[28px]" aria-label="Redes sociales">
-          {content.footer.socials.map((item) => <a class="text-[20px] text-white" href={item.href} aria-label={item.label}>{item.text}</a>)}
+          {content.footer.socials.map((item) => <a class="grid size-[20px] place-items-center hover:opacity-70" href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain" /></a>)}
         </nav>
         <img class="absolute left-[259px] top-[153px] h-px w-[1410px]" src="/assets/figma/home-v2/line-footer.svg" alt="" />
 
@@ -142,7 +143,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
           <ul class="space-y-[10px] text-[16px] font-semibold leading-[24px] text-white/90">
             <li class="flex items-center gap-[14px]"><span class="contact-dot">✉</span>{content.footer.email}</li>
             <li class="flex items-center gap-[14px]"><span class="contact-dot">☎</span>{content.footer.phone}</li>
-            {content.footer.handles.map((item) => <li class="flex items-center gap-[14px]"><span class="contact-dot">{item.icon}</span>{item.text}</li>)}
+            {content.footer.handles.map((item) => <li class="flex items-center gap-[14px]"><span class="contact-dot"><SocialIcon name={item.icon} class="h-[18px] w-[18px] object-contain" /></span>{item.text}</li>)}
           </ul>
         </div>
       </footer>
@@ -245,7 +246,7 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
           <h2>Contáctanos</h2>
           <p>{content.footer.email}</p>
           <p>{content.footer.phone}</p>
-          {content.footer.handles.map((item) => <p>{item.text}</p>)}
+          {content.footer.handles.map((item) => <p class="mobile-footer__handle"><SocialIcon name={item.icon} class="h-4 w-4 object-contain" />{item.text}</p>)}
         </div>
       </div>
     </footer>
@@ -860,6 +861,12 @@ const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
       font-size: 14px;
       line-height: 1.5;
       margin: 0 0 8px;
+    }
+
+    .mobile-footer__handle {
+      align-items: center;
+      display: flex !important;
+      gap: 8px;
     }
   }
 

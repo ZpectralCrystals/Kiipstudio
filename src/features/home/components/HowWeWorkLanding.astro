@@ -1,5 +1,6 @@
 ---
 import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
+import SocialIcon from '@shared/components/SocialIcon.astro';
 import type { HomeLandingContent, LandingImage } from '../data/homeContent';
 
 type Props = {
@@ -82,7 +83,7 @@ const paragraphs = (text: string) =>
       <div class="work-footer__top">
         <img class="work-footer__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="lazy" decoding="async" />
         <nav class="work-footer__socials" aria-label="Redes sociales">
-          {content.footer.socials.map((item) => <a href={item.href} aria-label={item.label}>{item.text}</a>)}
+          {content.footer.socials.map((item) => <a href={item.href} aria-label={item.label}><SocialIcon name={item.label} class="h-[18px] w-[18px] object-contain" /></a>)}
         </nav>
       </div>
 
@@ -106,7 +107,7 @@ const paragraphs = (text: string) =>
           <ul class="work-footer__contact">
             <li><span class="contact-dot">✉</span>{content.footer.email}</li>
             <li><span class="contact-dot">☎</span>{content.footer.phone}</li>
-            {content.footer.handles.map((item) => <li><span class="contact-dot">{item.icon}</span>{item.text}</li>)}
+            {content.footer.handles.map((item) => <li><span class="contact-dot"><SocialIcon name={item.icon} class="h-[18px] w-[18px] object-contain" /></span>{item.text}</li>)}
           </ul>
         </div>
       </div>
@@ -380,8 +381,11 @@ const paragraphs = (text: string) =>
   }
 
   .work-footer__socials a {
-    color: white;
-    font-size: 20px;
+    align-items: center;
+    display: inline-flex;
+    height: 20px;
+    justify-content: center;
+    width: 20px;
   }
 
   .work-footer__grid {
