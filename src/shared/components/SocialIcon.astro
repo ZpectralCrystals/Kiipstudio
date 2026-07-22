@@ -7,14 +7,21 @@ type Props = {
 const {name, class: className = ''} = Astro.props;
 const key = name.trim().toLowerCase();
 const icons: Record<string, string> = {
-  facebook: '/assets/social/facebook.png',
-  f: '/assets/social/facebook.png',
-  tiktok: '/assets/social/tiktok.png',
-  '♪': '/assets/social/tiktok.png',
-  instagram: '/assets/social/instagram.png',
-  '◎': '/assets/social/instagram.png',
-  whatsapp: '/assets/social/whatsapp.png',
-  '☏': '/assets/social/whatsapp.png',
+  facebook: '/assets/social/facebook.webp',
+  f: '/assets/social/facebook.webp',
+  tiktok: '/assets/social/tiktok.webp',
+  '♪': '/assets/social/tiktok.webp',
+  instagram: '/assets/social/instagram.webp',
+  '◎': '/assets/social/instagram.webp',
+  whatsapp: '/assets/social/whatsapp.webp',
+  '☏': '/assets/social/whatsapp.webp',
+  email: '/assets/social/email.webp',
+  mail: '/assets/social/email.webp',
+  '✉': '/assets/social/email.webp',
+  phone: '/assets/social/phone.webp',
+  telefono: '/assets/social/phone.webp',
+  teléfono: '/assets/social/phone.webp',
+  '☎': '/assets/social/phone.webp',
 };
 
 const src = icons[key];

@@ -28,10 +28,10 @@ const {
 } = Astro.props;
 
 // Prefer Cloudinary in production. Local WebP fallback keeps Figma replication stable before upload.
-const mobile = publicId ? getCloudinaryImageUrl({ publicId, width: mobileWidth, format: 'auto' }) : localMobileSrc;
-const mobile2x = publicId ? getCloudinaryImageUrl({ publicId, width: mobileWidth * 2, format: 'auto' }) : localMobileSrc;
-const desktop = publicId ? getCloudinaryImageUrl({ publicId, width: desktopWidth, format: 'auto' }) : localDesktopSrc || localMobileSrc;
-const desktop2x = publicId ? getCloudinaryImageUrl({ publicId, width: desktopWidth * 2, format: 'auto' }) : localDesktopSrc || localMobileSrc;
+const mobile = publicId ? getCloudinaryImageUrl({ publicId, width: mobileWidth }) : localMobileSrc;
+const mobile2x = publicId ? getCloudinaryImageUrl({ publicId, width: mobileWidth * 2 }) : localMobileSrc;
+const desktop = publicId ? getCloudinaryImageUrl({ publicId, width: desktopWidth }) : localDesktopSrc || localMobileSrc;
+const desktop2x = publicId ? getCloudinaryImageUrl({ publicId, width: desktopWidth * 2 }) : localDesktopSrc || localMobileSrc;
 ---
 
 <picture>

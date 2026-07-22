@@ -84,12 +84,17 @@ export type LandingImage = {
   alt: string;
 };
 
+const cloudinaryBaseUrl = 'https://res.cloudinary.com/xmypgzvd/image/upload';
+const cloudinaryImage = (path: string, alt: string): LandingImage => ({
+  localSrc: '',
+  imageUrl: `${cloudinaryBaseUrl}/${path}`,
+  alt,
+});
+const emptyImage = (alt: string): LandingImage => ({ localSrc: '', alt });
+
 export const homeLandingContent = {
   whatsappUrl: 'https://wa.me/51914187890',
-  logo: {
-    localSrc: '/assets/figma/home-v2/logo.png',
-    alt: 'KlipStudio',
-  },
+  logo: cloudinaryImage('v1784484657/klipstudio/site/figma/home-v2/logo-png.webp', 'KlipStudio'),
   nav: {
     main: [
       { label: 'Inicio', href: '/' },
@@ -108,36 +113,33 @@ export const homeLandingContent = {
       { label: 'Publicidad', href: '/publicidad' },
     ],
   },
-  heroBackground: {
-    localSrc: '/assets/figma/home-v2/bg-top.png',
-    alt: '',
-  },
+  heroBackground: cloudinaryImage('v1784484574/klipstudio/site/figma/home-v2/bg-top-png.webp', ''),
   headline: '¡Haz clic para ver más de nuestro trabajo!',
   serviceCards: [
     {
       title: 'Bodas',
       href: '/bodas',
-      image: { localSrc: '/assets/figma/home-v2/card-bodas.jpg', alt: 'Boda fotografiada por KlipStudio' },
+      image: cloudinaryImage('v1784484576/klipstudio/site/figma/home-v2/card-bodas-jpg.webp', 'Boda fotografiada por KlipStudio'),
     },
     {
       title: 'Cumpleaños',
       href: '/cumpleanos',
-      image: { localSrc: '/assets/figma/home-v2/card-cumpleanos.jpg', alt: 'Cumpleaños fotografiado por KlipStudio' },
+      image: cloudinaryImage('v1784484577/klipstudio/site/figma/home-v2/card-cumpleanos-jpg.webp', 'Cumpleaños fotografiado por KlipStudio'),
     },
     {
       title: 'Quinceañeros',
       href: '/quinceaneros',
-      image: { localSrc: '/assets/figma/home-v2/card-quinceaneros.jpg', alt: 'Quinceañero fotografiado por KlipStudio' },
+      image: cloudinaryImage('v1784484650/klipstudio/site/figma/home-v2/card-quinceaneros-jpg.webp', 'Quinceañero fotografiado por KlipStudio'),
     },
     {
       title: 'Sesiones de fotos',
       href: '/fotos-estudio',
-      image: { localSrc: '/assets/figma/home-v2/card-sesiones.jpg', alt: 'Sesión de fotos en estudio KlipStudio' },
+      image: cloudinaryImage('v1784484581/klipstudio/site/figma/home-v2/card-sesiones-jpg.webp', 'Sesión de fotos en estudio KlipStudio'),
     },
     {
       title: 'Publicidad',
       href: '/publicidad',
-      image: { localSrc: '/assets/figma/home-v2/card-publicidad.jpg', alt: 'Fotografía publicitaria KlipStudio' },
+      image: cloudinaryImage('v1784484578/klipstudio/site/figma/home-v2/card-publicidad-jpg.webp', 'Fotografía publicitaria KlipStudio'),
     },
   ],
   about: {
@@ -146,20 +148,20 @@ export const homeLandingContent = {
       'Somos un estudio creativo especializado en fotografía y producción audiovisual. Más que registrar eventos, buscamos contar historias reales, capturando emociones, detalles y momentos espontáneos que hacen única cada experiencia.',
       'Nuestro compromiso es crear imágenes que, con el paso del tiempo, sigan transmitiendo las mismas emociones del primer día.',
     ],
-    person: { localSrc: '/assets/figma/home-v2/about-person.png', alt: 'Fotógrafo de KlipStudio' },
-    camera: { localSrc: '/assets/figma/home-v2/camera.png', alt: '' },
+    person: cloudinaryImage('v1784484573/klipstudio/site/figma/home-v2/about-person-png.webp', 'Fotógrafo de KlipStudio'),
+    camera: cloudinaryImage('v1784484575/klipstudio/site/figma/home-v2/camera-png.webp', ''),
   },
   studio: {
     eyebrow: 'Descubre tu',
     highlight: 'estudio favorito',
     suffix: 'en Arequipa',
     buttonLabel: 'Contáctanos',
-    image: { localSrc: '/assets/figma/home-v2/studio-band.png', alt: 'Sesión de estudio en KlipStudio Arequipa' },
+    image: cloudinaryImage('v1784484658/klipstudio/site/figma/home-v2/studio-band-png.webp', 'Sesión de estudio en KlipStudio Arequipa'),
   },
   why: {
     title: '¿Por qué elegirnos?',
-    background: { localSrc: '/assets/figma/home-v2/why-bg.png', alt: 'Retrato profesional KlipStudio' },
-    check: { localSrc: '/assets/figma/home-v2/check.png', alt: '' },
+    background: cloudinaryImage('v1784484658/klipstudio/site/figma/home-v2/why-bg-png.webp', 'Retrato profesional KlipStudio'),
+    check: cloudinaryImage('v1784484582/klipstudio/site/figma/home-v2/check-png.webp', ''),
     items: [
       'Contamos con profesionales de la fotografía, video, publicidad y diseño gráfico',
       'Contamos con espacio propio, amplio y cómodo para hacer las sesiones de foto o video.',
@@ -168,34 +170,34 @@ export const homeLandingContent = {
     ],
   },
   gallery: [
-    { localSrc: '/assets/figma/home-v2/gallery-left.jpg', alt: 'Retrato de estudio editorial' },
-    { localSrc: '/assets/figma/home-v2/gallery-mid.jpg', alt: 'Retrato femenino sobre fondo verde' },
-    { localSrc: '/assets/figma/home-v2/gallery-right.png', alt: 'Retrato corporativo en estudio' },
+    cloudinaryImage('v1784484583/klipstudio/site/figma/home-v2/gallery-left-jpg.webp', 'Retrato de estudio editorial'),
+    cloudinaryImage('v1784484584/klipstudio/site/figma/home-v2/gallery-mid-jpg.webp', 'Retrato femenino sobre fondo verde'),
+    cloudinaryImage('v1784484656/klipstudio/site/figma/home-v2/gallery-right-png.webp', 'Retrato corporativo en estudio'),
   ],
   process: {
     titlePrefix: '¿Cómo',
     titleSuffix: 'trabajamos?',
-    background: { localSrc: '/assets/figma/how-we-work/studio-process.png', alt: 'Estudio de fotografía KlipStudio preparado para una sesión' },
+    background: cloudinaryImage('v1784484664/klipstudio/site/figma/how-we-work/studio-process-png.webp', 'Estudio de fotografía KlipStudio preparado para una sesión'),
     steps: [
       {
         title: 'Planificación Personalizada',
         body: 'Nos reunimos para conocer su historia, entender\nlo que más valoran y definir cada detalle de la\ncobertura. Nada se deja al azar.',
-        icon: { localSrc: '/assets/figma/how-we-work/step-1.png', alt: 'Paso 1' },
+        icon: emptyImage('Paso 1'),
       },
       {
         title: 'Cobertura Completa',
         body: 'Durante el evento, trabajamos cuidado para\ncapturar cada emoción, cada gesto y cada\ninstante especial, sin interrumpir el ritmo natural\nde la celebración.\n\nNo solo capturamos fotos clásicas. Nos\nconcentramos en los abrazos, las risas, los\ndetalles, las sorpresas... esos momentos reales\nque hacen único tu evento',
-        icon: { localSrc: '/assets/figma/how-we-work/step-2.png', alt: 'Paso 2' },
+        icon: emptyImage('Paso 2'),
       },
       {
         title: 'Entrega de Recuerdos Profesionales',
         body: 'Recibirás una galería digital con tus fotos\neditadas en alta calidad. También puedes elegir\nálbumes, cuadros u otros productos impresos\nsegún nuestros paquetes, para revivir el día\nsiempre que quieras.',
-        icon: { localSrc: '/assets/figma/how-we-work/step-3.png', alt: 'Paso 3' },
+        icon: emptyImage('Paso 3'),
       },
       {
         title: 'Adaptación a Tu Tipo de Evento',
         body: 'Cada celebración es diferente, por eso los\npaquetes y el enfoque se ajustan a lo que tú\nnecesitas. Desde eventos íntimos hasta grandes\nfiestas, capturamos lo que realmente importa.',
-        icon: { localSrc: '/assets/figma/how-we-work/step-4.png', alt: 'Paso 4' },
+        icon: emptyImage('Paso 4'),
       },
     ],
     paymentsTitle: 'Formas de pago',
@@ -206,9 +208,9 @@ export const homeLandingContent = {
     ],
     paymentsIntro: 'Aceptamos las siguientes formas de pago:',
     payments: [
-      { label: 'Efectivo al contado', icon: { localSrc: '/assets/figma/how-we-work/step-1.png', alt: 'Forma de pago 1' } },
-      { label: 'Transferencia bancaria', icon: { localSrc: '/assets/figma/how-we-work/step-2.png', alt: 'Forma de pago 2' } },
-      { label: 'Yape', icon: { localSrc: '/assets/figma/how-we-work/step-3.png', alt: 'Forma de pago 3' } },
+      { label: 'Efectivo al contado', icon: emptyImage('Forma de pago 1') },
+      { label: 'Transferencia bancaria', icon: emptyImage('Forma de pago 2') },
+      { label: 'Yape', icon: emptyImage('Forma de pago 3') },
     ],
   },
   footer: {

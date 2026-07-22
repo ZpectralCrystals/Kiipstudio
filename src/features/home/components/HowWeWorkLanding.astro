@@ -10,7 +10,7 @@ type Props = {
 const { content } = Astro.props;
 
 const imageSrc = (image: LandingImage, width = 1600) =>
-  getOptimizedCloudinaryUrl(image.imageUrl, width) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width, format: 'auto' }) : image.localSrc);
+  getOptimizedCloudinaryUrl(image.imageUrl, width) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
 
 const paragraphs = (text: string) =>
   text
@@ -105,8 +105,8 @@ const paragraphs = (text: string) =>
         <div>
           <h2>CONTÁCTANOS</h2>
           <ul class="work-footer__contact">
-            <li><span class="contact-dot">✉</span>{content.footer.email}</li>
-            <li><span class="contact-dot">☎</span>{content.footer.phone}</li>
+            <li><span class="contact-dot"><SocialIcon name="email" class="h-[18px] w-[20px] object-contain" /></span>{content.footer.email}</li>
+            <li><span class="contact-dot"><SocialIcon name="phone" class="h-[21px] w-[21px] object-contain" /></span>{content.footer.phone}</li>
             {content.footer.handles.map((item) => <li><span class="contact-dot"><SocialIcon name={item.icon} class="h-[18px] w-[18px] object-contain" /></span>{item.text}</li>)}
           </ul>
         </div>

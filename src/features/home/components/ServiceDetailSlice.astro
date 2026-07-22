@@ -77,20 +77,197 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   )}
 
   {section.packages?.plans?.length > 0 && (
-    <div id={`${section.slug}-paquetes`} class="mx-auto max-w-[1080px] px-5 pb-24 md:px-8 md:pb-32">
-      {section.packages.eyebrow && <p class="text-xs font-medium uppercase tracking-[0.12em] text-[#d60000]">{section.packages.eyebrow}</p>}
-      {section.packages.title && <h2 class="mt-2 text-4xl font-bold uppercase leading-none md:text-5xl">{section.packages.title}</h2>}
-      <div class={`mt-10 grid gap-8 ${section.packages.plans.length === 2 ? 'md:grid-cols-2 md:px-40' : 'md:grid-cols-3'}`}>
+    <div id={`${section.slug}-paquetes`} class="packages-section mx-auto max-w-[1290px] px-5 pb-24 md:px-8 md:pb-32">
+      {section.packages.eyebrow && <p class="packages-eyebrow">{section.packages.eyebrow}</p>}
+      {section.packages.title && <h2 class="packages-title">{section.packages.title}</h2>}
+      <div class={`packages-grid ${section.packages.plans.length === 2 ? 'packages-grid--two' : ''}`}>
         {section.packages.plans.map((plan) => (
-          <article class="overflow-hidden rounded-[20px] bg-white shadow-[0_4px_20px_-1px_rgba(19,16,34,0.12)] ring-1 ring-black/5">
-            <div class="relative isolate flex min-h-44 flex-col items-center justify-center overflow-hidden bg-[#ff0004] px-6 text-center text-white"><div class="absolute inset-x-0 bottom-5 h-12 translate-x-16 skew-x-[-18deg] bg-white/20"></div><div class="absolute inset-x-0 bottom-0 h-10 -translate-x-20 skew-x-[18deg] bg-white/10"></div><p class="relative text-3xl font-bold leading-tight md:text-4xl">{plan.price}</p><h3 class="relative mt-2 text-lg font-bold capitalize md:text-xl">{plan.name}</h3></div>
-            <div class="flex min-h-[300px] flex-col px-8 py-8"><ul class="flex-1 list-disc space-y-3 pl-5 text-xs leading-5 text-[#666666]">{plan.bullets.map((bullet) => <li>{bullet}</li>)}</ul><a href={whatsappUrl} class={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-[11px] font-bold uppercase tracking-[0.12em] transition duration-200 hover:-translate-y-0.5 ${plan.featured ? 'bg-[#ff0004] text-[#04000a] hover:bg-red-500' : 'border border-[#cccccc] text-[#04000a] hover:border-[#d60000] hover:text-[#d60000]'}`}>{section.packages.ctaLabel || 'Agenda ahora'} →</a></div>
+          <article class="package-card">
+            <div class="package-card__head">
+              <img src="/assets/figma/package-card-header.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              <p>{plan.price}</p>
+              <h3>{plan.name}</h3>
+            </div>
+            <div class="package-card__body">
+              <ul>{plan.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+              <a href={whatsappUrl} class={`package-card__cta ${plan.featured ? 'package-card__cta--featured' : ''}`}>{section.packages.ctaLabel || 'Agenda ahora'} <span aria-hidden="true">→</span></a>
+            </div>
           </article>
         ))}
       </div>
     </div>
   )}
 </section>
+
+<style>
+  .packages-section {
+    padding-top: 10px;
+  }
+
+  .packages-eyebrow {
+    color: #ff0004;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+  }
+
+  .packages-title {
+    color: #04000a;
+    font-size: clamp(42px, 4.8vw, 58px);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.95;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .packages-grid {
+    display: grid;
+    gap: 39px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 60px;
+  }
+
+  .packages-grid--two {
+    grid-template-columns: repeat(2, minmax(0, 397px));
+    justify-content: center;
+  }
+
+  .package-card {
+    background: #ffffff;
+    border: 1px solid rgba(4, 0, 10, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 18px 36px rgba(4, 0, 10, 0.08);
+    min-height: 708px;
+    overflow: hidden;
+  }
+
+  .package-card__head {
+    height: 220px;
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+  }
+
+  .package-card__head img {
+    height: 100%;
+    inset: 0;
+    object-fit: fill;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .package-card__head p {
+    color: #ffffff;
+    font-size: clamp(36px, 3.8vw, 48px);
+    font-weight: 900;
+    line-height: 1;
+    margin: 70px 0 18px;
+  }
+
+  .package-card__head h3 {
+    color: #ffffff;
+    font-size: clamp(22px, 2.2vw, 26px);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .package-card__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 488px;
+    padding: 45px 40px 39px;
+  }
+
+  .package-card__body ul {
+    color: #5b5b5b;
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    list-style: disc;
+    margin: 0;
+    padding-left: 24px;
+  }
+
+  .package-card__body li + li {
+    margin-top: 15px;
+  }
+
+  .package-card__cta {
+    align-items: center;
+    border: 1px solid #d0d0d0;
+    border-radius: 999px;
+    color: #04000a;
+    display: inline-flex;
+    font-size: 13px;
+    font-weight: 900;
+    gap: 8px;
+    justify-content: center;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    margin-top: 40px;
+    min-height: 54px;
+    padding: 0 28px;
+    text-transform: uppercase;
+    transition:
+      background 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .package-card__cta:hover {
+    border-color: #ff0004;
+    color: #ff0004;
+    transform: translateY(-2px);
+  }
+
+  .package-card__cta--featured {
+    background: #ff0004;
+    border-color: #ff0004;
+    color: #04000a;
+  }
+
+  .package-card__cta--featured:hover {
+    background: #e90003;
+    color: #04000a;
+  }
+
+  @media (max-width: 900px) {
+    .packages-section {
+      padding-top: 0;
+    }
+
+    .packages-grid,
+    .packages-grid--two {
+      grid-template-columns: 1fr;
+      margin-top: 36px;
+    }
+
+    .package-card {
+      min-height: 0;
+    }
+
+    .package-card__head {
+      height: 190px;
+    }
+
+    .package-card__head p {
+      margin-top: 58px;
+    }
+
+    .package-card__body {
+      min-height: 0;
+      padding: 34px 30px 34px;
+    }
+  }
+</style>
 
 <script>
   import '../scripts/gallery-slider.js';
