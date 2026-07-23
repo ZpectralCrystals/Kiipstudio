@@ -217,9 +217,9 @@ export const homeLandingContent = {
     email: 'klipstudio.pe@gmail.com',
     phone: '914 187 890',
     socials: [
-      { label: 'Facebook', href: '#', text: 'f' },
-      { label: 'TikTok', href: '#', text: '♪' },
-      { label: 'Instagram', href: '#', text: '◎' },
+      { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61589857529373', text: 'f' },
+      { label: 'TikTok', href: 'https://www.tiktok.com/@klipstudiocreativo', text: '♪' },
+      { label: 'Instagram', href: 'https://www.instagram.com/klipstudiocreativo', text: '◎' },
       { label: 'WhatsApp', href: 'https://wa.me/51914187890', text: '☏' },
     ],
     handles: [
