@@ -1,5 +1,6 @@
 ---
 import { homeContent } from '../data/homeContent';
+import { getCloudinaryImageUrl } from '@shared/lib/cloudinary';
 
 const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 <style>
@@ -7,7 +8,9 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 </style>
 <a class="wrap" href="https://www.youtube.com/embed/${youtubeId}?autoplay=1" aria-label="${title}"><span class="play">▶</span></a>`;
 
-const videoPoster = homeContent.categories[0]?.localMobileSrc || '/assets/figma/bodas-mobile.webp';
+const videoPoster = homeContent.categories[0]?.cloudinaryPublicId
+  ? getCloudinaryImageUrl({ publicId: homeContent.categories[0].cloudinaryPublicId, width: 900 })
+  : '';
 ---
 
 <section id="nosotros" class="px-5 pb-20 md:px-0 md:pb-[175px]">

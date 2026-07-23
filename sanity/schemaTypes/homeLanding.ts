@@ -199,8 +199,9 @@ export const homeLanding = defineType({
               fields: [
                 defineField({name: 'icon', title: 'Icono/texto', type: 'string'}),
                 defineField({name: 'text', title: 'Usuario', type: 'string'}),
+                defineField({name: 'href', title: 'Link', type: 'string'}),
               ],
-              preview: {select: {title: 'text'}},
+              preview: {select: {title: 'text', subtitle: 'href'}},
             }),
           ],
         }),

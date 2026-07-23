@@ -2,6 +2,7 @@
 import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cloudinary';
 import SocialIcon from '@shared/components/SocialIcon.astro';
 import type { HomeLandingContent, LandingImage } from '../data/homeContent';
+import HeaderSlice from './HeaderSlice.astro';
 
 type Props = {
   content: HomeLandingContent;
@@ -12,58 +13,43 @@ const { content } = Astro.props;
 const imageSrc = (image: LandingImage, width = 1600, height?: number) =>
   getOptimizedCloudinaryUrl(image.imageUrl, width, height) || (image.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: image.cloudinaryPublicId, width }) : image.localSrc);
 const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
-
+const navLabelByHref = (href: string) => content.nav.main.find((item) => item.href === href)?.label ?? '';
+const servicesHeading = navLabelByHref('/#servicios');
+const aboutHeading = navLabelByHref('/#nosotros');
+const contactHeading = content.studio.buttonLabel;
+const whatsappLabel = content.footer.socials.find((item) => item.href === content.whatsappUrl)?.label ?? '';
+const whatsappPhone = content.whatsappUrl.match(/\d+/)?.[0] || '51914187890';
+const whatsappNormalHref = `whatsapp://send?phone=${whatsappPhone}`;
+const howWeWorkNavItem = content.nav.nosotros.find((item) => item.href === '/como-trabajamos');
+const emailHref = `mailto:${content.footer.email}`;
+const phoneHref = `tel:+51${content.footer.phone.replace(/\D/g, '')}`;
+const handleHref = (icon: string, href?: string) => {
+  if (href) return href;
+  const key = icon.trim().toLowerCase();
+  return content.footer.socials.find((item) => item.label.toLowerCase() === key || item.text === icon)?.href || '#';
+};
 ---
 
 <section class="home-figma" aria-label="KlipStudio">
+  <div class="home-figma__header">
+    <HeaderSlice content={content} activeSection="inicio" />
+  </div>
+
   <div class="home-figma__stage">
-    <div class="home-figma__canvas">
+    <div class="home-figma__surface">
       <picture>
         <source media="(min-width: 901px)" srcset={imageSrc(content.heroBackground, 1920)} />
         <img class="absolute left-0 top-0 h-[1858px] w-[1920px] object-cover" src={transparentPixel} alt="" loading="eager" decoding="async" />
       </picture>
-      <div class="absolute left-[-13px] top-[1140px] h-[730px] w-[1933px] bg-[#ff0000] opacity-[0.09]"></div>
+      <div class="absolute left-[-13px] top-[1140px] h-[756px] w-[1933px] bg-[#ff0000] opacity-[0.09]"></div>
       <span id="servicios" class="page-anchor top-[390px]" aria-hidden="true"></span>
       <span id="nosotros" class="page-anchor top-[965px]" aria-hidden="true"></span>
       <span id="por-que-elegirnos" class="page-anchor top-[2910px]" aria-hidden="true"></span>
       <span id="contacto" class="page-anchor top-[4931px]" aria-hidden="true"></span>
 
-      <header class="absolute left-0 top-0 z-20 h-[130px] w-full">
-        <a href="/" aria-label="KlipStudio inicio">
-          <picture>
-            <source media="(min-width: 901px)" srcset={imageSrc(content.logo, 320)} />
-            <img class="absolute left-[65px] top-[61px] h-[45px] w-[157px] object-contain" src={transparentPixel} alt={content.logo.alt} loading="eager" decoding="async" />
-          </picture>
-        </a>
-
-        <nav class="absolute left-[715px] top-[68px] flex items-start gap-[51px]" aria-label="Navegación principal">
-          <a class="nav-main" href={content.nav.main[0].href}>{content.nav.main[0].label}</a>
-          <div class="group relative">
-            <a class="nav-main" href={content.nav.main[1].href}>{content.nav.main[1].label}</a>
-            <span class="absolute left-[-18px] top-[26px] h-[32px] w-[240px]" aria-hidden="true"></span>
-            <img class="nav-underline absolute left-0 top-[38px] h-[6px] w-[140px] opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100" src="/assets/figma/home-v2/line-nosotros.svg" alt="" />
-            <div class="menu-panel absolute left-[-18px] top-[58px] h-[97px] w-[215px] px-[7px] py-[15px] opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100">
-              {content.nav.nosotros.map((item) => <a class="menu-link" href={item.href}>{item.label}</a>)}
-            </div>
-          </div>
-          <div class="group relative">
-            <a class="nav-main" href={content.nav.main[2].href}>{content.nav.main[2].label}</a>
-            <span class="absolute left-0 top-[26px] h-[32px] w-[240px]" aria-hidden="true"></span>
-            <img class="nav-underline absolute left-0 top-[38px] h-[6px] w-[136px] opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100" src="/assets/figma/home-v2/line-services.svg" alt="" />
-            <div class="menu-panel absolute left-0 top-[58px] h-[223px] w-[220px] px-[16px] py-[15px] opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100">
-              {content.nav.servicios.map((item) => <a class="menu-link" href={item.href}>{item.label}</a>)}
-            </div>
-          </div>
-        </nav>
-
-        <a class="absolute left-[1648px] top-[52px] flex h-[48px] w-[178px] items-center justify-center gap-[10px] rounded-full bg-[#ff0004] text-[20px] font-black leading-[23px] tracking-[1.6px] text-white" href={content.whatsappUrl}>
-          WHATSAPP <span aria-hidden="true">→</span>
-        </a>
-      </header>
-
       <main>
         <section aria-labelledby="home-work-title">
-          <h1 id="home-work-title" class="absolute left-1/2 top-[270px] h-[32px] w-[1146px] -translate-x-1/2 text-center text-[48px] font-bold uppercase leading-[26px] tracking-[1.4px] text-white">
+          <h1 id="home-work-title" class="absolute left-1/2 top-[267px] h-[58px] w-[1160px] -translate-x-1/2 text-center text-[48px] font-bold uppercase leading-[58px] tracking-[1.4px] text-white">
             {content.headline}
           </h1>
 
@@ -75,7 +61,7 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
                     <source media="(min-width: 901px)" srcset={imageSrc(card.image, 720, 1014)} />
                     <img class="h-[462px] w-[328px] rounded-[26px] object-cover" src={transparentPixel} alt={card.image.alt} loading="eager" decoding="async" />
                   </picture>
-                  <h2 class="mt-[47px] text-center text-[24px] font-extrabold uppercase leading-[31px] text-white">{card.title}</h2>
+                  <h2 class="mt-[25px] text-center text-[24px] font-medium uppercase leading-[31px] text-white">{card.title}</h2>
                 </a>
               ))
             }
@@ -87,14 +73,14 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
           <h2 id="about-title" class="absolute left-[942px] top-[1285px] w-[615px] text-[64px] font-bold uppercase leading-[64px] tracking-[1.4px] text-white">
             {content.about.title}
           </h2>
-          <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-semibold leading-[35px] text-white">
+          <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-normal leading-[35px] text-white">
             {content.about.body.map((paragraph) => <p class="mb-0">{paragraph}</p>)}
           </div>
           <img class="absolute left-[1413px] top-[1472px] h-[675px] w-[675px] -rotate-[90.86deg] object-contain" src={imageSrc(content.about.camera, 900)} alt="" loading="lazy" decoding="async" />
         </section>
 
         <section aria-label="Estudio favorito en Arequipa">
-          <img class="absolute left-[-32px] top-[1870px] h-[1040px] w-[2017px] object-cover" src={imageSrc(content.studio.image, 1920)} alt={content.studio.image.alt} loading="lazy" decoding="async" />
+          <img class="absolute left-[-32px] top-[1844px] h-[1066px] w-[2017px] object-cover" src={imageSrc(content.studio.image, 1920)} alt={content.studio.image.alt} loading="lazy" decoding="async" />
           <p class="absolute left-[239px] top-[2040px] whitespace-nowrap text-[48px] font-normal leading-[56px] tracking-[1.4px] text-black">{content.studio.eyebrow}</p>
           <p class="absolute left-[239px] top-[2093px] whitespace-nowrap text-[64px] font-bold leading-[56px] tracking-[1.4px] text-[#ff0004]">{content.studio.highlight}</p>
           <p class="absolute left-[408px] top-[2146px] whitespace-nowrap text-[55px] font-black leading-[56px] tracking-[1.4px] text-black">{content.studio.suffix}</p>
@@ -138,25 +124,25 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
         <img class="absolute left-[259px] top-[153px] h-px w-[1410px]" src="/assets/figma/home-v2/line-footer.svg" alt="" />
 
         <div class="absolute left-[259px] top-[197px]">
-          <h2 class="mb-[26px] text-[24px] font-bold leading-[34px]">SERVICIOS</h2>
+          <h2 class="mb-[26px] text-[24px] font-bold uppercase leading-[34px]">{servicesHeading}</h2>
           <ul class="space-y-[14px] text-[16px] leading-[24px] text-white/90">
             {content.nav.servicios.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
           </ul>
         </div>
 
         <div class="absolute left-[499px] top-[197px]">
-          <h2 class="mb-[26px] text-[24px] font-bold leading-[34px]">NOSOTROS</h2>
+          <h2 class="mb-[26px] text-[24px] font-bold uppercase leading-[34px]">{aboutHeading}</h2>
           <ul class="space-y-[15px] text-[16px] leading-[24px] text-white/90">
             {content.nav.nosotros.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
           </ul>
         </div>
 
         <div class="absolute left-[756px] top-[197px]">
-          <h2 class="mb-[30px] text-[24px] font-bold leading-[34px]">CONTÁCTANOS</h2>
+          <h2 class="mb-[30px] text-[24px] font-bold uppercase leading-[34px]">{contactHeading}</h2>
           <ul class="space-y-[10px] text-[16px] font-semibold leading-[24px] text-white/90">
-            <li class="flex items-center gap-[14px]"><span class="contact-dot"><SocialIcon name="email" class="h-[18px] w-[20px] object-contain" /></span>{content.footer.email}</li>
-            <li class="flex items-center gap-[14px]"><span class="contact-dot"><SocialIcon name="phone" class="h-[21px] w-[21px] object-contain" /></span>{content.footer.phone}</li>
-            {content.footer.handles.map((item) => <li class="flex items-center gap-[14px]"><span class="contact-dot"><SocialIcon name={item.icon} class="h-[18px] w-[18px] object-contain" /></span>{item.text}</li>)}
+            <li><a class="flex items-center gap-[14px]" href={emailHref}><span class="contact-dot"><SocialIcon name="email" class="h-[18px] w-[20px] object-contain" /></span>{content.footer.email}</a></li>
+            <li><a class="flex items-center gap-[14px]" href={phoneHref}><span class="contact-dot"><SocialIcon name="phone" class="h-[21px] w-[21px] object-contain" /></span>{content.footer.phone}</a></li>
+            {content.footer.handles.map((item) => <li><a class="flex items-center gap-[14px]" href={handleHref(item.icon, item.href)}><span class="contact-dot"><SocialIcon name={item.icon} class="h-[18px] w-[18px] object-contain" /></span>{item.text}</a></li>)}
           </ul>
         </div>
       </footer>
@@ -168,14 +154,12 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
       <a href="/" aria-label="KlipStudio inicio">
         <img class="mobile-header__logo" src={imageSrc(content.logo, 320)} alt={content.logo.alt} loading="eager" decoding="async" />
       </a>
-      <a class="mobile-header__cta" href={content.whatsappUrl}>WhatsApp <span aria-hidden="true">→</span></a>
+      <a class="mobile-header__cta" href={content.whatsappUrl} data-mobile-whatsapp-href={whatsappNormalHref} data-whatsapp-fallback={content.whatsappUrl}>{whatsappLabel} <span aria-hidden="true">→</span></a>
     </header>
 
     <nav class="mobile-nav" aria-label="Navegación principal móvil">
-      <a href="/">Inicio</a>
-      <a href="/#nosotros">Nosotros</a>
-      <a href="/#servicios">Servicios</a>
-      <a href="/como-trabajamos">Cómo trabajamos</a>
+      {content.nav.main.map((item) => <a href={item.href}>{item.label}</a>)}
+      {howWeWorkNavItem && <a href={howWeWorkNavItem.href}>{howWeWorkNavItem.label}</a>}
     </nav>
 
     <main>
@@ -183,7 +167,7 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
         <div class="mobile-hero__bg" aria-hidden="true"></div>
         <h1 id="mobile-services-title">{content.headline}</h1>
         <div class="mobile-services-carousel" data-services-carousel>
-          <div class="mobile-services" aria-label="Servicios" tabindex="0" data-carousel-track>
+          <div class="mobile-services" aria-label={servicesHeading} tabindex="0" data-carousel-track>
             {
               content.serviceCards.map((card, index) => (
                 <a class="mobile-service-card" href={card.href} aria-label={`Ver ${card.title}`}>
@@ -248,18 +232,18 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
       <img class="mobile-footer__logo" src={imageSrc(content.logo, 220)} alt={content.logo.alt} loading="lazy" decoding="async" />
       <div class="mobile-footer__grid">
         <div>
-          <h2>Servicios</h2>
+          <h2>{servicesHeading}</h2>
           {content.nav.servicios.map((item) => <a href={item.href}>{item.label}</a>)}
         </div>
         <div>
-          <h2>Nosotros</h2>
+          <h2>{aboutHeading}</h2>
           {content.nav.nosotros.map((item) => <a href={item.href}>{item.label}</a>)}
         </div>
         <div>
-          <h2>Contáctanos</h2>
-          <p>{content.footer.email}</p>
-          <p>{content.footer.phone}</p>
-          {content.footer.handles.map((item) => <p class="mobile-footer__handle"><SocialIcon name={item.icon} class="h-4 w-4 object-contain" />{item.text}</p>)}
+          <h2>{contactHeading}</h2>
+          <a href={emailHref}>{content.footer.email}</a>
+          <a href={phoneHref}>{content.footer.phone}</a>
+          {content.footer.handles.map((item) => <a class="mobile-footer__handle" href={handleHref(item.icon, item.href)}><SocialIcon name={item.icon} class="h-4 w-4 object-contain" />{item.text}</a>)}
         </div>
       </div>
     </footer>
@@ -367,9 +351,17 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 <style>
   .home-figma {
     background: #04000a;
-    margin-left: calc(50% - 50vw);
     overflow: hidden;
+    position: relative;
     width: 100vw;
+  }
+
+  .home-figma__header {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 40;
   }
 
   .home-mobile {
@@ -383,7 +375,7 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     width: 100%;
   }
 
-  .home-figma__canvas {
+  .home-figma__surface {
     background: #04000a;
     height: 5474px;
     left: 0;
@@ -394,7 +386,7 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     width: 1920px;
   }
 
-  .home-figma__canvas img {
+  .home-figma__surface img {
     max-width: none;
   }
 
@@ -408,6 +400,11 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     text-transform: uppercase;
   }
 
+  .nav-main--active {
+    border-bottom: 4px solid #ff0004;
+    padding-bottom: 11px;
+  }
+
   .page-anchor {
     height: 1px;
     left: 0;
@@ -417,8 +414,8 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
   }
 
   .menu-panel {
-    background: rgba(49, 38, 38, 0.94);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    background: rgba(49, 38, 38, 0.86);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
     pointer-events: none;
   }
 
@@ -430,10 +427,10 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
   .menu-link {
     color: white;
     display: block;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 9px;
     opacity: 0.9;
     white-space: nowrap;
   }
@@ -456,6 +453,10 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     }
 
     .home-figma__stage {
+      display: none;
+    }
+
+    .home-figma__header {
       display: none;
     }
 
@@ -492,13 +493,13 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
       border-radius: 999px;
       color: white;
       display: inline-flex;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 900;
-      gap: 7px;
-      height: 34px;
+      gap: 6px;
+      height: 30px;
       justify-content: center;
       letter-spacing: 0;
-      padding: 0 14px;
+      padding: 0 12px;
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -653,9 +654,11 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 
     .mobile-about {
       background: radial-gradient(circle at 70% 45%, #8b0b0b 0, #630505 38%, #250101 100%);
-      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
       overflow: hidden;
-      padding: 42px 20px 260px;
+      padding: 42px 20px 0;
       position: relative;
     }
 
@@ -675,32 +678,24 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 
     .mobile-about p {
       font-size: clamp(16px, 4.3vw, 19px);
-      font-weight: 750;
+      font-weight: 400;
       line-height: 1.18;
       margin: 0 0 12px;
       max-width: 28rem;
     }
 
     .mobile-about__person {
-      bottom: -20px;
+      align-self: center;
       height: auto;
-      left: -22px;
+      margin: 14px auto 0;
       max-width: none;
-      position: absolute;
-      width: min(82vw, 370px);
+      position: relative;
+      width: min(86vw, 380px);
       z-index: 1;
     }
 
     .mobile-about__camera {
-      bottom: -34px;
-      height: auto;
-      max-width: none;
-      opacity: 0.94;
-      position: absolute;
-      right: -118px;
-      transform: rotate(-91deg);
-      width: min(70vw, 330px);
-      z-index: 1;
+      display: none;
     }
 
     .mobile-studio {
@@ -827,11 +822,11 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     .mobile-gallery {
       background: #05000a;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
 
     .mobile-gallery img {
-      aspect-ratio: 1 / 1.22;
+      aspect-ratio: 16 / 12;
       height: auto;
       min-height: 220px;
       object-fit: cover;
@@ -839,14 +834,11 @@ const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
     }
 
     .mobile-gallery img:first-child {
-      aspect-ratio: 16 / 12;
-      grid-column: 1 / -1;
       min-height: 290px;
       object-position: center 35%;
     }
 
     .mobile-gallery img:last-child {
-      grid-column: 1 / -1;
       max-height: 390px;
       object-position: center 28%;
     }

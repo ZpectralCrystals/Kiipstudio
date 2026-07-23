@@ -10,8 +10,10 @@ if (!section) throw new Error('Sanity service missing: cumpleanos');
 ---
 
 <BaseLayout title={`${section.title} | KlipStudio`} description={section.seoDescription || section.title}>
-  <main class="min-h-screen bg-[#04000a]">
-    <HeaderSlice content={content} />
+  <main class="relative min-h-screen bg-[#04000a]">
+    <div class="absolute inset-x-0 top-0 z-30">
+      <HeaderSlice content={content} activeSection="servicios" />
+    </div>
     <ServiceDetailSlice section={section} whatsappUrl={content.whatsappUrl} />
     <FooterSlice content={content} />
   </main>

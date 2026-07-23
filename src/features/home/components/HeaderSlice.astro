@@ -2,18 +2,316 @@
 import type {HomeLandingContent} from '../data/homeContent';
 import {getOptimizedCloudinaryUrl} from '@shared/lib/cloudinary';
 
-type Props = {content: HomeLandingContent};
-const {content} = Astro.props;
+type Props = {
+  content: HomeLandingContent;
+  activeSection?: 'inicio' | 'nosotros' | 'servicios';
+};
+const {content, activeSection} = Astro.props;
 const remoteLogoSrc = 'imageUrl' in content.logo ? content.logo.imageUrl : undefined;
 const logoSrc = getOptimizedCloudinaryUrl(typeof remoteLogoSrc === 'string' ? remoteLogoSrc : undefined, 320) || content.logo.localSrc;
+const whatsappLabel = content.footer.socials.find((item) => item.href === content.whatsappUrl)?.label ?? '';
+const whatsappPhone = content.whatsappUrl.match(/\d+/)?.[0] || '51914187890';
+const whatsappNormalHref = `whatsapp://send?phone=${whatsappPhone}`;
+const homeItem = content.nav.main[0];
+const aboutItem = content.nav.main.find((item) => item.href === '/#nosotros') || content.nav.main[1];
+const servicesItem = content.nav.main.find((item) => item.href === '/#servicios') || content.nav.main[2];
+const homeActive = activeSection === 'inicio';
+const aboutActive = activeSection === 'nosotros';
+const servicesActive = activeSection === 'servicios';
 ---
 
-<header class="relative mx-auto flex h-24 max-w-[1808px] items-center justify-between px-5 md:h-[100px] md:px-0 md:pt-[45px]">
-  <a href="/" aria-label="KlipStudio inicio" class="block w-24 md:absolute md:left-0 md:top-[47px] md:w-[157px]">
+<header class="site-header">
+  <a href="/" aria-label="KlipStudio inicio" class="site-header__logo block w-24 md:w-[157px]">
     <img src={logoSrc} alt={content.logo.alt} class="h-auto w-full" loading="eager" decoding="async" width="157" height="45" />
   </a>
-  <nav class="hidden items-center gap-[36px] md:absolute md:left-1/2 md:top-[57px] md:flex md:-translate-x-1/2" aria-label="Navegación principal">
-    {content.nav.main.map((item) => <a href={item.href} class="text-[15px] font-bold uppercase leading-[26px] tracking-[1.4px] text-white transition duration-200 hover:text-[#ff0004]">{item.label}</a>)}
+
+  <nav class="site-header__nav" aria-label="Navegación principal">
+    {homeItem && <a href={homeItem.href} class:list={['site-header__link', homeActive && 'is-active']}>{homeItem.label}</a>}
+
+    {aboutItem && (
+      <div class:list={['site-header__group', aboutActive && 'is-active']}>
+        <a href={aboutItem.href} class="site-header__link">{aboutItem.label}</a>
+        <span class="site-header__bridge" aria-hidden="true"></span>
+        <span class="site-header__underline site-header__underline--about" aria-hidden="true"></span>
+        <div class="site-header__panel site-header__panel--about">
+          {content.nav.nosotros.map((item) => <a class="site-header__submenu-link" href={item.href}>{item.label}</a>)}
+        </div>
+      </div>
+    )}
+
+    {servicesItem && (
+      <div class:list={['site-header__group', servicesActive && 'is-active']}>
+        <a href={servicesItem.href} class="site-header__link">{servicesItem.label}</a>
+        <span class="site-header__bridge" aria-hidden="true"></span>
+        <span class="site-header__underline site-header__underline--services" aria-hidden="true"></span>
+        <div class="site-header__panel site-header__panel--services">
+          {content.nav.servicios.map((item) => <a class="site-header__submenu-link" href={item.href}>{item.label}</a>)}
+        </div>
+      </div>
+    )}
   </nav>
-  <a href={content.whatsappUrl} class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#ff0004] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#04000a] transition duration-200 hover:-translate-y-0.5 hover:bg-red-500 md:absolute md:right-5 md:top-[clamp(34px,2.34vw,45px)] md:h-[clamp(36px,2.5vw,48px)] md:w-[clamp(134px,9.27vw,178px)] md:px-0 md:py-0 md:text-center md:text-[clamp(15px,1.04vw,20px)] md:leading-[clamp(36px,2.5vw,48px)] md:tracking-[1.6px] xl:right-8 2xl:right-[-29px]">Whatsapp →</a>
+
+  <details class="site-header__mobile-menu">
+    <summary>Menú</summary>
+    <div>
+      {homeItem && <a href={homeItem.href}>{homeItem.label}</a>}
+      {content.nav.nosotros.map((item) => <a href={item.href}>{item.label}</a>)}
+      {content.nav.servicios.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+  </details>
+
+  <a href={content.whatsappUrl} class="site-header__whatsapp" data-mobile-whatsapp-href={whatsappNormalHref} data-whatsapp-fallback={content.whatsappUrl}>{whatsappLabel} →</a>
 </header>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest('[data-mobile-whatsapp-href]') : null;
+    if (!(link instanceof HTMLAnchorElement) || !window.matchMedia('(max-width: 900px)').matches) return;
+
+    const appHref = link.dataset.mobileWhatsappHref;
+    const fallbackHref = link.dataset.whatsappFallback || link.href;
+    if (!appHref) return;
+
+    event.preventDefault();
+    let openedApp = false;
+    const markOpened = () => {
+      openedApp = document.hidden;
+    };
+
+    document.addEventListener('visibilitychange', markOpened, {once: true});
+    window.location.href = appHref;
+    window.setTimeout(() => {
+      document.removeEventListener('visibilitychange', markOpened);
+      if (!openedApp && !document.hidden) window.location.href = fallbackHref;
+    }, 1100);
+  });
+</script>
+
+<style>
+  .site-header {
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    height: 64px;
+    padding: 0 18px;
+    position: relative;
+    width: 100vw;
+    z-index: 50;
+  }
+
+  .site-header__logo {
+    display: block;
+    width: 112px;
+  }
+
+  .site-header__nav {
+    display: inline-flex;
+  }
+
+  .site-header__whatsapp {
+    align-items: center;
+    background: #ff0004;
+    border-radius: 999px;
+    color: white;
+    display: none;
+    font-size: 10px;
+    font-weight: 900;
+    height: 30px;
+    justify-content: center;
+    letter-spacing: 0;
+    padding: 0 12px;
+    text-transform: uppercase;
+    transition: background 160ms ease, transform 160ms ease;
+    white-space: nowrap;
+  }
+
+  .site-header__whatsapp:hover {
+    background: #ff3033;
+    transform: translateY(-2px);
+  }
+
+  .site-header__link {
+    color: white;
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    line-height: 26px;
+    text-transform: uppercase;
+    transition: color 160ms ease;
+  }
+
+  @media (min-width: 901px) {
+    .site-header {
+      display: block;
+      height: 130px;
+      padding: 0;
+      width: 100vw;
+    }
+
+    .site-header__logo {
+      left: 3.385416667vw;
+      position: absolute;
+      top: 61px;
+      width: 157px;
+    }
+
+    .site-header__nav {
+      display: flex;
+      gap: 51px;
+      left: 50%;
+      position: absolute;
+      top: 68px;
+      transform: translateX(-50%);
+    }
+
+    .site-header__whatsapp {
+      display: inline-flex;
+      font-size: 15px;
+      height: 40px;
+      letter-spacing: 1.2px;
+      position: absolute;
+      right: 4.895833333vw;
+      top: 56px;
+      width: 146px;
+    }
+
+    .site-header__mobile-menu {
+      display: none;
+    }
+
+  }
+
+  .site-header__link:hover,
+  .site-header__group:focus-within .site-header__link {
+    color: white;
+  }
+
+  .site-header__group {
+    position: relative;
+  }
+
+  .site-header__bridge {
+    height: 36px;
+    left: -18px;
+    position: absolute;
+    top: 24px;
+    width: 240px;
+  }
+
+  .site-header__underline {
+    background: #ff0004;
+    border-radius: 999px;
+    height: 4px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 37px;
+    transition: opacity 150ms ease;
+  }
+
+  .site-header__underline--about {
+    width: 140px;
+  }
+
+  .site-header__underline--services {
+    width: 136px;
+  }
+
+  .site-header__panel {
+    background: rgba(49, 38, 38, 0.86);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 54px;
+    transition: opacity 150ms ease;
+  }
+
+  .site-header__panel--about {
+    left: -14px;
+    min-height: 76px;
+    padding: 12px 8px;
+    width: 184px;
+  }
+
+  .site-header__panel--services {
+    left: 0;
+    min-height: 175px;
+    padding: 12px 13px;
+    width: 190px;
+  }
+
+  .site-header__group:hover .site-header__underline,
+  .site-header__group:focus-within .site-header__underline,
+  .site-header__group.is-active .site-header__underline,
+  .site-header__group:hover .site-header__panel,
+  .site-header__group:focus-within .site-header__panel {
+    opacity: 1;
+  }
+
+  .site-header__group:hover .site-header__panel,
+  .site-header__group:focus-within .site-header__panel {
+    pointer-events: auto;
+  }
+
+  .site-header__link.is-active {
+    border-bottom: 4px solid #ff0004;
+    padding-bottom: 11px;
+  }
+
+  .site-header__submenu-link {
+    color: white;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 9px;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .site-header__mobile-menu {
+    justify-self: center;
+    position: relative;
+  }
+
+  .site-header__mobile-menu summary {
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    color: white;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    list-style: none;
+    padding: 10px 14px;
+    text-transform: uppercase;
+  }
+
+  .site-header__mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .site-header__mobile-menu > div {
+    background: rgba(49, 38, 38, 0.94);
+    display: grid;
+    gap: 10px;
+    left: 50%;
+    min-width: 220px;
+    padding: 14px;
+    position: absolute;
+    top: 44px;
+    transform: translateX(-50%);
+  }
+
+  .site-header__mobile-menu a {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+</style>

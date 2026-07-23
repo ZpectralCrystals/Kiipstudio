@@ -10,9 +10,18 @@ type Props = {
 const {section, whatsappUrl} = Astro.props;
 const imageSrc = (image: SanityImage | undefined, width: number, height?: number) => getOptimizedCloudinaryUrl(image?.imageUrl, width, height);
 const galleryPages = Array.from({length: Math.ceil(section.gallery.length / 8)}, (_, index) => section.gallery.slice(index * 8, index * 8 + 8));
-const videos = section.videos.filter((video) => video.youtubeId);
+const youtubeIdFromUrl = (url?: string) => {
+  if (!url) return '';
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([^?&/]+)/);
+  return match?.[1] || '';
+};
+const videoId = (video: ServicePageContent['videos'][number]) => video.youtubeId || youtubeIdFromUrl(video.youtubeUrl);
+const videos = section.videos.map((video) => ({...video, youtubeId: videoId(video)})).filter((video) => video.youtubeId);
 const photoLabel = section.photoLabel || 'Fotos';
 const videoLabel = section.videoLabel || 'Videos';
+const packageGridClass = `packages-grid packages-grid--${Math.min(Math.max(section.packages?.plans?.length || 0, 2), 4)}`;
+const planSections = (plan: ServicePageContent['packages']['plans'][number]) =>
+  plan.sections?.length ? plan.sections : [{heading: '', items: plan.bullets || []}];
 const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 <style>
 *{box-sizing:border-box}body{margin:0}.wrap{position:absolute;inset:0;display:grid;place-items:center;background:#000 url(${posterUrl}) center/cover no-repeat}.wrap:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}.play{position:relative;width:84px;height:84px;border-radius:999px;background:#ff0004;color:#fff;display:grid;place-items:center;font:700 34px/1 sans-serif;text-decoration:none}
@@ -21,7 +30,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 ---
 
 <section id={section.slug} class="overflow-hidden bg-white text-[#04000a]">
-  <div class="relative isolate flex min-h-[280px] items-center justify-center overflow-hidden md:min-h-[360px]">
+  <div class="relative isolate flex min-h-[320px] items-center justify-center overflow-hidden md:h-[620px]">
     <img class="absolute inset-0 -z-20 h-full w-full object-cover" src={imageSrc(section.hero, 1920)} alt={section.hero.alt || section.title} loading="eager" decoding="async" />
     <div class="absolute inset-0 -z-10 bg-black/45"></div>
     <div class="px-5 text-center text-white">
@@ -35,7 +44,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   </div>
 
   {galleryPages.length > 0 && (
-    <div id={`${section.slug}-fotos`} class="mx-auto max-w-[1290px] px-5 py-14 md:px-8 md:py-20">
+    <div id={`${section.slug}-fotos`} class="mx-auto max-w-[1740px] px-5 py-14 md:px-10 md:py-20">
       <div class="mb-8 flex items-center justify-center gap-4 text-xl font-medium capitalize md:text-2xl">
         <span class="text-[#d60000]">{photoLabel}</span>
         {videos.length > 0 && <><span class="text-[#848484]">›</span><a href={`#${section.slug}-videos`} class="text-[#666666] transition duration-200 hover:text-[#d60000]">{videoLabel}</a></>}
@@ -45,7 +54,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         <div class="gallery-track flex overflow-x-auto scroll-smooth pb-4" data-gallery-track>
           {galleryPages.map((page, pageIndex) => (
             <div class="grid min-w-full grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" data-gallery-page>
-              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820, 1048)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 2 ? 'eager' : 'lazy'} decoding="async" />)}
+              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820, 1048)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 4 ? 'eager' : 'lazy'} decoding="async" />)}
             </div>
           ))}
         </div>
@@ -58,7 +67,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   )}
 
   {videos.length > 0 && (
-    <div id={`${section.slug}-videos`} class="mx-auto max-w-[1290px] px-5 pb-14 md:px-8 md:pb-20">
+    <div id={`${section.slug}-videos`} class="mx-auto max-w-[1740px] px-5 pb-14 md:px-10 md:pb-20">
       <div class="mb-8 flex items-center justify-center gap-4 text-xl font-medium capitalize md:text-2xl">
         <span class="text-[#d60000]">{videoLabel}</span>
         {galleryPages.length > 0 && <><span class="text-[#848484]">›</span><a href={`#${section.slug}-fotos`} class="text-[#666666] transition duration-200 hover:text-[#d60000]">{photoLabel}</a></>}
@@ -66,7 +75,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
       <div class="relative" data-gallery-slider>
         <button class="absolute left-0 top-1/2 z-10 hidden size-12 -translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video anterior" data-gallery-prev>‹</button>
         <div class="gallery-track mx-auto flex overflow-x-auto scroll-smooth" data-gallery-track>
-          {videos.map((video) => <div class="relative aspect-video min-w-full overflow-hidden" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || section.title, imageSrc(video.image, 1280))} title={video.title || section.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
+          {videos.map((video) => <div class="relative aspect-video min-w-full overflow-hidden" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || section.title, imageSrc(video.image, 1600) || imageSrc(section.hero, 1600) || '')} title={video.title || section.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
         </div>
         <button class="absolute right-0 top-1/2 z-10 hidden size-12 translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
       </div>
@@ -77,19 +86,29 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   )}
 
   {section.packages?.plans?.length > 0 && (
-    <div id={`${section.slug}-paquetes`} class="packages-section mx-auto max-w-[1290px] px-5 pb-24 md:px-8 md:pb-32">
+    <div id={`${section.slug}-paquetes`} class="packages-section mx-auto max-w-[1740px] px-5 pb-24 md:px-10 md:pb-32">
       {section.packages.eyebrow && <p class="packages-eyebrow">{section.packages.eyebrow}</p>}
       {section.packages.title && <h2 class="packages-title">{section.packages.title}</h2>}
-      <div class={`packages-grid ${section.packages.plans.length === 2 ? 'packages-grid--two' : ''}`}>
+      <div class={packageGridClass}>
         {section.packages.plans.map((plan) => (
           <article class="package-card">
             <div class="package-card__head">
-              <img src="/assets/figma/package-card-header.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              <img src="/assets/ui/package-card-header.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
               <p>{plan.price}</p>
               <h3>{plan.name}</h3>
             </div>
             <div class="package-card__body">
-              <ul>{plan.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+              <div class="package-card__details">
+                {planSections(plan).map((group) => {
+                  const items = group.items || [];
+                  return (
+                    <section>
+                      {group.heading && <h4>{group.heading}</h4>}
+                      {items.length > 0 && <ul>{items.map((item) => <li>{item}</li>)}</ul>}
+                    </section>
+                  );
+                })}
+              </div>
               <a href={whatsappUrl} class={`package-card__cta ${plan.featured ? 'package-card__cta--featured' : ''}`}>{section.packages.ctaLabel || 'Agenda ahora'} <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -126,14 +145,24 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 
   .packages-grid {
     display: grid;
-    gap: 39px;
+    gap: 34px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 60px;
   }
 
-  .packages-grid--two {
+  .packages-grid--two,
+  .packages-grid--2 {
     grid-template-columns: repeat(2, minmax(0, 397px));
     justify-content: center;
+  }
+
+  .packages-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 397px));
+    justify-content: center;
+  }
+
+  .packages-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .package-card {
@@ -146,6 +175,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   }
 
   .package-card__head {
+    background: #ffffff;
     height: 220px;
     isolation: isolate;
     overflow: hidden;
@@ -159,7 +189,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     object-fit: fill;
     position: absolute;
     width: 100%;
-    z-index: -1;
+    z-index: 0;
   }
 
   .package-card__head p {
@@ -168,6 +198,8 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     font-weight: 900;
     line-height: 1;
     margin: 70px 0 18px;
+    position: relative;
+    z-index: 1;
   }
 
   .package-card__head h3 {
@@ -176,27 +208,44 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     font-weight: 900;
     line-height: 1;
     margin: 0;
+    position: relative;
+    z-index: 1;
   }
 
   .package-card__body {
     display: flex;
     flex-direction: column;
     min-height: 488px;
-    padding: 45px 40px 39px;
+    padding: 45px 38px 39px;
   }
 
-  .package-card__body ul {
+  .package-card__details {
     color: #5b5b5b;
     flex: 1;
     font-size: 15px;
     line-height: 1.7;
+  }
+
+  .package-card__details section + section {
+    margin-top: 14px;
+  }
+
+  .package-card__details h4 {
+    color: #5b5b5b;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin: 0 0 8px;
+  }
+
+  .package-card__details ul {
     list-style: disc;
     margin: 0;
     padding-left: 24px;
   }
 
-  .package-card__body li + li {
-    margin-top: 15px;
+  .package-card__details li + li {
+    margin-top: 8px;
   }
 
   .package-card__cta {
@@ -231,12 +280,12 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   .package-card__cta--featured {
     background: #ff0004;
     border-color: #ff0004;
-    color: #04000a;
+    color: #ffffff;
   }
 
   .package-card__cta--featured:hover {
     background: #e90003;
-    color: #04000a;
+    color: #ffffff;
   }
 
   @media (max-width: 900px) {
@@ -245,7 +294,9 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     }
 
     .packages-grid,
-    .packages-grid--two {
+    .packages-grid--two,
+    .packages-grid--3,
+    .packages-grid--4 {
       grid-template-columns: 1fr;
       margin-top: 36px;
     }

@@ -87,12 +87,18 @@ export type ServicePageContent = {
   photoLabel: string;
   videoLabel: string;
   gallery: SanityImage[];
-  videos: Array<{title?: string; youtubeId: string; image?: SanityImage}>;
+  videos: Array<{title?: string; youtubeId?: string; youtubeUrl?: string; image?: SanityImage}>;
   packages: {
     eyebrow?: string;
     title?: string;
     ctaLabel?: string;
-    plans: Array<{name: string; price: string; featured?: boolean; bullets: string[]}>;
+    plans: Array<{
+      name: string;
+      price: string;
+      featured?: boolean;
+      sections?: Array<{heading?: string; items?: string[]}>;
+      bullets?: string[];
+    }>;
   };
 };
 
