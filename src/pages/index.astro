@@ -5,7 +5,7 @@ import { getCloudinaryImageUrl, getOptimizedCloudinaryUrl } from '@shared/lib/cl
 import { getHomeLandingContent } from '@shared/lib/sanity';
 
 const content = await getHomeLandingContent();
-const firstMobileCardImage = content.serviceCards[0]?.image;
+const firstMobileCardImage = content?.serviceCards[0]?.image;
 const firstMobileCardSrc = firstMobileCardImage
   ? getOptimizedCloudinaryUrl(firstMobileCardImage.imageUrl, 430, 606) || (firstMobileCardImage.cloudinaryPublicId ? getCloudinaryImageUrl({ publicId: firstMobileCardImage.cloudinaryPublicId, width: 430 }) : firstMobileCardImage.localSrc)
   : '';
@@ -17,6 +17,6 @@ const firstMobileCardSrc = firstMobileCardImage
   preloadImages={firstMobileCardSrc ? [{href: firstMobileCardSrc, media: '(max-width: 900px)'}] : []}
 >
   <main class="min-h-screen bg-[#04000a]">
-    <HomeFigmaLanding content={content} />
+    {content && <HomeFigmaLanding content={content} />}
   </main>
 </BaseLayout>

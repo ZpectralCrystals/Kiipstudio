@@ -6,15 +6,18 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import {getHomeLandingContent, getServicePage} from '@shared/lib/sanity';
 
 const [content, section] = await Promise.all([getHomeLandingContent(), getServicePage('bodas')]);
-if (!section) throw new Error('Sanity service missing: bodas');
 ---
 
-<BaseLayout title={`${section.title} | KlipStudio`} description={section.seoDescription || section.title}>
+<BaseLayout title={`${section?.title || 'Bodas'} | KlipStudio`} description={section?.seoDescription || section?.title || ''}>
   <main class="relative min-h-screen bg-[#04000a]">
-    <div class="absolute inset-x-0 top-0 z-30">
-      <HeaderSlice content={content} activeSection="servicios" />
-    </div>
-    <ServiceDetailSlice section={section} whatsappUrl={content.whatsappUrl} />
-    <FooterSlice content={content} />
+    {content && section && (
+      <>
+        <div class="absolute inset-x-0 top-0 z-30">
+          <HeaderSlice content={content} activeSection="servicios" />
+        </div>
+        <ServiceDetailSlice section={section} whatsappUrl={content.whatsappUrl} />
+        <FooterSlice content={content} />
+      </>
+    )}
   </main>
 </BaseLayout>
