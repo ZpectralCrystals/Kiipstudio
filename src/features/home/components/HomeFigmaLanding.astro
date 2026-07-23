@@ -121,7 +121,7 @@ const handleHref = (icon: string, href?: string) => {
         <nav class="absolute left-[1542px] top-[111px] flex gap-[28px]" aria-label="Redes sociales">
           {content.footer.socials.map((item) => <a class="grid size-[20px] place-items-center hover:opacity-70" href={item.href} aria-label={item.label}><SocialIcon name={item.label} variant="white" class="h-[18px] w-[18px] object-contain" /></a>)}
         </nav>
-        <img class="absolute left-[259px] top-[153px] h-px w-[1410px]" src="/assets/figma/home-v2/line-footer.svg" alt="" />
+        <div class="absolute left-[259px] top-[153px] h-px w-[1410px] bg-white/14" aria-hidden="true"></div>
 
         <div class="absolute left-[259px] top-[197px]">
           <h2 class="mb-[26px] text-[24px] font-bold uppercase leading-[34px]">{servicesHeading}</h2>
@@ -531,8 +531,8 @@ const handleHref = (icon: string, href?: string) => {
 
     .mobile-hero__bg {
       background:
-        linear-gradient(180deg, rgba(40, 0, 0, 0.4), #220303),
-        url("/assets/figma/home-v2/circle.svg");
+        radial-gradient(circle at 18px 18px, rgba(255, 255, 255, 0.22) 1.6px, transparent 2px) 0 0 / 34px 34px,
+        linear-gradient(180deg, rgba(40, 0, 0, 0.4), #220303);
       inset: 0;
       opacity: 0.42;
       position: absolute;

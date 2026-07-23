@@ -13,10 +13,7 @@
     "studio:build": "sanity build",
     "levantar": "bash scripts/levantar-pagina.sh",
     "cliente": "bash scripts/levantar-cliente.sh",
-    "tunel": "bash scripts/tunel-cliente.sh",
-    "upload:cloudinary": "node scripts/upload-cloudinary.mjs",
-    "sync:sanity": "tsx scripts/sync-sanity-home.mjs",
-    "cms:push": "npm run upload:cloudinary && npm run sync:sanity"
+    "tunel": "bash scripts/tunel-cliente.sh"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -24,18 +21,13 @@
     "@sanity/vision": "^6.5.0",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.6",
-    "cloudinary": "^2.10.0",
     "dotenv": "^17.4.2",
     "sanity": "^6.5.0",
-    "sharp": "^0.35.3",
-    "slugify": "^1.6.9",
     "styled-components": "^6.4.4",
     "tailwindcss": "^4.3.2",
-    "typescript": "^5.9.2",
-    "yauzl": "^3.4.0"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@types/node": "^26.1.1",
-    "tsx": "^4.23.1"
+    "@types/node": "^26.1.1"
   }
 }

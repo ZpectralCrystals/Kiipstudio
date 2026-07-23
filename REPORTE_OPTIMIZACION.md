@@ -1,40 +1,41 @@
-# Reporte de optimización
+# Reporte final de limpieza
 
-Fecha: 2026-07-22
+Fecha: 2026-07-23
 
-## Problema encontrado
+## Estado
 
-Las imágenes guardadas como URL en Sanity se renderizaban con el archivo original de Cloudinary. La página inicial descargaba JPG/PNG de varios megabytes, incluyendo tarjetas y galería.
+- Sitio activo con Sanity obligatorio.
+- Textos, menus, galerias, videos y paquetes vienen desde Sanity.
+- Imagenes de contenido vienen desde URLs Cloudinary guardadas en Sanity.
+- No hay fallback hardcodeado en runtime.
+- Si falta config o documento Sanity, build falla con error claro.
 
-## Cambios aplicados
+## Limpieza aplicada
 
-- Se añadió `getOptimizedCloudinaryUrl()` en `src/shared/lib/cloudinary.ts`.
-- Toda URL Cloudinary proveniente de Sanity ahora recibe `c_limit`, ancho contextual, `q_auto` y `f_auto`.
-- Cloudinary negocia WebP/AVIF cuando navegador lo soporta; fallback automático para navegadores restantes.
-- Se aplicaron tamaños por uso: logo `320px`, tarjetas/galería `820-900px`, héroes `1920px`, íconos `96px`.
-- Las tarjetas usan recorte inteligente Cloudinary `c_fill,g_auto` a `720×1014`, misma proporción visible `328:462`.
-- Galerías bajo pliegue usan `loading="lazy"`.
-- Carrusel móvil carga eager solo primera tarjeta visible.
-- `ResponsiveCloudinaryPicture` ya no fuerza tipo `image/webp`; permite respuesta automática de Cloudinary.
+- Eliminado contenido hardcodeado legacy de `homeContent.ts`; queda solo tipado.
+- Eliminado modo temporal `DISABLE_SANITY`.
+- Eliminados componentes no usados: slices antiguos de about, CTA, services, video y carousel.
+- Eliminados scripts de carga/siembra local a Cloudinary/Sanity.
+- Eliminada carpeta `stitch_klip_studio_photography_portfolio` con screenshots.
+- Eliminados SVG/PNG locales de Figma/UI no necesarios.
+- Paquetes usan forma roja generada por CSS, sin imagen local.
+- Footer/hero usan CSS para lineas y patron visual, sin SVG local.
 
-## Medición de descarga
+## Archivos visuales que quedan
 
-Medido con `Accept: image/avif,image/webp,image/*,*/*` contra Cloudinary.
+Solo quedan iconos pequenos de redes/contacto y `favicon.svg`.
 
-| Recurso | Antes | Después | Reducción |
-| --- | ---: | ---: | ---: |
-| Tarjeta Bodas | 9,302,972 B | 79,106 B | 99.1% |
-| Tarjeta Bodas con recorte exacto | 9,302,972 B | 63,384 B | 99.3% |
-| Fondo principal | 1,549,793 B | 15,398 B | 99.0% |
-| Foto galería Bodas | 55,010 B | 48,824 B | 11.2% |
+No quedan fotos de produccion en repo.
 
-## Verificación
+## Validacion requerida
 
-- `npm run check`: 0 errores, 0 warnings.
-- `npm run build`: 7 rutas compiladas.
-- Las URLs generadas contienen `c_limit,w_*,q_auto,f_auto`.
-- Contenido sigue editable en Sanity; no se modificaron URLs ni documentos CMS.
+```bash
+npm run check
+npm run build
+```
 
-## Resultado esperado
+## URLs
 
-La carga inicial baja drásticamente, especialmente en tarjetas antes de 7-9 MB. Calidad visual se ajusta automáticamente al dispositivo y cada imagen mantiene proporción original.
+- Produccion: https://kiipstudio.vercel.app
+- Sanity Studio local: http://localhost:3333
+- Sitio local: http://localhost:4321

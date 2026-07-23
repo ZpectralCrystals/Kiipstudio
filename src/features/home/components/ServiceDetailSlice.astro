@@ -93,7 +93,6 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         {section.packages.plans.map((plan) => (
           <article class="package-card">
             <div class="package-card__head">
-              <img src="/assets/ui/package-card-header.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
               <p>{plan.price}</p>
               <h3>{plan.name}</h3>
             </div>
@@ -175,7 +174,8 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   }
 
   .package-card__head {
-    background: #ffffff;
+    background: #ff0004;
+    border-radius: 20px 20px 0 0;
     height: 220px;
     isolation: isolate;
     overflow: hidden;
@@ -183,13 +183,28 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     text-align: center;
   }
 
-  .package-card__head img {
-    height: 100%;
-    inset: 0;
-    object-fit: fill;
+  .package-card__head::before,
+  .package-card__head::after {
+    bottom: -28px;
+    content: "";
+    height: 88px;
+    left: -8%;
     position: absolute;
-    width: 100%;
+    right: -8%;
+    transform-origin: center bottom;
+  }
+
+  .package-card__head::before {
+    background: rgba(255, 255, 255, 0.9);
+    clip-path: polygon(0 58%, 22% 70%, 45% 38%, 65% 66%, 100% 42%, 100% 100%, 0 100%);
     z-index: 0;
+  }
+
+  .package-card__head::after {
+    background: rgba(255, 255, 255, 0.36);
+    clip-path: polygon(0 75%, 25% 76%, 49% 45%, 66% 67%, 100% 50%, 100% 100%, 0 100%);
+    transform: translateY(18px) scaleX(0.96);
+    z-index: 1;
   }
 
   .package-card__head p {
@@ -199,7 +214,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     line-height: 1;
     margin: 70px 0 18px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .package-card__head h3 {
@@ -209,7 +224,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     line-height: 1;
     margin: 0;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .package-card__body {
