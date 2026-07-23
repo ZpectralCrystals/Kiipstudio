@@ -51,7 +51,7 @@ const servicesActive = activeSection === 'servicios';
     )}
   </nav>
 
-  <details class="site-header__mobile-menu">
+  <details class="site-header__mobile-menu" data-mobile-menu>
     <summary>Menú</summary>
     <div>
       {homeItem && <a href={homeItem.href}>{homeItem.label}</a>}
@@ -85,6 +85,25 @@ const servicesActive = activeSection === 'servicios';
       if (!openedApp && !document.hidden) window.location.href = fallbackHref;
     }, 1100);
   });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+
+    document.querySelectorAll<HTMLDetailsElement>('[data-mobile-menu][open]').forEach((menu) => {
+      if (menu.contains(target)) {
+        if (target.closest('a')) menu.removeAttribute('open');
+        return;
+      }
+
+      menu.removeAttribute('open');
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll<HTMLDetailsElement>('[data-mobile-menu][open]').forEach((menu) => menu.removeAttribute('open'));
+  });
 </script>
 
 <style>
@@ -105,7 +124,7 @@ const servicesActive = activeSection === 'servicios';
   }
 
   .site-header__nav {
-    display: inline-flex;
+    display: none;
   }
 
   .site-header__whatsapp {
@@ -113,7 +132,7 @@ const servicesActive = activeSection === 'servicios';
     background: #ff0004;
     border-radius: 999px;
     color: white;
-    display: none;
+    display: inline-flex;
     font-size: 10px;
     font-weight: 900;
     height: 30px;
@@ -274,44 +293,90 @@ const servicesActive = activeSection === 'servicios';
   .site-header__mobile-menu {
     justify-self: center;
     position: relative;
+    z-index: 120;
   }
 
   .site-header__mobile-menu summary {
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    align-items: center;
+    background: rgba(4, 0, 10, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.32);
     border-radius: 999px;
     color: white;
     cursor: pointer;
+    display: inline-flex;
     font-size: 11px;
     font-weight: 900;
+    gap: 8px;
+    height: 34px;
+    justify-content: center;
     letter-spacing: 0.12em;
     list-style: none;
-    padding: 10px 14px;
+    padding: 0 13px;
     text-transform: uppercase;
+  }
+
+  .site-header__mobile-menu summary::before {
+    background:
+      linear-gradient(currentColor 0 0) 0 0 / 16px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 0 6px / 16px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 0 12px / 16px 2px no-repeat;
+    content: "";
+    height: 14px;
+    width: 16px;
+  }
+
+  .site-header__mobile-menu[open] summary {
+    background: #ff0004;
+    border-color: #ff0004;
   }
 
   .site-header__mobile-menu summary::-webkit-details-marker {
     display: none;
   }
 
+  .site-header__mobile-menu[open]::before {
+    background: rgba(0, 0, 0, 0.42);
+    content: "";
+    inset: 0;
+    position: fixed;
+    z-index: -1;
+  }
+
   .site-header__mobile-menu > div {
-    background: rgba(49, 38, 38, 0.94);
+    background: rgba(24, 9, 9, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
     display: grid;
-    gap: 10px;
-    left: 50%;
-    min-width: 220px;
-    padding: 14px;
-    position: absolute;
-    top: 44px;
-    transform: translateX(-50%);
+    gap: 0;
+    left: 16px;
+    max-height: calc(100dvh - 86px);
+    overflow: auto;
+    padding: 10px;
+    position: fixed;
+    right: 16px;
+    top: 72px;
+    width: auto;
   }
 
   .site-header__mobile-menu a {
+    border-radius: 12px;
     color: white;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    padding: 15px 13px;
     text-transform: uppercase;
-    white-space: nowrap;
+  }
+
+  .site-header__mobile-menu a + a {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .site-header__mobile-menu a:hover,
+  .site-header__mobile-menu a:focus-visible {
+    background: rgba(255, 0, 4, 0.18);
   }
 
 </style>

@@ -457,7 +457,11 @@ const handleHref = (icon: string, href?: string) => {
     }
 
     .home-figma__header {
-      display: none;
+      background: linear-gradient(180deg, rgba(17, 0, 0, 0.98), rgba(17, 0, 0, 0.86));
+      display: block;
+      position: sticky;
+      top: 0;
+      z-index: 60;
     }
 
     .home-mobile {
@@ -470,15 +474,7 @@ const handleHref = (icon: string, href?: string) => {
     }
 
     .mobile-header {
-      align-items: center;
-      background: linear-gradient(180deg, rgba(17, 0, 0, 0.98), rgba(17, 0, 0, 0.84));
-      display: flex;
-      gap: 16px;
-      justify-content: space-between;
-      padding: 18px 18px 12px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      display: none;
     }
 
     .mobile-header__logo {
@@ -505,15 +501,7 @@ const handleHref = (icon: string, href?: string) => {
     }
 
     .mobile-nav {
-      background: #160002;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0 18px 14px;
-      position: sticky;
-      top: 64px;
-      z-index: 19;
+      display: none;
     }
 
     .mobile-nav::-webkit-scrollbar {
