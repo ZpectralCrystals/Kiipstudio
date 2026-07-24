@@ -21,6 +21,12 @@ const toFilePath = (req) => {
   const url = req.url || '/';
   const decoded = decodeURIComponent(new URL(url, 'http://localhost').pathname);
   const normalized = normalize(decoded).replace(/^(\.\.[/\\])+/, '');
+  if (normalized.startsWith('/static/')) {
+    const studioStaticCandidate = join(root, 'studio', normalized);
+    if (existsSync(studioStaticCandidate)) {
+      return { filePath: studioStaticCandidate, statusCode: 200 };
+    }
+  }
   const candidate = join(root, normalized);
   if (existsSync(candidate) && statSync(candidate).isDirectory()) {
     return { filePath: join(candidate, 'index.html'), statusCode: 200 };
@@ -28,6 +34,9 @@ const toFilePath = (req) => {
   if (existsSync(candidate)) return { filePath: candidate, statusCode: 200 };
 
   if (req.headers.accept?.includes('text/html')) {
+    if (normalized === '/studio' || normalized.startsWith('/studio/')) {
+      return { filePath: join(root, 'studio', 'index.html'), statusCode: 200 };
+    }
     return { filePath: join(root, 'index.html'), statusCode: 200 };
   }
 

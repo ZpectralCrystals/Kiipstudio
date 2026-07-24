@@ -1,10 +1,19 @@
 import { createClient } from '@sanity/client';
 import type { HomeLandingContent } from '@features/home/data/homeContent';
 
-const projectId = import.meta.env.SANITY_PROJECT_ID || import.meta.env.PUBLIC_SANITY_PROJECT_ID;
-const dataset = import.meta.env.SANITY_DATASET || import.meta.env.PUBLIC_SANITY_DATASET || 'production';
-const apiVersion = import.meta.env.SANITY_API_VERSION || '2025-01-01';
-const token = import.meta.env.SANITY_READ_TOKEN;
+const envValue = (value: string | undefined, fallback = '') => {
+  if (!value || value === '[SENSITIVE]') return fallback;
+  return value;
+};
+
+const projectId = envValue(
+  import.meta.env.SANITY_PROJECT_ID,
+  envValue(import.meta.env.PUBLIC_SANITY_PROJECT_ID, 'hg6wp5ra'),
+);
+const dataset = envValue(import.meta.env.SANITY_DATASET, envValue(import.meta.env.PUBLIC_SANITY_DATASET, 'production'));
+const rawApiVersion = envValue(import.meta.env.SANITY_API_VERSION, '2025-01-01');
+const apiVersion = /^(1|\d{4}-\d{2}-\d{2})$/.test(rawApiVersion) ? rawApiVersion : '2025-01-01';
+const token = envValue(import.meta.env.SANITY_READ_TOKEN);
 const isDev = import.meta.env.DEV;
 
 const hasSanityConfig = Boolean(projectId && dataset);

@@ -2,5 +2,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro"
+  "framework": "astro",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/studio/static/$1"
+    },
+    {
+      "src": "/studio/.*",
+      "dest": "/studio/index.html"
+    }
+  ]
 }

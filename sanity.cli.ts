@@ -11,6 +11,9 @@ export default defineCliConfig({
     projectId,
     dataset,
   },
+  project: {
+    basePath: '/studio',
+  },
   deployment: {
     appId: 'exblkt7hhrd6f6o3bjw6efdq',
   },
