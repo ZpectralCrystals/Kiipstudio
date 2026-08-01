@@ -17,6 +17,9 @@ const youtubeIdFromUrl = (url?: string) => {
 };
 const videoId = (video: ServicePageContent['videos'][number]) => video.youtubeId || youtubeIdFromUrl(video.youtubeUrl);
 const videos = section.videos.map((video) => ({...video, youtubeId: videoId(video)})).filter((video) => video.youtubeId);
+const youtubeThumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+const videoPoster = (video: (typeof videos)[number], width = 1600) =>
+  imageSrc(video.image, width) || youtubeThumbnail(video.youtubeId) || imageSrc(section.hero, width);
 const photoLabel = section.photoLabel || 'Fotos';
 const videoLabel = section.videoLabel || 'Videos';
 const packageGridClass = `packages-grid packages-grid--${Math.min(Math.max(section.packages?.plans?.length || 0, 2), 4)}`;
@@ -75,13 +78,21 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
       <div class="relative" data-gallery-slider>
         <button class="absolute left-0 top-1/2 z-10 hidden size-12 -translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video anterior" data-gallery-prev>‹</button>
         <div class="gallery-track mx-auto flex overflow-x-auto scroll-smooth" data-gallery-track>
-          {videos.map((video) => <div class="relative aspect-video min-w-full overflow-hidden" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || section.title, imageSrc(video.image, 1600) || imageSrc(section.hero, 1600) || '')} title={video.title || section.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
+          {videos.map((video, index) => <div class="relative aspect-video min-w-full overflow-hidden bg-[#050008]" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || `${section.title} video ${index + 1}`, videoPoster(video, 1600))} title={video.title || `${section.title} video ${index + 1}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
         </div>
         <button class="absolute right-0 top-1/2 z-10 hidden size-12 translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
+        {videos.length > 1 && (
+          <nav class="video-thumbs" aria-label={`Miniaturas videos ${section.title}`}>
+            {videos.map((video, index) => (
+              <button type="button" class="video-thumb" aria-label={`Ir a video ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot>
+                <img src={videoPoster(video, 480)} alt={video.title || `${section.title} video ${index + 1}`} loading="lazy" decoding="async" />
+                <span class="video-thumb__play" aria-hidden="true">▶</span>
+                <span class={`video-thumb__indicator ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span>
+              </button>
+            ))}
+          </nav>
+        )}
       </div>
-      <nav class="mt-8 flex justify-center gap-1" aria-label={`Paginación videos ${section.title}`}>
-        {videos.map((_, index) => <button type="button" class="grid size-11 place-items-center rounded-full" aria-label={`Ir a video ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot><span class={`block size-2.5 rounded-full ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span></button>)}
-      </nav>
     </div>
   )}
 
@@ -140,6 +151,70 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     line-height: 0.95;
     margin: 0;
     text-transform: uppercase;
+  }
+
+  .video-thumbs {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 18px auto 0;
+    max-width: 920px;
+  }
+
+  .video-thumb {
+    aspect-ratio: 16 / 9;
+    background: #050008;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  .video-thumb[aria-current='page'] {
+    border-color: #ff0004;
+  }
+
+  .video-thumb img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .video-thumb::after {
+    background: rgba(0, 0, 0, 0.22);
+    content: '';
+    inset: 0;
+    position: absolute;
+  }
+
+  .video-thumb__play {
+    background: #ff0004;
+    border-radius: 999px;
+    color: #ffffff;
+    display: grid;
+    font: 700 16px/1 sans-serif;
+    height: 40px;
+    left: 50%;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    z-index: 1;
+  }
+
+  .video-thumb__indicator {
+    border-radius: 999px;
+    bottom: 8px;
+    height: 6px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 32px;
+    z-index: 1;
   }
 
   .packages-grid {
