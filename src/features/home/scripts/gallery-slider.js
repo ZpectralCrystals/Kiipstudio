@@ -25,7 +25,14 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
 
   const goTo = (nextIndex) => {
     if (!track) return;
-    index = Math.max(0, Math.min(getMaxIndex(), nextIndex));
+    const maxIndex = getMaxIndex();
+    if (nextIndex < 0) {
+      index = maxIndex;
+    } else if (nextIndex > maxIndex) {
+      index = 0;
+    } else {
+      index = nextIndex;
+    }
     track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
     paintDots();
   };
@@ -43,7 +50,9 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
   });
 
   track?.addEventListener('scroll', () => {
-    index = Math.round(track.scrollLeft / track.clientWidth);
+    index = Math.max(0, Math.min(getMaxIndex(), Math.round(track.scrollLeft / track.clientWidth)));
     paintDots();
   });
+
+  paintDots();
 });

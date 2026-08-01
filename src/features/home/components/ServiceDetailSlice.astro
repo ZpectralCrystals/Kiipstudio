@@ -53,7 +53,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         {videos.length > 0 && <><span class="text-[#848484]">›</span><a href={`#${section.slug}-videos`} class="text-[#666666] transition duration-200 hover:text-[#d60000]">{videoLabel}</a></>}
       </div>
       <div class="relative" data-gallery-slider>
-        <button class="absolute left-0 top-1/2 z-10 hidden size-12 -translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Fotos anteriores" data-gallery-prev>‹</button>
+        <button class="carousel-arrow carousel-arrow--prev" type="button" aria-label="Fotos anteriores" data-gallery-prev>‹</button>
         <div class="gallery-track flex overflow-x-auto scroll-smooth pb-4" data-gallery-track>
           {galleryPages.map((page, pageIndex) => (
             <div class="grid min-w-full grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" data-gallery-page>
@@ -61,10 +61,10 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
             </div>
           ))}
         </div>
-        <button class="absolute right-0 top-1/2 z-10 hidden size-12 translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Fotos siguientes" data-gallery-next>›</button>
+        <button class="carousel-arrow carousel-arrow--next" type="button" aria-label="Fotos siguientes" data-gallery-next>›</button>
       </div>
-      <nav class="mt-8 flex justify-center gap-1" aria-label={`Paginación fotos ${section.title}`}>
-        {galleryPages.map((_, index) => <button type="button" class="grid size-11 place-items-center rounded-full" aria-label={`Ir a fotos ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot><span class={`block size-2.5 rounded-full ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span></button>)}
+      <nav class="mt-8 flex justify-center gap-2" aria-label={`Paginación fotos ${section.title}`}>
+        {galleryPages.map((_, index) => <button type="button" class="grid size-12 place-items-center rounded-full" aria-label={`Ir a fotos ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot><span class={`gallery-dot-indicator block h-4 rounded-full ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span></button>)}
       </nav>
     </div>
   )}
@@ -76,11 +76,11 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         {galleryPages.length > 0 && <><span class="text-[#848484]">›</span><a href={`#${section.slug}-fotos`} class="text-[#666666] transition duration-200 hover:text-[#d60000]">{photoLabel}</a></>}
       </div>
       <div class="relative" data-gallery-slider>
-        <button class="absolute left-0 top-1/2 z-10 hidden size-12 -translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video anterior" data-gallery-prev>‹</button>
+        <button class="carousel-arrow carousel-arrow--prev" type="button" aria-label="Video anterior" data-gallery-prev>‹</button>
         <div class="gallery-track mx-auto flex overflow-x-auto scroll-smooth" data-gallery-track>
           {videos.map((video, index) => <div class="relative aspect-video min-w-full overflow-hidden bg-[#050008]" data-gallery-page><iframe class="h-full w-full" srcdoc={youtubeSrcdoc(video.youtubeId, video.title || `${section.title} video ${index + 1}`, videoPoster(video, 1600))} title={video.title || `${section.title} video ${index + 1}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen /></div>)}
         </div>
-        <button class="absolute right-0 top-1/2 z-10 hidden size-12 translate-x-8 -translate-y-1/2 place-items-center text-5xl text-[#ff0004] md:grid" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
+        <button class="carousel-arrow carousel-arrow--next" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
         {videos.length > 1 && (
           <nav class="video-thumbs" aria-label={`Miniaturas videos ${section.title}`}>
             {videos.map((video, index) => (
@@ -151,6 +151,79 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     line-height: 0.95;
     margin: 0;
     text-transform: uppercase;
+  }
+
+  .carousel-arrow {
+    align-items: center;
+    background: transparent;
+    color: #ff0004;
+    display: grid;
+    font-size: clamp(64px, 7vw, 104px);
+    font-weight: 900;
+    height: 82px;
+    line-height: 1;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 160ms ease, opacity 160ms ease;
+    width: 82px;
+    z-index: 10;
+  }
+
+  .carousel-arrow:hover {
+    opacity: 0.82;
+  }
+
+  .carousel-arrow--prev {
+    left: 0;
+    transform: translate(-56%, -50%);
+  }
+
+  .carousel-arrow--next {
+    right: 0;
+    transform: translate(56%, -50%);
+  }
+
+  .carousel-arrow--prev:hover {
+    transform: translate(-62%, -50%) scale(1.06);
+  }
+
+  .carousel-arrow--next:hover {
+    transform: translate(62%, -50%) scale(1.06);
+  }
+
+  .gallery-dot-indicator {
+    width: 16px;
+    transition: width 180ms ease, background-color 180ms ease;
+  }
+
+  [data-gallery-dot][aria-current='page'] .gallery-dot-indicator,
+  [data-gallery-dot][aria-current='page'] .video-thumb__indicator {
+    width: 40px;
+  }
+
+  @media (max-width: 767px) {
+    .carousel-arrow {
+      font-size: 68px;
+      height: 64px;
+      width: 54px;
+    }
+
+    .carousel-arrow--prev {
+      left: 8px;
+      transform: translateY(-50%);
+    }
+
+    .carousel-arrow--next {
+      right: 8px;
+      transform: translateY(-50%);
+    }
+
+    .carousel-arrow--prev:hover,
+    .carousel-arrow--next:hover {
+      transform: translateY(-50%) scale(1.04);
+    }
   }
 
   .video-thumbs {
