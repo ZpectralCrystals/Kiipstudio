@@ -21,6 +21,16 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
     }, 0);
   };
 
+  const stopInactiveMedia = () => {
+    pages.forEach((page, pageIndex) => {
+      if (pageIndex === index) return;
+      page.querySelectorAll('iframe[srcdoc]').forEach((iframe) => {
+        const srcdoc = iframe.getAttribute('srcdoc');
+        if (srcdoc) iframe.srcdoc = srcdoc;
+      });
+    });
+  };
+
   const paintDots = () => {
     dots.forEach((dot, dotIndex) => {
       const indicator = dot.querySelector('[data-gallery-dot-indicator]') || dot;
@@ -46,6 +56,7 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
       index = nextIndex;
     }
     track.scrollTo({ left: pages[index]?.offsetLeft || 0, behavior: 'smooth' });
+    stopInactiveMedia();
     paintDots();
   };
 
@@ -68,6 +79,7 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
       const nextIndex = getNearestIndex();
       if (nextIndex !== index) {
         index = nextIndex;
+        stopInactiveMedia();
         paintDots();
       }
     });
