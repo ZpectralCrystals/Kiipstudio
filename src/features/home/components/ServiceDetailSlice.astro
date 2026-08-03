@@ -82,12 +82,10 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         </div>
         <button class="carousel-arrow carousel-arrow--next" type="button" aria-label="Video siguiente" data-gallery-next>›</button>
         {videos.length > 1 && (
-          <nav class="video-thumbs" aria-label={`Miniaturas videos ${section.title}`}>
-            {videos.map((video, index) => (
-              <button type="button" class="video-thumb" aria-label={`Ir a video ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot>
-                <img src={videoPoster(video, 480)} alt={video.title || `${section.title} video ${index + 1}`} loading="lazy" decoding="async" />
-                <span class="video-thumb__play" aria-hidden="true">▶</span>
-                <span class={`video-thumb__indicator ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span>
+          <nav class="mt-8 flex justify-center gap-2" aria-label={`Paginación videos ${section.title}`}>
+            {videos.map((_, index) => (
+              <button type="button" class="grid size-12 place-items-center rounded-full" aria-label={`Ir a video ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot>
+                <span class={`gallery-dot-indicator block h-4 rounded-full ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span>
               </button>
             ))}
           </nav>
@@ -197,8 +195,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     transition: width 180ms ease, background-color 180ms ease;
   }
 
-  [data-gallery-dot][aria-current='page'] .gallery-dot-indicator,
-  [data-gallery-dot][aria-current='page'] .video-thumb__indicator {
+  [data-gallery-dot][aria-current='page'] .gallery-dot-indicator {
     width: 40px;
   }
 
@@ -206,70 +203,6 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     .carousel-arrow {
       display: grid;
     }
-  }
-
-  .video-thumbs {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 18px auto 0;
-    max-width: 920px;
-  }
-
-  .video-thumb {
-    aspect-ratio: 16 / 9;
-    background: #050008;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    display: block;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-  }
-
-  .video-thumb[aria-current='page'] {
-    border-color: #ff0004;
-  }
-
-  .video-thumb img {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
-
-  .video-thumb::after {
-    background: rgba(0, 0, 0, 0.22);
-    content: '';
-    inset: 0;
-    position: absolute;
-  }
-
-  .video-thumb__play {
-    background: #ff0004;
-    border-radius: 999px;
-    color: #ffffff;
-    display: grid;
-    font: 700 16px/1 sans-serif;
-    height: 40px;
-    left: 50%;
-    place-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    z-index: 1;
-  }
-
-  .video-thumb__indicator {
-    border-radius: 999px;
-    bottom: 8px;
-    height: 6px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 32px;
-    z-index: 1;
   }
 
   .packages-grid {
@@ -304,37 +237,13 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
   }
 
   .package-card__head {
-    background: #ff0004;
+    background: url('/assets/package-header.png') top center / 100% 100% no-repeat;
     border-radius: 20px 20px 0 0;
     height: 220px;
     isolation: isolate;
     overflow: hidden;
     position: relative;
     text-align: center;
-  }
-
-  .package-card__head::before,
-  .package-card__head::after {
-    bottom: -28px;
-    content: "";
-    height: 88px;
-    left: -8%;
-    position: absolute;
-    right: -8%;
-    transform-origin: center bottom;
-  }
-
-  .package-card__head::before {
-    background: rgba(255, 255, 255, 0.9);
-    clip-path: polygon(0 58%, 22% 70%, 45% 38%, 65% 66%, 100% 42%, 100% 100%, 0 100%);
-    z-index: 0;
-  }
-
-  .package-card__head::after {
-    background: rgba(255, 255, 255, 0.36);
-    clip-path: polygon(0 75%, 25% 76%, 49% 45%, 66% 67%, 100% 50%, 100% 100%, 0 100%);
-    transform: translateY(18px) scaleX(0.96);
-    z-index: 1;
   }
 
   .package-card__head p {
