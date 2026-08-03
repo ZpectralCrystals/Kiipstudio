@@ -63,7 +63,7 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         </div>
         <button class="carousel-arrow carousel-arrow--next" type="button" aria-label="Fotos siguientes" data-gallery-next>›</button>
       </div>
-      <nav class="mt-8 flex justify-center gap-2" aria-label={`Paginación fotos ${section.title}`}>
+      <nav class="mt-8 flex justify-center gap-2" aria-label={`Paginación fotos ${section.title}`} data-gallery-pagination>
         {galleryPages.map((_, index) => <button type="button" class="grid size-12 place-items-center rounded-full" aria-label={`Ir a fotos ${index + 1}`} aria-current={index === 0 ? 'page' : undefined} data-gallery-dot><span class={`gallery-dot-indicator block h-4 rounded-full ${index === 0 ? 'bg-[#ff0004]' : 'bg-[#d9d9d9]'}`} data-gallery-dot-indicator></span></button>)}
       </nav>
     </div>

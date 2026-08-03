@@ -2,12 +2,24 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
   const track = root.querySelector('[data-gallery-track]');
   const prev = root.querySelector('[data-gallery-prev]');
   const next = root.querySelector('[data-gallery-next]');
-  const dots = [...root.querySelectorAll('[data-gallery-dot]')];
+  const externalPagination = root.nextElementSibling?.matches('[data-gallery-pagination]') ? root.nextElementSibling : null;
+  const dots = [...root.querySelectorAll('[data-gallery-dot]'), ...(externalPagination ? [...externalPagination.querySelectorAll('[data-gallery-dot]')] : [])];
+  const pages = [...root.querySelectorAll('[data-gallery-page]')];
   let index = 0;
+  let scrollFrame = 0;
 
   if (!track) return;
 
-  const getMaxIndex = () => Math.max(0, track.querySelectorAll('[data-gallery-page]').length - 1);
+  const getMaxIndex = () => Math.max(0, pages.length - 1);
+
+  const getNearestIndex = () => {
+    const maxIndex = getMaxIndex();
+    return pages.reduce((nearestIndex, page, pageIndex) => {
+      if (pageIndex > maxIndex) return nearestIndex;
+      const nearestPage = pages[nearestIndex];
+      return Math.abs(page.offsetLeft - track.scrollLeft) < Math.abs(nearestPage.offsetLeft - track.scrollLeft) ? pageIndex : nearestIndex;
+    }, 0);
+  };
 
   const paintDots = () => {
     dots.forEach((dot, dotIndex) => {
@@ -33,7 +45,7 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
     } else {
       index = nextIndex;
     }
-    track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+    track.scrollTo({ left: pages[index]?.offsetLeft || 0, behavior: 'smooth' });
     paintDots();
   };
 
@@ -49,8 +61,20 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
     dot.addEventListener('click', () => goTo(dotIndex));
   });
 
-  track?.addEventListener('scroll', () => {
-    index = Math.max(0, Math.min(getMaxIndex(), Math.round(track.scrollLeft / track.clientWidth)));
+  track.addEventListener('scroll', () => {
+    if (scrollFrame) return;
+    scrollFrame = window.requestAnimationFrame(() => {
+      scrollFrame = 0;
+      const nextIndex = getNearestIndex();
+      if (nextIndex !== index) {
+        index = nextIndex;
+        paintDots();
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    track.scrollTo({ left: pages[index]?.offsetLeft || 0, behavior: 'auto' });
     paintDots();
   });
 
