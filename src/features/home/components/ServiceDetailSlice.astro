@@ -27,9 +27,9 @@ const planSections = (plan: ServicePageContent['packages']['plans'][number]) =>
   plan.sections?.length ? plan.sections : [{heading: '', items: plan.bullets || []}];
 const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 <style>
-*{box-sizing:border-box}body{margin:0}.wrap{position:absolute;inset:0;display:grid;place-items:center;background:#000 url(${posterUrl}) center/cover no-repeat}.wrap:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}.play{position:relative;width:84px;height:84px;border-radius:999px;background:#ff0004;color:#fff;display:grid;place-items:center;font:700 34px/1 sans-serif;text-decoration:none}
+*{box-sizing:border-box}body{margin:0}.wrap{position:absolute;inset:0;display:grid;place-items:center;background:#000 url(${posterUrl}) center/cover no-repeat}.wrap:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}.play{position:relative;width:73px;height:73px;display:block}
 </style>
-<a class="wrap" href="https://www.youtube.com/embed/${youtubeId}?autoplay=1" aria-label="${title}"><span class="play">▶</span></a>`;
+<a class="wrap" href="https://www.youtube.com/embed/${youtubeId}?autoplay=1" aria-label="${title}"><img class="play" src="/assets/play-button.png" alt="" width="73" height="73" /></a>`;
 ---
 
 <section id={section.slug} class="overflow-hidden bg-white text-[#04000a]">
