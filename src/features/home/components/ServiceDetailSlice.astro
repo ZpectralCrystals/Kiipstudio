@@ -157,17 +157,16 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     align-items: center;
     background: transparent;
     color: #ff0004;
-    display: grid;
-    font-size: clamp(64px, 7vw, 104px);
-    font-weight: 900;
-    height: 82px;
+    display: none;
+    font-size: 48px;
+    height: 48px;
     line-height: 1;
     place-items: center;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     transition: transform 160ms ease, opacity 160ms ease;
-    width: 82px;
+    width: 48px;
     z-index: 10;
   }
 
@@ -177,20 +176,20 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 
   .carousel-arrow--prev {
     left: 0;
-    transform: translate(-56%, -50%);
+    transform: translate(-32px, -50%);
   }
 
   .carousel-arrow--next {
     right: 0;
-    transform: translate(56%, -50%);
+    transform: translate(32px, -50%);
   }
 
   .carousel-arrow--prev:hover {
-    transform: translate(-62%, -50%) scale(1.06);
+    transform: translate(-32px, -50%);
   }
 
   .carousel-arrow--next:hover {
-    transform: translate(62%, -50%) scale(1.06);
+    transform: translate(32px, -50%);
   }
 
   .gallery-dot-indicator {
@@ -203,26 +202,9 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
     width: 40px;
   }
 
-  @media (max-width: 767px) {
+  @media (min-width: 768px) {
     .carousel-arrow {
-      font-size: 68px;
-      height: 64px;
-      width: 54px;
-    }
-
-    .carousel-arrow--prev {
-      left: 8px;
-      transform: translateY(-50%);
-    }
-
-    .carousel-arrow--next {
-      right: 8px;
-      transform: translateY(-50%);
-    }
-
-    .carousel-arrow--prev:hover,
-    .carousel-arrow--next:hover {
-      transform: translateY(-50%) scale(1.04);
+      display: grid;
     }
   }
 
