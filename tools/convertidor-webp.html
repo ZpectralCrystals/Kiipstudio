@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Convertidor WebP - KlipStudio</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        --red: #f20d0d;
+        --ink: #191919;
+        --muted: #666;
+        --line: #ddd;
+        --soft: #f6f6f6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 5vw, 44px);
+        line-height: 1;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .panel {
+        margin-top: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .drop {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        padding: 32px;
+        text-align: center;
+        background: var(--soft);
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .drop.is-over {
+        background: #fff1f1;
+        outline: 3px solid var(--red);
+        outline-offset: -3px;
+      }
+
+      .drop strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 22px;
+      }
+
+      .file-input {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+
+      .btn,
+      .file-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 6px;
+        color: #fff;
+        background: var(--red);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--red);
+      }
+
+      select {
+        min-height: 42px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+        font: inherit;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .list {
+        display: grid;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .item:last-child {
+        border-bottom: 0;
+      }
+
+      .thumb {
+        width: 84px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 6px;
+        background: var(--soft);
+      }
+
+      .name {
+        overflow-wrap: anywhere;
+        font-weight: 700;
+      }
+
+      .meta {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .empty {
+        padding: 24px 18px;
+        color: var(--muted);
+      }
+
+      .note {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-left: 4px solid var(--red);
+        background: var(--soft);
+      }
+
+      @media (max-width: 720px) {
+        .toolbar,
+        .item {
+          grid-template-columns: 1fr;
+        }
+
+        .thumb {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Convertidor WebP</h1>
+      <p>Convierte imagenes JPG o PNG a WebP en esta PC. No sube archivos a internet.</p>
+      <p>Usa estos tamanos antes de subir a Cloudinary para evitar transformaciones.</p>
+
+      <section class="panel" aria-label="Convertidor de imagenes">
+        <div id="drop" class="drop">
+          <div>
+            <strong>Arrastra imagenes aqui</strong>
+            <p>Tambien puedes elegir archivos desde tu computadora.</p>
+            <p style="margin-top: 16px">
+              <label class="file-label" for="files">Elegir imagenes</label>
+              <input
+                id="files"
+                class="file-input"
+                type="file"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                multiple
+              />
+            </p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label>
+            Calidad: <span id="qualityText">82%</span>
+            <input id="quality" type="range" min="60" max="95" value="82" />
+          </label>
+
+          <label>
+            Tamano final
+            <select id="sizePreset">
+              <option value="gallery" data-horizontal="1600" data-vertical="1800">
+                Galeria: H 1600px ancho / V 1800px alto
+              </option>
+              <option value="hero" data-horizontal="1920" data-vertical="1920">
+                Hero: H 1920px ancho / V 1920px alto
+              </option>
+              <option value="light" data-horizontal="1200" data-vertical="1400">
+                Ligero: H 1200px ancho / V 1400px alto
+              </option>
+              <option value="original" data-horizontal="0" data-vertical="0">No cambiar tamano</option>
+            </select>
+          </label>
+
+          <label>
+            Nombre recomendado
+            <select id="prefix">
+              <option value="klipstudio">klipstudio</option>
+              <option value="bodas">bodas</option>
+              <option value="quinceanera">quinceanera</option>
+              <option value="publicidad">publicidad</option>
+              <option value="cumpleanos">cumpleanos</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="convert" class="btn" type="button" disabled>Convertir</button>
+          <button id="downloadAll" class="btn" type="button" disabled>Descargar todo</button>
+          <button id="clear" class="btn" type="button" disabled>Limpiar</button>
+        </div>
+
+        <div id="list" class="list">
+          <div class="empty">No hay imagenes seleccionadas.</div>
+        </div>
+      </section>
+
+      <p class="note">
+        Recomendacion: usa calidad 80% a 85%. Si la imagen queda pesada, baja a 75%.
+        La web usara esta imagen directa, sin pedir recortes a Cloudinary.
+      </p>
+    </main>
+
+    <script>
+      const drop = document.querySelector("#drop");
+      const filesInput = document.querySelector("#files");
+      const quality = document.querySelector("#quality");
+      const qualityText = document.querySelector("#qualityText");
+      const sizePreset = document.querySelector("#sizePreset");
+      const prefix = document.querySelector("#prefix");
+      const convertBtn = document.querySelector("#convert");
+      const downloadAllBtn = document.querySelector("#downloadAll");
+      const clearBtn = document.querySelector("#clear");
+      const list = document.querySelector("#list");
+
+      let selectedFiles = [];
+      let converted = [];
+
+      quality.addEventListener("input", () => {
+        qualityText.textContent = `${quality.value}%`;
+      });
+
+      filesInput.addEventListener("change", (event) => {
+        addFiles(event.target.files);
+      });
+
+      ["dragenter", "dragover"].forEach((name) => {
+        drop.addEventListener(name, (event) => {
+          event.preventDefault();
+          drop.classList.add("is-over");
+        });
+      });
+
+      ["dragleave", "drop"].forEach((name) => {
+        drop.addEventListener(name, (event) => {
+          event.preventDefault();
+          drop.classList.remove("is-over");
+        });
+      });
+
+      drop.addEventListener("drop", (event) => {
+        addFiles(event.dataTransfer.files);
+      });
+
+      convertBtn.addEventListener("click", async () => {
+        converted.forEach((item) => URL.revokeObjectURL(item.url));
+        converted = [];
+        convertBtn.disabled = true;
+        convertBtn.textContent = "Convirtiendo...";
+        list.innerHTML = "";
+
+        for (const [index, file] of selectedFiles.entries()) {
+          const result = await convertImage(file, index + 1);
+          converted.push(result);
+          renderItem(result);
+        }
+
+        convertBtn.textContent = "Convertir";
+        convertBtn.disabled = false;
+        downloadAllBtn.disabled = converted.length === 0;
+      });
+
+      downloadAllBtn.addEventListener("click", () => {
+        converted.forEach((item, index) => {
+          setTimeout(() => download(item.url, item.name), index * 250);
+        });
+      });
+
+      clearBtn.addEventListener("click", () => {
+        selectedFiles = [];
+        converted.forEach((item) => URL.revokeObjectURL(item.url));
+        converted = [];
+        filesInput.value = "";
+        renderEmpty();
+        updateButtons();
+      });
+
+      function addFiles(fileList) {
+        const images = Array.from(fileList).filter((file) =>
+          ["image/png", "image/jpeg", "image/jpg", "image/webp"].includes(file.type),
+        );
+
+        selectedFiles = images;
+        converted.forEach((item) => URL.revokeObjectURL(item.url));
+        converted = [];
+        renderSelected();
+        updateButtons();
+      }
+
+      function updateButtons() {
+        convertBtn.disabled = selectedFiles.length === 0;
+        clearBtn.disabled = selectedFiles.length === 0;
+        downloadAllBtn.disabled = converted.length === 0;
+      }
+
+      function renderSelected() {
+        if (selectedFiles.length === 0) {
+          renderEmpty();
+          return;
+        }
+
+        list.innerHTML = "";
+        selectedFiles.forEach((file) => {
+          const url = URL.createObjectURL(file);
+          const row = document.createElement("article");
+          row.className = "item";
+          row.innerHTML = `
+            <img class="thumb" src="${url}" alt="" />
+            <div>
+              <div class="name">${escapeHtml(file.name)}</div>
+              <div class="meta">${formatBytes(file.size)} original</div>
+            </div>
+            <span class="meta">Pendiente</span>
+          `;
+          list.appendChild(row);
+        });
+      }
+
+      function renderItem(item) {
+        const row = document.createElement("article");
+        row.className = "item";
+        row.innerHTML = `
+          <img class="thumb" src="${item.url}" alt="" />
+          <div>
+            <div class="name">${escapeHtml(item.name)}</div>
+            <div class="meta">
+              ${item.width} x ${item.height}px · ${item.orientation} · ${formatBytes(item.originalSize)} → ${formatBytes(item.size)}
+            </div>
+          </div>
+          <button class="btn" type="button">Descargar</button>
+        `;
+        row.querySelector("button").addEventListener("click", () => {
+          download(item.url, item.name);
+        });
+        list.appendChild(row);
+      }
+
+      function renderEmpty() {
+        list.innerHTML = '<div class="empty">No hay imagenes seleccionadas.</div>';
+      }
+
+      function loadImage(file) {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.onload = () => resolve(image);
+          image.onerror = reject;
+          image.src = URL.createObjectURL(file);
+        });
+      }
+
+      async function convertImage(file, number) {
+        const image = await loadImage(file);
+        const isVertical = image.naturalHeight > image.naturalWidth;
+        const selectedPreset = sizePreset.selectedOptions[0];
+        const limit = Number(isVertical ? selectedPreset.dataset.vertical : selectedPreset.dataset.horizontal);
+        const measuredSide = isVertical ? image.naturalHeight : image.naturalWidth;
+        const scale = limit > 0 ? Math.min(1, limit / measuredSide) : 1;
+        const width = Math.round(image.naturalWidth * scale);
+        const height = Math.round(image.naturalHeight * scale);
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0, width, height);
+
+        const blob = await new Promise((resolve) => {
+          canvas.toBlob(resolve, "image/webp", Number(quality.value) / 100);
+        });
+
+        const safeBase = sanitizeName(prefix.value);
+        const name = `${safeBase}-${String(number).padStart(2, "0")}.webp`;
+        return {
+          name,
+          url: URL.createObjectURL(blob),
+          size: blob.size,
+          originalSize: file.size,
+          width,
+          height,
+          orientation: isVertical ? "vertical" : "horizontal",
+        };
+      }
+
+      function sanitizeName(value) {
+        return value
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      function download(url, name) {
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = name;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      function formatBytes(bytes) {
+        if (bytes < 1024) return `${bytes} B`;
+        if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+        return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+      }
+
+      function escapeHtml(value) {
+        return value.replace(/[&<>"']/g, (char) => {
+          const map = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;",
+          };
+          return map[char];
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -9,6 +9,7 @@ type Props = {
 
 const {section, whatsappUrl} = Astro.props;
 const imageSrc = (image: SanityImage | undefined, width: number, height?: number) => getOptimizedCloudinaryUrl(image?.imageUrl, width, height);
+const directImageSrc = (image: SanityImage | undefined) => image?.imageUrl || '';
 const galleryPages = Array.from({length: Math.ceil(section.gallery.length / 8)}, (_, index) => section.gallery.slice(index * 8, index * 8 + 8));
 const youtubeIdFromUrl = (url?: string) => {
   if (!url) return '';
@@ -53,12 +54,20 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
         <span class="text-[#d60000]">{photoLabel}</span>
         {videos.length > 0 && <><span class="text-[#848484]">›</span><a href={`#${sectionDomId}-videos`} class="text-[#666666] transition duration-200 hover:text-[#d60000]">{videoLabel}</a></>}
       </div>
-      <div class="relative" data-gallery-slider>
+      <div class="relative" data-gallery-slider data-gallery-lightbox>
         <button class="carousel-arrow carousel-arrow--prev" type="button" aria-label="Fotos anteriores" data-gallery-prev>‹</button>
         <div class="gallery-track flex overflow-x-auto scroll-smooth pb-4" data-gallery-track>
           {galleryPages.map((page, pageIndex) => (
             <div class="grid min-w-full grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" data-gallery-page>
-              {page.map((image, imageIndex) => <img class="aspect-[410/524] w-full object-cover" src={imageSrc(image, 820, 1048)} alt={image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`} loading={pageIndex === 0 && imageIndex < 4 ? 'eager' : 'lazy'} decoding="async" />)}
+              {page.map((image, imageIndex) => {
+                const alt = image.alt || `${section.title} ${pageIndex * 8 + imageIndex + 1}`;
+                const src = directImageSrc(image);
+                return (
+                  <button class="gallery-photo-button" type="button" data-lightbox-image={src} data-lightbox-alt={alt} aria-label={`Ver foto ${pageIndex * 8 + imageIndex + 1} en pantalla completa`}>
+                    <img class="aspect-[410/524] w-full object-cover" src={src} alt={alt} loading={pageIndex === 0 && imageIndex < 4 ? 'eager' : 'lazy'} decoding="async" />
+                  </button>
+                );
+              })}
             </div>
           ))}
         </div>
@@ -198,6 +207,108 @@ const youtubeSrcdoc = (youtubeId: string, title: string, posterUrl: string) => `
 
   [data-gallery-dot][aria-current='page'] .gallery-dot-indicator {
     width: 40px;
+  }
+
+  .gallery-photo-button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    cursor: zoom-in;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .gallery-photo-button img {
+    display: block;
+    transition: transform 180ms ease;
+  }
+
+  .gallery-photo-button:hover img {
+    transform: scale(1.02);
+  }
+
+  :global(.photo-lightbox) {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    display: none;
+    inset: 0;
+    justify-content: center;
+    padding: 18px;
+    position: fixed;
+    z-index: 80;
+  }
+
+  :global(.photo-lightbox.is-open) {
+    display: flex;
+  }
+
+  :global(.photo-lightbox__image) {
+    max-height: min(92vh, 980px);
+    max-width: min(96vw, 1440px);
+    object-fit: contain;
+  }
+
+  :global(.photo-lightbox__button) {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid rgba(4, 0, 10, 0.12);
+    border-radius: 999px;
+    box-shadow: 0 12px 28px rgba(4, 0, 10, 0.12);
+    color: #ff0004;
+    display: grid;
+    font-size: 34px;
+    font-weight: 700;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    position: fixed;
+    width: 48px;
+  }
+
+  :global(.photo-lightbox__close) {
+    right: 18px;
+    top: 18px;
+  }
+
+  :global(.photo-lightbox__prev),
+  :global(.photo-lightbox__next) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  :global(.photo-lightbox__prev) {
+    left: 18px;
+  }
+
+  :global(.photo-lightbox__next) {
+    right: 18px;
+  }
+
+  @media (max-width: 767px) {
+    :global(.photo-lightbox) {
+      padding: 12px;
+    }
+
+    :global(.photo-lightbox__image) {
+      max-height: 86vh;
+      max-width: 94vw;
+    }
+
+    :global(.photo-lightbox__button) {
+      height: 42px;
+      width: 42px;
+    }
+
+    :global(.photo-lightbox__prev) {
+      left: 8px;
+    }
+
+    :global(.photo-lightbox__next) {
+      right: 8px;
+    }
   }
 
   @media (min-width: 768px) {

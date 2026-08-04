@@ -92,3 +92,69 @@ document.querySelectorAll('[data-gallery-slider]').forEach((root) => {
 
   paintDots();
 });
+
+const lightboxTriggers = [...document.querySelectorAll('[data-lightbox-image]')];
+
+if (lightboxTriggers.length) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'photo-lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Foto ampliada');
+  lightbox.innerHTML = `
+    <button class="photo-lightbox__button photo-lightbox__close" type="button" aria-label="Cerrar">×</button>
+    <button class="photo-lightbox__button photo-lightbox__prev" type="button" aria-label="Foto anterior">‹</button>
+    <img class="photo-lightbox__image" alt="" />
+    <button class="photo-lightbox__button photo-lightbox__next" type="button" aria-label="Foto siguiente">›</button>
+  `;
+  document.body.appendChild(lightbox);
+
+  const image = lightbox.querySelector('.photo-lightbox__image');
+  const close = lightbox.querySelector('.photo-lightbox__close');
+  const prev = lightbox.querySelector('.photo-lightbox__prev');
+  const next = lightbox.querySelector('.photo-lightbox__next');
+  let activeIndex = 0;
+
+  const open = (index) => {
+    activeIndex = index;
+    const trigger = lightboxTriggers[activeIndex];
+    image.src = trigger.dataset.lightboxImage || '';
+    image.alt = trigger.dataset.lightboxAlt || '';
+    lightbox.classList.add('is-open');
+    document.documentElement.style.overflow = 'hidden';
+    close.focus();
+  };
+
+  const hide = () => {
+    lightbox.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    image.removeAttribute('src');
+    lightboxTriggers[activeIndex]?.focus();
+  };
+
+  const move = (step) => {
+    activeIndex = (activeIndex + step + lightboxTriggers.length) % lightboxTriggers.length;
+    const trigger = lightboxTriggers[activeIndex];
+    image.src = trigger.dataset.lightboxImage || '';
+    image.alt = trigger.dataset.lightboxAlt || '';
+  };
+
+  lightboxTriggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => open(index));
+  });
+
+  close.addEventListener('click', hide);
+  prev.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) hide();
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') hide();
+    if (event.key === 'ArrowLeft') move(-1);
+    if (event.key === 'ArrowRight') move(1);
+  });
+}
