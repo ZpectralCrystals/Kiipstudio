@@ -23,6 +23,8 @@ const whatsappNormalHref = `whatsapp://send?phone=${whatsappPhone}`;
 const howWeWorkNavItem = content.nav.nosotros.find((item) => item.href === '/como-trabajamos');
 const emailHref = `mailto:${content.footer.email}`;
 const phoneHref = `tel:+51${content.footer.phone.replace(/\D/g, '')}`;
+const desktopAboutCameraSrc = imageSrc(content.about.camera, 900);
+const mobileAboutCameraSrc = imageSrc(content.about.camera, 560);
 const handleHref = (icon: string, href?: string) => {
   if (href) return href;
   const key = icon.trim().toLowerCase();
@@ -76,7 +78,7 @@ const handleHref = (icon: string, href?: string) => {
           <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-normal leading-[35px] text-white">
             {content.about.body.map((paragraph) => <p class="mb-0">{paragraph}</p>)}
           </div>
-          <img class="absolute left-[1413px] top-[1472px] h-[675px] w-[675px] -rotate-[90.86deg] object-contain" src={imageSrc(content.about.camera, 900)} alt="" loading="lazy" decoding="async" />
+          {desktopAboutCameraSrc && <img class="absolute left-[1413px] top-[1472px] h-[675px] w-[675px] -rotate-[90.86deg] object-contain" src={desktopAboutCameraSrc} alt="" loading="lazy" decoding="async" />}
         </section>
 
         <section aria-label="Estudio favorito en Arequipa">
@@ -193,7 +195,7 @@ const handleHref = (icon: string, href?: string) => {
           {content.about.body.map((paragraph) => <p>{paragraph}</p>)}
         </div>
         <img class="mobile-about__person" src={imageSrc(content.about.person, 760)} alt={content.about.person.alt} loading="lazy" decoding="async" />
-        <img class="mobile-about__camera" src={imageSrc(content.about.camera, 560)} alt="" loading="lazy" decoding="async" />
+        {mobileAboutCameraSrc && <img class="mobile-about__camera" src={mobileAboutCameraSrc} alt="" loading="lazy" decoding="async" />}
       </section>
 
       <section class="mobile-studio" aria-label="Estudio favorito en Arequipa">
