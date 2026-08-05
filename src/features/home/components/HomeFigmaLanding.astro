@@ -72,10 +72,10 @@ const handleHref = (icon: string, href?: string) => {
 
         <section aria-labelledby="about-title">
           <img class="absolute left-[144px] top-[965px] h-[913px] w-[628px] object-contain" src={imageSrc(content.about.person, 900)} alt={content.about.person.alt} loading="lazy" decoding="async" />
-          <h2 id="about-title" class="absolute left-[942px] top-[1285px] w-[615px] text-[64px] font-bold uppercase leading-[64px] tracking-[1.4px] text-white">
+          <h2 id="about-title" class="absolute left-[942px] top-[1285px] w-[615px] text-[64px] font-semibold uppercase leading-[64px] tracking-[1.4px] text-white">
             {content.about.title}
           </h2>
-          <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-normal leading-[35px] text-white">
+          <div class="absolute left-[897px] top-[1359px] w-[705px] text-justify text-[32px] font-light leading-[35px] text-white">
             {content.about.body.map((paragraph) => <p class="mb-0">{paragraph}</p>)}
           </div>
           {desktopAboutCameraSrc && <img class="absolute left-[1413px] top-[1472px] h-[675px] w-[675px] -rotate-[90.86deg] object-contain" src={desktopAboutCameraSrc} alt="" loading="lazy" decoding="async" />}
@@ -660,7 +660,7 @@ const handleHref = (icon: string, href?: string) => {
     .mobile-about h2,
     .mobile-why h2 {
       font-size: clamp(31px, 9vw, 44px);
-      font-weight: 900;
+      font-weight: 700;
       line-height: 0.98;
       margin: 0 0 16px;
       text-transform: uppercase;
@@ -668,7 +668,7 @@ const handleHref = (icon: string, href?: string) => {
 
     .mobile-about p {
       font-size: clamp(16px, 4.3vw, 19px);
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.18;
       margin: 0 0 12px;
       max-width: 28rem;
